@@ -118,6 +118,24 @@ html, body {
     font-size: 14px;
     font-weight: 600;
 }
+.gnb-container .sidebar .nav p .today-new{
+    display: inline;
+    background: #00a1b7;
+    padding: 5px 9px;
+    border-radius: 100%;
+    font-size: 13px;
+    margin-left: 10px;
+    color: #fff;
+}
+.gnb-container .sidebar .nav li.active .today-new{
+    display: inline;
+    background: #fff;
+    padding: 5px 9px;
+    border-radius: 100%;
+    font-size: 13px;
+    margin-left: 10px;
+    color:#000
+}
 .gnb-container .sidebar .nav li .submenu{
     display: none;
 }

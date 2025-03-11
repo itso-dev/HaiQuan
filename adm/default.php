@@ -2,6 +2,7 @@
 header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV INT DEM PRE"');
  if( isset( $_SESSION[ 'manager_id' ] ) ) {
      $adm_login = TRUE;
+     $manager_key = $_SESSION[ 'manager_id' ];
  }
 
  if ( !$adm_login ) {
@@ -11,6 +12,19 @@ header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV IN
 <meta http-equiv="refresh" content="0;url=bbs/login.php" />
 <?
  }
+
+// 문의알림
+if($manager_key == 1){
+    $contact_alert_sql = "select count(*) as today_count from contact_tbl where result_status = '대기'";
+} else {
+    $contact_alert_sql = "select count(*) as today_count from contact_tbl where result_status = '대기' AND manager_fk = " .$manager_key;
+}
+
+
+$contact_alert_stt=$db_conn->prepare($contact_alert_sql);
+$contact_alert_stt->execute();
+$contact_alert_result = $contact_alert_stt->fetch(PDO::FETCH_ASSOC);
+$contact_alert_count = $contact_alert_result['today_count'];
 
 ?>
 
@@ -73,22 +87,25 @@ header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV IN
                 <li <?php if($menu == 55) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/apply_list.php?menu=55">
                         <i class="far fa-envelope"></i>
-                        <p>문의관리</p>
+                        <p class="contact_col">문의 관리 <span class="today-new"><?= $contact_alert_count ?></span></p>
                     </a>
                 </li>
+                <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
                 <li <?php if($menu == 66) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/popup_list.php?menu=66">
                         <i class="far fa-clone"></i>
                         <p>팝업 설정</p>
                     </a>
                 </li>
-
+                <?php } ?>
+                <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
                 <li <?php if($menu == 111) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/manager_list.php?menu=111">
                         <i class="far fa-user"></i>
                         <p>담당자 설정</p>
                     </a>
                 </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
