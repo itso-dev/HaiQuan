@@ -2,382 +2,113 @@
 .pc {
   display: block;
 }
+
 .mobile {
   display: none !important;
 }
-.grecaptcha-badge{
-  visibility: hidden;
-}
+
 .layer-popup {
-  position: absolute;
+  /* position: absolute; */
   z-index: 9999;
   background-color: #fff;
   box-shadow: 2px 3px 10px #555;
   border-radius: 10px;
   height: auto !important;
 }
+
 .layer-popup:nth-child(1) {
   left: 0;
 }
+
 .layer-popup img {
   width: 100%;
   height: auto !important;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+
 .layer-popup .show-chk-wrap {
   display: flex;
-  padding: 10px 20px;
+  padding: 6px 10px;
   box-sizing: border-box;
   justify-content: space-between;
+  align-items: center;
 }
+
 .layer-popup .show-chk-wrap a {
   font-size: 16px;
-  font-weight: 700;
-}
-
-#container {
-  width: 100%;
-  margin: 0 auto;
-}
-.text-center {
-  text-align: center;
-}
-
-.nav-wrap {
-  position: fixed;
-  height: 105px;
-  width: 100%;
-  background: #fff;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  justify-content: end;
-  align-items: center;
-  font-size: 30px;
-  padding: 10px 0;
-  text-align: center;
-}
-.nav-wrap .logo {
-  max-width: 140px;
-  width: 40%;
-}
-.nav-wrap i,
-.sidebar-wrap i {
+  color: #505050;
   cursor: pointer;
-  display: none;
 }
-.pc-menu-wrap {
-  width: 100%;
-}
-.pc-menu-wrap li {
-  display: inline-block;
-  margin: 0 10px;
-}
-.pc-menu-wrap li a {
-  font-size: 20px;
-}
-.pc-menu-wrap li a:hover {
-  color: #c91110;
-}
-.sidebar-wrap {
-  width: 0;
-  max-width: 320px;
-  height: 100%;
-  background: #fff;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 10000;
-  box-shadow: 0 0 10px rgb(0 0 0 / 70%);
-  overflow: hidden;
-}
-.menu-container {
-  width: 320px;
-}
-.sidebar-wrap .close-wrap {
-  width: 100%;
-  text-align: left;
-  font-size: 30px;
-  padding: 15px 30px;
-  box-sizing: border-box;
-}
-.sidebar-wrap .menu-wrap {
-  width: 100%;
-  text-align: center;
-  padding: 10px 5% 0;
-  font-size: 25px;
+
+.layer-popup .show-chk-wrap a:hover {
+  color: #222;
   font-weight: 600;
-  position: relative;
+  transition: 0.3s;
+}
+
+.close-popup {
   box-sizing: border-box;
-}
-.sidebar-wrap .menu-wrap a {
-  display: inline-block;
-  width: 80%;
-  border-bottom: 2px solid #000;
-  padding: 10px 0;
-  box-sizing: border-box;
-}
-.sidebar-wrap .menu-wrap a:hover {
-  color: #c91110;
+  padding: 4px 12px;
+  border: 1px solid #999;
+  border-radius: 4px;
 }
 
-/* content */
-.content {
-  width: 100%;
-  text-align: center;
+.close-popup:hover {
+  border: 1px solid #505050; 
+  background-color:#505050; 
+  color: #fff !important;
+  transition: 0.3s;
 }
 
-/* Contact */
-.contact-container {
-  display: flex;
-  max-width: 1100px;
-  width: 90%;
-  margin: 50px auto;
-  padding-bottom: 100px;
-}
-.contact-container .contact-wrap {
-  width: 50%;
-}
-.contact-container .contact-wrap .input-item {
-  display: flex;
-  width: 100%;
-  margin-bottom: 10px;
-  align-content: center;
-  align-items: center;
-  gap: 15px;
-  position: relative;
-}
-.contact-container .contact-wrap .input-item:nth-last-child(1) {
-  align-items: normal;
-}
-.contact-container .contact-wrap .input-item .label-wrap {
-  width: 30%;
-  font-size: 20px;
-  font-weight: 500;
-  text-align: right;
-}
-.contact-container .contact-wrap .input-item:nth-last-child(1) .label-wrap {
-  padding-top: 10px;
-}
-.contact-container .contact-wrap .input-item .sub {
+.popup-space {
   position: absolute;
-  right: 3%;
-  top: 8px;
-  font-size: 20px;
-  font-weight: 500;
-}
-.contact-container .contact-wrap .input-item .input-wrap {
-  width: 70%;
-}
-.contact-container .contact-wrap .input-item .input-wrap input {
-  border: 1px solid #a1a1a1;
-  width: 100%;
-  font-size: 20px;
-  padding: 5px 10px;
-}
-.contact-container .contact-wrap .input-item .input-wrap input:focus {
-  border: 2px solid #ed1c24 !important;
-  outline: none !important;
-}
-.contact-container .contact-wrap .input-item .input-wrap textarea {
-  border: 1px solid #a1a1a1;
-  width: 100%;
-  font-size: 20px;
-  padding: 5px 10px;
-  resize: none;
-  height: 200px;
-}
-.contact-container .contact-wrap .input-item .input-wrap textarea:focus {
-  border: 2px solid #ed1c24 !important;
-  outline: none !important;
-}
-.contact-container .agreement-wrap {
-  padding-left: 5%;
-  width: 50%;
-}
-.contact-container .agreement-wrap .agreement {
-  border: 1px solid #a1a1a1;
-  text-align: left;
-  padding: 20px 15px;
-}
-.contact-container .agreement-wrap .agreement .tit {
-  text-align: left;
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-.contact-container .agreement-wrap .agreement .content {
-  text-align: left;
-  font-size: 14px;
-  word-break: keep-all;
-}
-.contact-container .agreement-wrap .agree-wrap {
-  padding: 15px 20px;
-  font-size: 17px;
-  font-weight: 500;
-  border: 1px solid #a1a1a1;
-  border-top: none;
-}
-.contact-container .agreement-wrap .agree-wrap input {
-  margin-right: 10px;
-  width: 25px;
-  height: 25px;
-  color: red;
-  vertical-align: text-bottom;
-}
-.contact-container .agreement-wrap input[type="submit"] {
-  width: 100%;
-  padding: 10px 0;
-  background: #ed1c24;
-  color: #fff;
-  font-weight: 900;
-  font-size: 22px;
-  border: none;
-  margin-top: 10px;
-}
-
-.floating-container {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #008755;
-  z-index: 1000;
-}
-.floating-wrap {
   display: flex;
-  padding: 10px 10%;
-  justify-content: space-between;
-  align-items: center;
-}
-.floating-wrap .item {
-  width: 50%;
-  position: relative;
-}
-.floating-wrap .item:nth-child(1)::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 100%;
-  background-color: #fff;
-  top: 0;
-  right: -1px;
-}
-.floating-wrap .item-wrap {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  cursor: pointer;
-}
-.floating-wrap .item .icon-wrap {
-  width: 30px;
-}
-.floating-wrap .item .icon-wrap i {
-  font-size: 30px;
-  color: #fff;
-}
-.floating-wrap .item .text-wrap {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 700;
-  line-height: 25px;
-  padding-left: 10px;
+  flex-wrap: wrap;
+  top: 5%;
+  left: 5%;
+  gap: 10px;
+  align-items: start;
+  z-index: 100;
 }
 
 @media (max-width: 1024px) {
 
 }
-@media (max-width: 768px) {
+
+@media(max-width: 900px) {
   .pc {
     display: none !important;
   }
   .mobile {
-    display: block !important;
+    display: block;
   }
-  .nav-wrap .logo {
-    max-width: 120px;
-    width: 40%;
+  .layer-popup .show-chk-wrap {
+    margin-top: 0;
   }
-  .pc-menu-wrap li a {
-    font-size: 15px;
+  .layer-popup .show-chk-wrap a {
+    font-size: 14px;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.35px;
   }
+  .layer-popup .show-chk-wrap .x-btn {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
   .layer-popup {
-    max-width: 90%;
+    position: fixed;
     top: 5%;
     left: 5%;
   }
+}
 
-  .contact-container {
-    display: block;
-    padding-bottom: 60px;
-  }
-  .contact-container .contact-wrap {
-    width: 100%;
-  }
-  .contact-container .contact-wrap .input-item .label-wrap {
-    text-align: left;
-  }
-  .contact-container .agreement-wrap {
-    padding-left: 0;
-    width: 100%;
-  }
-
-  .swiper-container-horizontal > .swiper-pagination-bullets,
-  .swiper-pagination-custom,
-  .swiper-pagination-fraction {
-    bottom: 0px;
-  }
-
-  .floating-wrap {
-    padding: 10px 0%;
-  }
-  .floating-wrap .item .icon-wrap {
-    width: 25px;
-  }
-  .floating-wrap .item .icon-wrap i {
-    font-size: 25px;
-    color: #fff;
-  }
-  .floating-wrap .item .text-wrap {
-    font-size: 18px;
-    color: #fff;
-    font-weight: 700;
-    line-height: 25px;
-    padding-left: 10px;
+@media (max-width: 600px) {
+  .layer-popup {
+    left: 5% !important;
   }
 }
 
 @media (max-width: 480px) {
-  .pc-menu-wrap li a {
-    font-size: 12px;
-  }
-
-
-  .contact-container .contact-wrap .input-item .label-wrap {
-    font-size: 17px;
-  }
-  .contact-container .contact-wrap .input-item .input-wrap input {
-    font-size: 17px;
-  }
-  .contact-container .contact-wrap .input-item .sub {
-    font-size: 17px;
-  }
-
-  .contact-wrap .input-wrap input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin-bottom: 4px;
-  }
-  .floating-wrap .item .icon-wrap i {
-    font-size: 20px;
-  }
-  .floating-wrap .item .text-wrap {
-    font-size: 15px;
-    color: #fff;
-    font-weight: 700;
-    line-height: 18px;
-    padding-left: 5px;
-  }
 }
