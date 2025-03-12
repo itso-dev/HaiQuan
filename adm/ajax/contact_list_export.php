@@ -49,27 +49,39 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 $sheet
-    ->setCellValue("A1", "생성일")
-    ->setCellValue("B1", "이름")
-    ->setCellValue("C1", "연락처")
-    ->setCellValue("D1", "창업희망지역")
-    ->setCellValue("E1", "예상창업비용")
-    ->setCellValue("F1", "문의내용")
-    ->setCellValue("G1", "결과")
-    ->setCellValue("H1", "아이피");
+    ->setCellValue("A1", "등록일")
+    ->setCellValue("B1", "유입 경로")
+    ->setCellValue("C1", "문의타입")
+    ->setCellValue("D1", "A/B 테스트")
+    ->setCellValue("E1", "광고 코드")
+    ->setCellValue("F1", "등록 페이지 구분")
+    ->setCellValue("G1", "이름")
+    ->setCellValue("H1", "연락처")
+    ->setCellValue("I1", "창업희망지역")
+    ->setCellValue("J1", "예상창업비용")
+    ->setCellValue("K1", "담당자")
+    ->setCellValue("L1", "문의내용")
+    ->setCellValue("M1", "결과")
+    ->setCellValue("N1", "아이피");
 
 $sheet->getRowDimension('1')->setRowHeight(20);
 $line = 2;
 while ($list_row = $list_stt->fetch()) {
     $sheet
         ->setCellValue("A".$line, $list_row['write_date'])
-        ->setCellValue("B".$line, $list_row['name'])
-        ->setCellValue("C".$line, $list_row['phone'])
-        ->setCellValue("D".$line, $list_row['locate'])
-        ->setCellValue("E".$line, $list_row['cost'])
-        ->setCellValue("F".$line, $list_row['contact_desc'])
-        ->setCellValue("G".$line, $list_row['result_status'])
-        ->setCellValue("H".$line, $list_row['writer_ip']);
+        ->setCellValue("B".$line, $list_row['flow'])
+        ->setCellValue("C".$line, $list_row['type'])
+        ->setCellValue("D".$line, $list_row['ab_test'])
+        ->setCellValue("E".$line, $list_row['ad_code'])
+        ->setCellValue("F".$line, $list_row['sort'])
+        ->setCellValue("G".$line, $list_row['name'])
+        ->setCellValue("H".$line, $list_row['phone'])
+        ->setCellValue("I".$line, $list_row['locate'])
+        ->setCellValue("J".$line, $list_row['price'])
+        ->setCellValue("K".$line, $list_row['manager_name'])
+        ->setCellValue("L".$line, $list_row['contact_desc'])
+        ->setCellValue("M".$line, $list_row['result_status'])
+        ->setCellValue("N".$line, $list_row['writer_ip']);
 
     $sheet->getRowDimension($line)->setRowHeight(20);
     $line++;
@@ -84,6 +96,12 @@ $sheet->getColumnDimension('E')->setWidth(10);
 $sheet->getColumnDimension('F')->setWidth(40);
 $sheet->getColumnDimension('G')->setWidth(10);
 $sheet->getColumnDimension('H')->setWidth(15);
+$sheet->getColumnDimension('I')->setWidth(15);
+$sheet->getColumnDimension('J')->setWidth(15);
+$sheet->getColumnDimension('K')->setWidth(15);
+$sheet->getColumnDimension('L')->setWidth(15);
+$sheet->getColumnDimension('M')->setWidth(15);
+$sheet->getColumnDimension('N')->setWidth(15);
 
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment; filename="문의_' . date('Y-m-d_H-i-s') . '.xls"'); // filename 수정
