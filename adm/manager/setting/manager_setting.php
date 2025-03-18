@@ -67,7 +67,7 @@ if($type == 'modify'){
 
 
     echo "<script type='text/javascript'>";
-    echo "alert('수정을 완료했습니다.'); location.href='../manager_form.php?menu=4&type=modify&id=$id'";
+    echo "alert('수정을 완료했습니다.'); location.href='../manager_form.php?menu=111&type=modify&id=$id'";
     echo "</script>";
 
 }

@@ -1,27 +1,34 @@
 <?php
-    include_once('./head.php');
-    include_once('./default.php');
+    include_once('../head.php');
+    include_once('../default.php');
 
     // 리스트에 출력하기 위한 sql문
     $admin_sql = "select * from admin_tbl order by id";
     $admin_stt=$db_conn->prepare($admin_sql);
     $admin_stt->execute();
-?>
-<link rel="stylesheet" type="text/css" href="./css/manager_list.css" rel="stylesheet" />
 
-<form name="fmemberlist" id="fmemberlist" action="./ajax/manager_delete.php" onsubmit="return fmemberlist_submit(this);" method="post">
+    $total_sql = "select count(*) from admin_tbl";
+    $total_stt=$db_conn->prepare($total_sql);
+    $total_stt->execute();
+    $total=$total_stt->fetch();
+
+?>
+<link rel="stylesheet" type="text/css" href="../css/manager_list.css" rel="stylesheet" />
+
+<form name="fmemberlist" id="fmemberlist" action="setting/manager_delete.php" onsubmit="return fmemberlist_submit(this);" method="post">
     <input type="hidden" name="sst" value="mb_datetime">
     <input type="hidden" name="sod" value="desc">
     <input type="hidden" name="sfl" value="">
     <input type="hidden" name="stx" value="">
     <input type="hidden" name="page" value="1">
     <div class="page-header">
-        <h4 class="page-title">총 회원수
-        <small class="text-muted text-xs">(총 1 명)</small>
+        <h4 class="page-title">담당자
+        <small class="text-muted text-xs">(총 <?= $total[0] ?> 명)</small>
         </h4>
         <div class="btn_fixed_top">
            <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
-            <a href="./manager_form.php?menu=4&type=insert" id="member_add" class="btn btn_01">담당자 추가</a>
+            <a href="./access_list.php?menu=111&type=insert" id="member_add" class="btn2 btn_01">담당 부서 설정</a>
+            <a href="./manager_form.php?menu=111&type=insert" id="member_add" class="btn2 btn_01">담당자 추가</a>
         </div>
     </div>
     <div class="card-body">

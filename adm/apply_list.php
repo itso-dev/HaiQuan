@@ -289,7 +289,13 @@ $admin_stt->execute();
                             <td class="text-center"><?=$list_row['write_date']?></td>
                             <td class="text-center"><?=$list_row['flow']?></td>
                             <td class="text-center"><?=$list_row['type']?></td>
-                            <td class="text-center"><?=$list_row['ab_test']?></td>
+                            <td class="text-center">
+                                <?
+                                if($list_row['ab_test'] != ''){
+                                    echo $list_row['ab_test'] ."페이지";
+                                }
+                                ?>
+                            </td>
                             <td class="text-center"><?=$list_row['ad_code']?></td>
                             <td class="text-center"><?=$list_row['sort']?></td>
                             <td class="text-center"><?=$list_row['name']?></td>

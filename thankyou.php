@@ -5,7 +5,24 @@ include_once('./mail_lib.php');
 session_start();
 
 $check = isset($_GET["c"]) ? $_GET["c"]: true ;
-$type = isset($_GET["type"]) ? $_GET["type"] : '';
+$ab_type = isset($_GET["type"]) ? $_GET["type"] : '';
+
+$type = '';
+$redirect = "";
+
+if($ab_type === 'A'){
+    $type = 1;
+    $redirect = './index.php';
+} elseif ($ab_type === 'B') {
+    $type = 2;
+    $redirect = './B/index.php';
+} elseif ($ab_type === '') {
+    $type = '';
+    $redirect = './index.php';
+} else {
+    $type = '';
+    $redirect = './index.php';
+}
 $message = isset($_SESSION['message']) ? $_SESSION["message"] : '';
 
 
@@ -13,12 +30,6 @@ if($check || $type == '' || $message == ''){
     header("Location: https://".$_SERVER["HTTP_HOST"]);
 }
 
-$redirect = "";
-if($type === '2'){
-    $redirect = './B/index.php';
-} else {
-    $redirect = './index.php';
-}
 
 //사이트 정보 쿼리
 $site_info_sql = "select * from site_setting_tbl where id = " .$type;

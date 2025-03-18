@@ -20,6 +20,6 @@
 
 
           echo "<script type='text/javascript'>";
-          echo "alert('삭제 되었습니다.'); location.href='../manager_list.php?menu=4&'";
+          echo "alert('삭제 되었습니다.'); location.href='../manager_list.php?menu=111&'";
           echo "</script>";
 ?>

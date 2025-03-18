@@ -3,6 +3,8 @@ header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV IN
  if( isset( $_SESSION[ 'manager_id' ] ) ) {
      $adm_login = TRUE;
      $manager_key = $_SESSION[ 'manager_id' ];
+
+
  }
 
  if ( !$adm_login ) {
@@ -100,7 +102,7 @@ $contact_alert_count = $contact_alert_result['today_count'];
                 <?php } ?>
                 <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
                 <li <?php if($menu == 111) echo "class='active'" ?> >
-                    <a class="menu" href="<?= $site_url ?>/manager_list.php?menu=111">
+                    <a class="menu" href="<?= $site_url ?>/manager/manager_list.php?menu=111">
                         <i class="far fa-user"></i>
                         <p>담당자 설정</p>
                     </a>
