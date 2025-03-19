@@ -1,5 +1,5 @@
 <?
-include_once('../head.php');
+include_once('../../head.php');
 
 $posted = date("Y-m-d H:i:s");
 

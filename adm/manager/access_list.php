@@ -167,7 +167,7 @@ function memoModal(){
     $(".modal-container").fadeIn("300")
 }
 $(".modal-close").click(function (){
-    $(".container").fadeOut("300")
+    $(".modal-container").fadeOut("300")
     $(".modal-bg").hide();
 });
 

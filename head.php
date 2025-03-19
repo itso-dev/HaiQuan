@@ -112,18 +112,29 @@ if(isset($_SERVER['HTTP_REFERER'])) {
     $referer = $_SERVER['HTTP_REFERER'];
     if (strpos($referer, 'search.naver.com') !== false) {
         $flow = "네이버 검색 결과";
+    } elseif (strpos($referer, 'brandsearch.naver.com') !== false) {
+        $flow = "네이버 브랜드검색광고";
     } elseif (strpos($referer, 'm.place.naver.com') !== false || strpos($referer, 'place.naver.com') !== false) {
         $flow = "네이버 플레이스";
     } elseif (strpos($referer, 'blog.naver.com') !== false || strpos($referer, 'm.blog.naver.com') !== false) {
         $flow = "네이버 블로그";
     } elseif (strpos($referer, 'searchad.naver.com') !== false) {
         $flow = "네이버 파워링크 광고";
+    } elseif (strpos($referer, 'facebook.com') !== false || strpos($referer, 'lm.facebook.com') !== false) {
+        $flow = "메타 (페이스북)";
+    } elseif (strpos($referer, 'instagram.com') !== false || strpos($referer, 'l.instagram.com') !== false) {
+        $flow = "메타 (인스타그램)";
+    } elseif (strpos($referer, 'kakao.com') !== false || strpos($referer, 'pf.kakao.com') !== false) {
+        $flow = "카카오톡";
+    } elseif (strpos($referer, 'google.com') !== false) {
+        $flow = "구글 검색";
     } else {
         $flow = "기타 (" . $referer . ")";
     }
 } else {
-    $flow = "유입정보 없음";
+    $flow = "직접유입";
 }
+echo "<script>console.log('유입 경로: " . addslashes($flow) . "');</script>";
 
 ?>
 

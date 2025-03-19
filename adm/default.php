@@ -4,12 +4,17 @@ header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV IN
      $adm_login = TRUE;
      $manager_key = $_SESSION[ 'manager_id' ];
 
-
+     echo "
+        <script>
+            console.log(".$manager_key."); 
+        </script>
+     ";
  }
 
  if ( !$adm_login ) {
 ?>
 <script>
+    alert("비정상적인 접근입니다.");
 </script>
 <meta http-equiv="refresh" content="0;url=bbs/login.php" />
 <?
