@@ -1,82 +1,161 @@
 </div>
-</div>
-<!-- 컨텐츠 영역 끝 -->
+        </div>
 
-<div class="fixed-btn">
-    <div id="fixed-up">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M13 4.32812L12.6406 4.67188L7.2031 10.125C7.05466 10.2461 6.98631 10.4395 7.02927 10.627C7.07224 10.8125 7.21873 10.959 7.40427 11.002C7.59177 11.0449 7.78513 10.9766 7.90623 10.8281L12.5 6.23438V21C12.498 21.1797 12.5918 21.3477 12.748 21.4395C12.9043 21.5293 13.0957 21.5293 13.2519 21.4395C13.4082 21.3477 13.5019 21.1797 13.5 21V6.23438L18.0937 10.8281C18.2148 10.9766 18.4082 11.0449 18.5957 11.002C18.7812 10.959 18.9277 10.8125 18.9707 10.627C19.0136 10.4395 18.9453 10.2461 18.7969 10.125L13.3594 4.67188L13 4.32812Z" fill="#F5821F"/>
-        </svg>
+    <div id="floating-container">
+        <img src="img/desktop.png" class="desktop">
+        <div class="floating-wrap">
+            <div class="floating-form">
+                <p><span class="primary">창업문의</span> 문의번호</p>
+                <form class="floating-contact" name="contact_form" id="contact_form" method="post" action="contact_write.php" onsubmit="return FormSubmit();">
+                    <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
+                    <input type="hidden" name="adCode" value="<?= $adCode ?>" />
+                    <input type="hidden" name="flow" value="<?= $flow ?>" />
+
+                    <div class="input-wrap">
+                        <input type="text" name="name" placeholder="성함" required>
+                        <input type="text" name="phone" placeholder="연락처" required>
+                        <select name="location" id="locationSelect2" required>
+                            <option value="" disabled selected>창업지역</option>
+                            <option value="서울특별시">서울특별시</option>
+                            <option value="경기도">경기도</option>
+                            <option value="인천광역시">인천광역시</option>
+                            <option value="강원도">강원도</option>
+                            <option value="충청남도">충청남도</option>
+                            <option value="충청북도">충청북도</option>
+                            <option value="세종특별자치시">세종특별자치시</option>
+                            <option value="대전광역시">대전광역시</option>
+                            <option value="경상남도">경상남도</option>
+                            <option value="경상북도">경상북도</option>
+                            <option value="광주광역시">광주광역시</option>
+                            <option value="전라남도">전라남도</option>
+                            <option value="전라북도">전라북도</option>
+                            <option value="부산광역시">부산광역시</option>
+                            <option value="대구광역시">대구광역시</option>
+                            <option value="울산광역시">울산광역시</option>
+                            <option value="제주특별자치도">제주특별자치도</option>
+                        </select>
+                    </div>
+                    <div class="floating-form-wrap">
+                        <div class="floating-agree-wrap">
+                            <label class="checkbox-label">
+                                <input class="round-checkbox" type="checkbox" id="fixed-agree" name="fixed-agree" required>
+                            </label>
+                            <label for="fixed-agree" class="agree"><span class="agree-open">개인정보처리방침</span>에 동의</label>
+                        </div>
+                        <input type="hidden" id="g-recaptcha2" name="g-recaptcha">
+                        <input type="submit" value="문의하기" class="f-btn">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+
+
+    <!-- <div id="floating-mo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+        <path d="M22.25 12C22.25 6.62402 17.876 2.25 12.5 2.25C7.12402 2.25 2.75 6.62402 2.75 12C2.75 17.376 7.12402 21.75 12.5 21.75C17.876 21.75 22.25 17.376 22.25 12ZM20.75 12C20.75 16.5645 17.0645 20.25 12.5 20.25C7.93555 20.25 4.25 16.5645 4.25 12C4.25 7.43555 7.93555 3.75 12.5 3.75C17.0645 3.75 20.75 7.43555 20.75 12ZM17.5391 13.3359L13.0391 8.83594L12.5 8.32031L11.9609 8.83594L7.46094 13.3359L8.53906 14.4141L12.5 10.4531L16.4609 14.4141L17.5391 13.3359Z" fill="#19493B"/>
+        </svg>
+        가맹문의
+    </div> -->
+
     <div id="go-contact">
-        창업<br>문의
+        <div class="headset-div">
+            <img src="img/headset.svg" alt="가맹문의">
+        </div>
+        문의하기
     </div>
-</div>
 
-<div id="fixed-contact">
-    <div class="fixed-div">
-        <svg class="fixed-contact-open" xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 20 20" fill="none">
-            <path d="M5 12.5L10 7.5L15 12.5" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 54 55" fill="none">
-                <path d="M28.8 5.53729C28.5615 5.53392 28.3247 5.57798 28.1033 5.66693C27.882 5.75587 27.6805 5.88792 27.5107 6.0554C27.3408 6.22288 27.2059 6.42245 27.1138 6.64251C27.0218 6.86258 26.9744 7.09874 26.9744 7.33729C26.9744 7.57583 27.0218 7.812 27.1138 8.03206C27.2059 8.25213 27.3408 8.4517 27.5107 8.61918C27.6805 8.78666 27.882 8.91871 28.1033 9.00765C28.3247 9.0966 28.5615 9.14066 28.8 9.13729C37.7687 9.13729 45 16.3686 45 25.3373C44.9966 25.5758 45.0407 25.8126 45.1296 26.034C45.2186 26.2553 45.3506 26.4568 45.5181 26.6266C45.6856 26.7965 45.8852 26.9314 46.1052 27.0234C46.3253 27.1155 46.5615 27.1629 46.8 27.1629C47.0385 27.1629 47.2747 27.1155 47.4948 27.0234C47.7148 26.9314 47.9144 26.7965 48.0819 26.6266C48.2494 26.4568 48.3814 26.2553 48.4704 26.034C48.5593 25.8126 48.6034 25.5758 48.6 25.3373C48.6 14.4232 39.7141 5.53729 28.8 5.53729ZM13.9289 9.14432C13.7031 9.12562 13.4733 9.14432 13.2434 9.20057C12.3506 9.41837 11.1923 9.94729 9.97734 11.1623C6.17395 14.9657 4.15603 21.3775 18.457 35.6803C32.758 49.9831 39.1698 47.9651 42.975 44.1599C44.1936 42.9413 44.7224 41.7815 44.9402 40.8869C45.1616 39.9707 44.7659 39.0277 43.9523 38.5525C41.9219 37.3645 37.54 34.7958 35.5078 33.606C34.84 33.2154 34.0205 33.2224 33.3563 33.6166L29.9953 35.6205C29.2429 36.0687 28.3029 36.0181 27.6117 35.4799C26.4183 34.5475 24.4992 32.9772 22.827 31.3068C21.1548 29.6346 19.5845 27.7155 18.6539 26.5221C18.1157 25.8327 18.0633 24.8909 18.5133 24.1385L20.5172 20.7775C20.9132 20.1133 20.9148 19.2867 20.5242 18.6189L15.5883 10.192C15.2292 9.58178 14.6062 9.20043 13.9289 9.14432ZM28.8 12.7373C28.5615 12.7339 28.3247 12.778 28.1033 12.8669C27.882 12.9559 27.6805 13.0879 27.5107 13.2554C27.3408 13.4229 27.2059 13.6225 27.1138 13.8425C27.0218 14.0626 26.9744 14.2987 26.9744 14.5373C26.9744 14.7758 27.0218 15.012 27.1138 15.2321C27.2059 15.4521 27.3408 15.6517 27.5107 15.8192C27.6805 15.9867 27.882 16.1187 28.1033 16.2077C28.3247 16.2966 28.5615 16.3407 28.8 16.3373C33.7926 16.3373 37.8 20.3447 37.8 25.3373C37.7966 25.5758 37.8407 25.8126 37.9296 26.034C38.0186 26.2553 38.1506 26.4568 38.3181 26.6266C38.4856 26.7965 38.6852 26.9314 38.9052 27.0234C39.1253 27.1155 39.3615 27.1629 39.6 27.1629C39.8385 27.1629 40.0747 27.1155 40.2948 27.0234C40.5148 26.9314 40.7144 26.7965 40.8819 26.6266C41.0494 26.4568 41.1814 26.2553 41.2704 26.034C41.3593 25.8126 41.4034 25.5758 41.4 25.3373C41.4 18.3995 35.7378 12.7373 28.8 12.7373ZM28.8 19.9373C28.5615 19.9339 28.3247 19.978 28.1033 20.0669C27.882 20.1559 27.6805 20.2879 27.5107 20.4554C27.3408 20.6229 27.2059 20.8225 27.1138 21.0425C27.0218 21.2626 26.9744 21.4987 26.9744 21.7373C26.9744 21.9758 27.0218 22.212 27.1138 22.4321C27.2059 22.6521 27.3408 22.8517 27.5107 23.0192C27.6805 23.1867 27.882 23.3187 28.1033 23.4077C28.3247 23.4966 28.5615 23.5407 28.8 23.5373C29.8171 23.5373 30.6 24.3202 30.6 25.3373C30.5966 25.5758 30.6407 25.8126 30.7296 26.034C30.8186 26.2553 30.9506 26.4568 31.1181 26.6266C31.2856 26.7965 31.4852 26.9314 31.7052 27.0234C31.9253 27.1155 32.1615 27.1629 32.4 27.1629C32.6385 27.1629 32.8747 27.1155 33.0948 27.0234C33.3148 26.9314 33.5144 26.7965 33.6819 26.6266C33.8494 26.4568 33.9814 26.2553 34.0704 26.034C34.1593 25.8126 34.2034 25.5758 34.2 25.3373C34.2 22.3763 31.7609 19.9373 28.8 19.9373Z" fill="#FFF"/>
-            </svg>
-            창업 문의 <span>000-0000-0000</span>
-        </div>
+    <div class="floating-mo-form">
+        <form name="contact_form" class="mo-form" id="contact_form" method="post" action="contact_write2.php" onsubmit="return FormSubmit();"">
+            <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
+            <input type="hidden" name="action" value="go">
+            <input type="hidden" name="adCode" value="<?= $adCode ?>" />
+            <input type="hidden" name="flow" value="<?= $flow ?>" />
+            
+            <div class="input-wrap">
+                <input type="text" name="name" placeholder="성함" required>
+                <input type="text" name="phone" placeholder="연락처" required>
+                <select name="locate" required>
+                    <option value="" disabled selected>창업지역</option>
+                    <option value="서울특별시">서울특별시</option>
+                    <option value="경기도">경기도</option>
+                    <option value="인천광역시">인천광역시</option>
+                    <option value="강원도">강원도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="충청북도">충청북도</option>
+                    <option value="세종특별자치시">세종특별자치시</option>
+                    <option value="대전광역시">대전광역시</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="광주광역시">광주광역시</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="부산광역시">부산광역시</option>
+                    <option value="대구광역시">대구광역시</option>
+                    <option value="울산광역시">울산광역시</option>
+                    <option value="제주특별자치도">제주특별자치도</option>
+                </select>
+            </div>
+            <div class="floating-form-wrap">
+                <div class="floating-agree-wrap">
+                    <label class="checkbox-label">
+                        <input class="round-checkbox" type="checkbox" id="fixed-mo-agree" name="fixed-mo-agree" required>
+                    </label>
+                    <label for="fixed-mo-agree" class="agree"><span class="agree-open">개인정보처리방침</span>에 동의</label>
+                </div>
+                <input type="hidden" id="g-recaptcha3" name="g-recaptcha">
+                <input type="submit" value="문의하기" class="f-btn">
+            </div>
+        </form>
     </div>
-    <form id="contact_form" name="contact_form" method="post" action="contact_write.php" class="fixed-form">
-        <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
-        <div class="fixed-flex">
-            <div class="fixed-flex">
-                <input type="text" id="name" name="name" placeholder="성함" required>
-                <input type="text" id="phone" name="phone" placeholder="연락처" required>
-            </div>
-            <input type="text" id="location" name="location" placeholder="창업희망지역" required>
-        </div>
-        <div class="fixed-wrap">
-            <div class="fixed-agree-wrap">
-                <label class="checkbox-label">
-                    <input class="round-checkbox fixed-round" type="checkbox" id="agree" name="agree" required>
-                </label>
-                <label for="agree" class="agree"><span class="agree-open">개인정보취급방침(보기)</span>에 동의</label>
-            </div>
-            <input type="hidden" id="g-recaptcha2" name="g-recaptcha">
-            <input type="submit" value="가맹 문의" class="fixed-c-btn">
-        </div>
-    </form>
-</div>
+
+    <div class="modal-bg"></div>
+
+
 </body>
 
 <footer>
-    <b class="contact-num">창업문의 000-0000-0000</b>
-    <div class="footer-container">
-        <div class="footer-wrap">
-            <div class="footer-div">
-                <b>대표</b>
-                <p></p>
-            </div>
-            <div class="footer-div">
-                <b>고객지원메일</b>
-                <p></p>
-            </div>
-            <div class="footer-div">
-                <b>사업자등록번호</b>
-                <p></p>
-            </div>
-            <div class="footer-div">
-                <b>주소</b>
-                <p></p>
+    <div class="footer-big-container">
+        <div class="footer-container">
+            <img src="img/footer-logo.png" class="footer-logo">
+            <div class="footer-wrapper">
+                <p>주식회사 회사명</p>
+                <div class="footer-inner">
+                    <div class="footer-wrap">
+                        <div class="footer-div">
+                        사업자등록번호 : 
+                        </div>
+                        <div class="footer-big-div">
+                            <div class="footer-div">
+                            대표 : 
+                            </div>
+                            <div class="footer-div">
+                            대표번호 : 
+                            </div>
+                        </div>
+                    </div>
+                    <p>주소 : </p>
+                    <p>Copyright ⓒ 회사명. ALL RIGHTS RESERVED.</p>
+                </div>
             </div>
         </div>
-        <p>Copyright ⓒ회사이름. ALL RIGHTS RESERVED.</p>
+        <div class="footer-right">
+            <p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                <path d="M12.8 3.12801C12.694 3.12651 12.5887 3.1461 12.4904 3.18563C12.392 3.22516 12.3024 3.28385 12.2269 3.35828C12.1515 3.43272 12.0915 3.52142 12.0506 3.61922C12.0097 3.71703 11.9886 3.82199 11.9886 3.92801C11.9886 4.03403 12.0097 4.13899 12.0506 4.2368C12.0915 4.3346 12.1515 4.4233 12.2269 4.49774C12.3024 4.57217 12.392 4.63086 12.4904 4.67039C12.5887 4.70992 12.694 4.72951 12.8 4.72801C16.7861 4.72801 20 7.94194 20 11.928C19.9985 12.034 20.0181 12.1393 20.0576 12.2376C20.0971 12.336 20.1558 12.4256 20.2303 12.5011C20.3047 12.5765 20.3934 12.6365 20.4912 12.6774C20.589 12.7183 20.694 12.7394 20.8 12.7394C20.906 12.7394 21.011 12.7183 21.1088 12.6774C21.2066 12.6365 21.2953 12.5765 21.3697 12.5011C21.4442 12.4256 21.5028 12.336 21.5424 12.2376C21.5819 12.1393 21.6015 12.034 21.6 11.928C21.6 7.07728 17.6507 3.12801 12.8 3.12801ZM6.19061 4.73113C6.09027 4.72282 5.98812 4.73113 5.88592 4.75613C5.48912 4.85293 4.97436 5.08801 4.43436 5.62801C2.74396 7.31841 1.84711 10.1681 8.20311 16.5249C14.5591 22.8817 17.4088 21.9848 19.1 20.2936C19.6416 19.752 19.8766 19.2365 19.9734 18.8389C20.0718 18.4317 19.896 18.0126 19.5344 17.8014C18.632 17.2734 16.6844 16.1318 15.7812 15.603C15.4844 15.4294 15.1202 15.4325 14.825 15.6077L13.3312 16.4983C12.9968 16.6975 12.5791 16.675 12.2719 16.4358C11.7415 16.0214 10.8885 15.3235 10.1453 14.5811C9.4021 13.8379 8.70421 12.985 8.29061 12.4546C8.05141 12.1482 8.02811 11.7296 8.22811 11.3952L9.11874 9.90145C9.29474 9.60625 9.29546 9.23887 9.12186 8.94207L6.92811 5.19676C6.76851 4.92556 6.49162 4.75607 6.19061 4.73113ZM12.8 6.32801C12.694 6.32651 12.5887 6.3461 12.4904 6.38563C12.392 6.42516 12.3024 6.48385 12.2269 6.55828C12.1515 6.63272 12.0915 6.72142 12.0506 6.81922C12.0097 6.91703 11.9886 7.02199 11.9886 7.12801C11.9886 7.23403 12.0097 7.33899 12.0506 7.4368C12.0915 7.5346 12.1515 7.6233 12.2269 7.69774C12.3024 7.77217 12.392 7.83086 12.4904 7.87039C12.5887 7.90992 12.694 7.92951 12.8 7.92801C15.0189 7.92801 16.8 9.70908 16.8 11.928C16.7985 12.034 16.8181 12.1393 16.8576 12.2376C16.8971 12.336 16.9558 12.4256 17.0303 12.5011C17.1047 12.5765 17.1934 12.6365 17.2912 12.6774C17.389 12.7183 17.494 12.7394 17.6 12.7394C17.706 12.7394 17.811 12.7183 17.9088 12.6774C18.0066 12.6365 18.0953 12.5765 18.1697 12.5011C18.2442 12.4256 18.3028 12.336 18.3424 12.2376C18.3819 12.1393 18.4015 12.034 18.4 11.928C18.4 8.84454 15.8835 6.32801 12.8 6.32801ZM12.8 9.52801C12.694 9.52651 12.5887 9.54609 12.4904 9.58563C12.392 9.62516 12.3024 9.68385 12.2269 9.75828C12.1515 9.83272 12.0915 9.92141 12.0506 10.0192C12.0097 10.117 11.9886 10.222 11.9886 10.328C11.9886 10.434 12.0097 10.539 12.0506 10.6368C12.0915 10.7346 12.1515 10.8233 12.2269 10.8977C12.3024 10.9722 12.392 11.0309 12.4904 11.0704C12.5887 11.1099 12.694 11.1295 12.8 11.128C13.252 11.128 13.6 11.476 13.6 11.928C13.5985 12.034 13.6181 12.1393 13.6576 12.2376C13.6971 12.336 13.7558 12.4256 13.8303 12.5011C13.9047 12.5765 13.9934 12.6365 14.0912 12.6774C14.189 12.7183 14.294 12.7394 14.4 12.7394C14.506 12.7394 14.611 12.7183 14.7088 12.6774C14.8066 12.6365 14.8953 12.5765 14.9697 12.5011C15.0442 12.4256 15.1028 12.336 15.1424 12.2376C15.1819 12.1393 15.2015 12.034 15.2 11.928C15.2 10.612 14.116 9.52801 12.8 9.52801Z" fill="white"/>
+                </svg>
+                창업문의
+            </p>
+            <p>문의번호</p>
+        </div>
+        <p>Copyright ⓒ 회사이름. ALL RIGHTS RESERVED.</p>
     </div>
+    
 
     <div class="up-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
-            <path d="M13 4.32812L12.6406 4.67188L7.20313 10.125C7.0547 10.2461 6.98634 10.4395 7.0293 10.627C7.07227 10.8125 7.21876 10.959 7.4043 11.002C7.5918 11.0449 7.78516 10.9766 7.90626 10.8281L12.5 6.23438V21C12.4981 21.1797 12.5918 21.3477 12.7481 21.4395C12.9043 21.5293 13.0957 21.5293 13.252 21.4395C13.4082 21.3477 13.502 21.1797 13.5 21V6.23438L18.0938 10.8281C18.2149 10.9766 18.4082 11.0449 18.5957 11.002C18.7813 10.959 18.9277 10.8125 18.9707 10.627C19.0137 10.4395 18.9453 10.2461 18.7969 10.125L13.3594 4.67188L13 4.32812Z" fill="white"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 6.125L19.425 6.675L10.725 15.4C10.4875 15.5938 10.3781 15.9031 10.4469 16.2031C10.5156 16.5 10.75 16.7344 11.0469 16.8031C11.3469 16.8719 11.6562 16.7625 11.85 16.525L19.2 9.175V32.8C19.1969 33.0875 19.3469 33.3563 19.5969 33.5031C19.8469 33.6469 20.1531 33.6469 20.4031 33.5031C20.6531 33.3563 20.8031 33.0875 20.8 32.8V9.175L28.15 16.525C28.3437 16.7625 28.6531 16.8719 28.9531 16.8031C29.25 16.7344 29.4844 16.5 29.5531 16.2031C29.6219 15.9031 29.5125 15.5938 29.275 15.4L20.575 6.675L20 6.125Z" fill="#F0832C"/>
         </svg>
-        <p>위로</p>
     </div>
 </footer>
 
@@ -88,12 +167,12 @@
         </svg>
     </div>
     <div class="title">
-        <img src="./img/logo.png" class="agree-logo">
+        <img src="img/logo.png" class="agree-logo">
         <b class="p40">개인정보처리방침</b>
     </div>
     <div class="content-div">
         <div class="content p16 sub">
-            회사이름(이하 “회사”)는 「개인정보보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」(이하 “정보통신망법”) , 「위치정보의 보호 및 이용 등에 관한 법률」(이하 “위치정보법”) 등 관련 법령상의 개인정보 보호규정을 준수하며, 개인정보보호법에 의거한 개인정보처리방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 본 개인정보처리방침은 회사가 제공하는 웹서비스에 적용되며 다음과 같은 내용을 포함하고 있습니다.<br>
+            회사명(이하 “회사”)는 「개인정보보호법」, 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」(이하 “정보통신망법”) , 「위치정보의 보호 및 이용 등에 관한 법률」(이하 “위치정보법”) 등 관련 법령상의 개인정보 보호규정을 준수하며, 개인정보보호법에 의거한 개인정보처리방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 본 개인정보처리방침은 회사가 제공하는 웹서비스에 적용되며 다음과 같은 내용을 포함하고 있습니다.<br>
             <br>
             1. 개인정보 수집 및 이용 현황 가. 회사는 서비스 제공을 위한 최소한의 범위 내에서 이용자의 동의 하에 개인정보를 수집하며, 수집한 모든 개인정보는 고지한 목적 범위 내에서만 사용됩니다. 또한, 제공하는 서비스(채용 정보제공 등) 특성상 「근로기준법」에 따라 만15세 미만인 경우 회원가입을 허용하지 않습니다. 회사에서 제공하는 서비스 유형에 따라 다음과 같이 개인정보를 수집, 이용, 보유 및 파기하고 있습니다. <서비스 이용에 따른 자동 수집 및 생성 정보><br>
                 2. 개인정보 제3자 제공 회사는「1. 개인정보 수집 및 이용 현황」에서 고지한 범위 내에서만 개인정보를 이용하며, 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다. 가. 이용자가 서비스 이용중 제3자 제공에 동의(수락)한 경우 나. 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우 귀하께서는 개인정보의 제3자 제공에 대해, 동의하지 않을 수 있고 언제든지 제3자 제공 동의를 철회할 수 있습니다. 다만, 제3자 제공에 기반한 관련된 일부 서비스의 이용이 제한될 수 있습니다.(회원가입 서비스는 이용하실 수 있습니다.)<br>
@@ -111,7 +190,7 @@
 <div class="modal-bg"></div>
 
 <script>
-    $(".up-btn, #fixed-up").click(function() {
+    $(".up-btn").click(function() {
         $("html, body").animate({ scrollTop: 0 }, "slow");
         return false;
     });
@@ -135,23 +214,14 @@
         $("html").css("overflow", "auto");
     });
 
-    $(document).ready(function () {
-        $(".fixed-contact-open").click(function () {
-            $("#fixed-contact").toggleClass("open");
-            $(".fixed-div > div > svg, .fixed-div > div > span").toggleClass("open");
-            $("html").css("overflow", $("#fixed-contact").hasClass("open") ? "hidden" : "auto");
-            $(this).toggleClass("rotate-180");
-        });
-    });
-
     window.addEventListener('scroll', function() {
         let scroll = window.scrollY;
 
-        const fixedContact = document.querySelector('#fixed-contact');
+        const fixedContact = document.querySelector('#floating-container');
         const contactSection = document.querySelector('#contact');
         const sectionTop = contactSection.offsetTop;
         const sectionBottom = sectionTop + contactSection.offsetHeight;
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        const scrollPosition = window.scrollY + window.innerHeight / 1;
 
         if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
             fixedContact.style.display = 'none';
@@ -167,4 +237,6 @@
         });
     });
 
+
 </script>
+

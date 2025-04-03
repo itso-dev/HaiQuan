@@ -385,6 +385,7 @@ html, body {
 
 /* table layout */
 .table-responsive {
+    width: 100%;
     overflow: auto;
     padding-bottom: 10px;
     font-size: 14px;

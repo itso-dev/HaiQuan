@@ -29,6 +29,12 @@ $db_conn->prepare($view_sql)->execute(
 <!-- recapture -->
 <script src='https://www.google.com/recaptcha/api.js?render='></script>
 
+<!-- GSAP 라이브러리 추가 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollSmoother.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
 
 <!-- layer popup -->
 <?
@@ -52,20 +58,26 @@ if ($popup_stt->rowCount() > 0) {
                     <img src="data/popup/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
-                        <a href="javascript:todayClose('agreePopup<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
-                        <a class="close-popup x-btn">닫기</a>
+                        <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
+                        <div class="show-chk-div">
+                            <a href="javascript:todayClose('agreePopup<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
+                            <a class="close-popup x-btn">닫기</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="layer-popup mobile"
-                 style="display: block; width: 80%; max-width: <?= $popup['width_mobile'] ?>px; height: <?= $popup['height_mobile'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
+                 style="width: 80%; max-width: <?= $popup['width_mobile'] ?>px; height: <?= $popup['height_mobile'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup_mo<?= $popup['id'] ?>" class="agree-popup-frame">
                     <img src="data/popup/<?= $popup['file_name_mobile'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
-                        <a href="javascript:todayClose('agreePopup_mo<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
-                        <a class="close-popup x-btn">닫기</a>
+                        <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
+                        <div class="show-chk-div">
+                            <a href="javascript:todayClose('agreePopup_mo<?= $popup['id'] ?>', 1);" class="today-x-btn">오늘하루닫기</a>
+                            <a class="close-popup x-btn">닫기</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,7 +104,7 @@ if ($popup_stt->rowCount() > 0) {
         }
         <?php } ?>
         $(".close-popup").click(function () {
-            $(this).parent().parent().hide();
+            $(this).closest('.layer-popup').hide();
         });
     });
 
@@ -111,7 +123,7 @@ if ($popup_stt->rowCount() > 0) {
     function todayClose(winName, expiredays) {
         setCookie(winName, "expire", expiredays);
         var obj = eval("window." + winName);
-        $('#' + winName).hide();
+        $('#' + winName).closest('.layer-popup').hide();
     }
 
     // 쿠키 가져오기
@@ -138,6 +150,17 @@ if ($popup_stt->rowCount() > 0) {
         var todayDate = new Date();
         todayDate.setDate(todayDate.getDate() + expiredays);
         document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+
+    // 전체 팝업 닫기
+    function AllClose() {
+        $(".layer-popup").each(function () {
+            $(this).animate({
+                    opacity: 0      
+                }, 200, function() { 
+                    $(this).remove();  
+            });
+        });
     }
 </script>
 

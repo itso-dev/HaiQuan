@@ -12,6 +12,7 @@ $width = $_POST['width'];
 $height = $_POST['height'];
 $width2 = $_POST['width2'];
 $height2 = $_POST['height2'];
+$link = $_POST['link'];
 
 //입력
 if ($type == 'insert') {
@@ -68,15 +69,16 @@ if ($type == 'insert') {
                move_uploaded_file($file2['tmp_name'], $upload_directory . $chg_file2);
 
                $insert_sql = "insert into popup_tbl
-                                        (popup_name, start_date, end_date, width,
+                                        (popup_name, link, start_date, end_date, width,
                                         height, file_name, reg_date, file_name_mobile, width_mobile, height_mobile)
                                    value
-                                        (?, ?, ?, ?,
+                                        (?, ?, ?, ?, ?,
                                         ?, ?, ?, ?, ?, ?)";
 
                $db_conn->prepare($insert_sql)->execute(
                    [
                        $popup_name,
+                       $link,
                        $start_date,
                        $end_date,
                        $width,
@@ -162,6 +164,7 @@ if ($type == 'modify') {
      $modify_sql = "update popup_tbl
                set 
                popup_name = '$popup_name',
+               link = '$link',
                start_date = '$start_date',
                end_date = '$end_date',
                width = '$width',

@@ -63,7 +63,7 @@ $site = $site_info_stt -> fetch();
 <div id="thank-page">
     <div class="thank-div">
         <div class="thank-top">
-            <img src="img/Logo_ITSO.png" class="logo">
+            <img src="img/logo.png" class="logo">
             <p>
                 문의가 등록되었습니다.<br>
                 담당자 확인 후 곧 연락드리겠습니다.
