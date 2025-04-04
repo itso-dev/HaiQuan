@@ -17,7 +17,6 @@ $modify_sql = "update site_setting_tbl
     where
     id = $type";
 
-echo $modify_sql;
 
 $updateStmt = $db_conn->prepare($modify_sql);
 $updateStmt->execute();
