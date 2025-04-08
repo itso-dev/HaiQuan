@@ -40,7 +40,7 @@ ini_set('display_errors', '1');
                 <small class="description text-xs">사이트명은 Browser Title 로 보이게 됩니다.</small>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top:20px;">
             <div class="col-md-5 pr-1">
                 <div class="form-group">
                     <label>사이트 소개*</label>
@@ -55,29 +55,42 @@ ini_set('display_errors', '1');
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-5 pr-1">
+            <div class="col-md-8 pr-1">
                 <div class="form-group">
-                    <label>구글 애널리틱스 코드 삽입</label>
-                    <input type="text" name="google_analytics" value="<?=$row1[3]?>" id="google_analytics" class="frm_input form-control" size="30">
+                    <label>head 코드 삽입</label>
+                    <textarea name="head_script" id="head_script" class="frm_input form-control"><?=$row1['head_script']?></textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <small class="description text-xs">&#60;script async="" src="https://www.googletagmanager.com/gtag/js?id=<strong>[해당 부분의 코드를 입력해주세요]</strong>"&#62;&#60;/script&#62;</small>
+                <small class="description text-xs">'head' 태그 안에 들어갈 코드를 입력해주세요. (ex. <strong>gtag, 구글태그매니저, 메타픽셀 등</strong>)</small>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5 pr-1">
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-8 pr-1">
                 <div class="form-group">
-                    <label>네이버 웹 마스터 코드 삽입</label>
-                    <input type="text" name="naver_webmaster" value="<?=$row1[4]?>" id="naver_webmaster" class="frm_input form-control" size="30">
+                    <label>body 코드 삽입</label>
+                    <textarea name="body_script" id="body_script" class="frm_input form-control body"><?=$row1['body_script']?></textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <small class="description text-xs">&#60;meta name="naver-site-verification" content="<strong>[해당 부분의 코드를 입력해주세요]</strong>"/&#62;</small>
+                <small class="description text-xs">'body' 태그 뒤에 들어갈 코드를 입력해주세요. (ex. <strong>구글태그매니저</strong>)</small>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-8 pr-1">
+                <div class="form-group">
+                    <label>전환페이지 코드 삽입</label>
+                    <textarea name="conversion_script" id="conversion_script" class="frm_input form-control"><?=$row1['conversion_script']?></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <small class="description text-xs">전환페이지(문의 완료 후 전환되는 페이지) 태그 뒤에 들어갈 코드를 입력해주세요.</small>
             </div>
         </div>
         <div>
@@ -101,7 +114,7 @@ ini_set('display_errors', '1');
                 <small class="description text-xs">사이트명은 Browser Title 로 보이게 됩니다.</small>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top:20px;">
             <div class="col-md-5 pr-1">
                 <div class="form-group">
                     <label>사이트 소개*</label>
@@ -116,29 +129,42 @@ ini_set('display_errors', '1');
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-5 pr-1">
+            <div class="col-md-8 pr-1">
                 <div class="form-group">
-                    <label>구글 애널리틱스 코드 삽입</label>
-                    <input type="text" name="google_analytics" value="<?=$row2[3]?>" id="google_analytics" class="frm_input form-control" size="30">
+                    <label>head 코드 삽입</label>
+                    <textarea name="head_script" id="head_script" class="frm_input form-control"><?=$row2['head_script']?></textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <small class="description text-xs">&#60;script async="" src="https://www.googletagmanager.com/gtag/js?id=<strong>[해당 부분의 코드를 입력해주세요]</strong>"&#62;&#60;/script&#62;</small>
+                <small class="description text-xs">'head' 태그 안에 들어갈 코드를 입력해주세요. (ex. <strong>gtag, 구글태그매니저, 메타픽셀 등</strong>)</small>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5 pr-1">
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-8 pr-1">
                 <div class="form-group">
-                    <label>네이버 웹 마스터 코드 삽입</label>
-                    <input type="text" name="naver_webmaster" value="<?=$row2[4]?>" id="naver_webmaster" class="frm_input form-control" size="30">
+                    <label>body 코드 삽입</label>
+                    <textarea name="body_script" id="body_script" class="frm_input form-control body"><?=$row2['body_script']?></textarea>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <small class="description text-xs">&#60;meta name="naver-site-verification" content="<strong>[해당 부분의 코드를 입력해주세요]</strong>"/&#62;</small>
+                <small class="description text-xs">'body' 태그 뒤에 들어갈 코드를 입력해주세요. (ex. <strong>구글태그매니저</strong>)</small>
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px;">
+            <div class="col-md-8 pr-1">
+                <div class="form-group">
+                    <label>전환페이지 코드 삽입</label>
+                    <textarea name="conversion_script" id="conversion_script" class="frm_input form-control"><?=$row2['conversion_script']?></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <small class="description text-xs">전환페이지(문의 완료 후 전환되는 페이지) 태그 뒤에 들어갈 코드를 입력해주세요.</small>
             </div>
         </div>
         <div>

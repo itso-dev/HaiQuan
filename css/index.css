@@ -4,7 +4,7 @@
 }
 
 .mobile {
-  display: none !important;
+  display: none;
 }
 
 .layer-popup {
@@ -33,6 +33,12 @@
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
+}
+
+.show-chk-div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .layer-popup .show-chk-wrap a {
@@ -72,7 +78,7 @@
   z-index: 100;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
 
 }
 
@@ -105,10 +111,9 @@
 }
 
 @media (max-width: 600px) {
-  .layer-popup {
-    left: 5% !important;
-  }
+
 }
 
 @media (max-width: 480px) {
+
 }

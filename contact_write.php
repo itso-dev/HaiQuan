@@ -11,32 +11,32 @@ date_default_timezone_set('Asia/Seoul');
 
 $posted = date("Y-m-d H:i:s");
 $flow = $_POST["flow"];
-$sort = $_POST["sort"];
 $adCode = isset($_POST["adCode"]) ? $_POST["adCode"] : '';
-$b_name = $_POST["brand_name"];
+$name = $_POST["name"];
 $phone = $_POST["phone"];
-$m_name = $_POST["manager_name"];
 $email = $_POST["email"];
-$desc = $_POST["contact_desc"];
+$location = $_POST["location"];
+$store = isset($_POST["store"]) ? $_POST["store"] : '';
+$desc = isset($_POST["contact_desc"]) ? $_POST["contact_desc"] : '';
 
-$type = isset($_POST["abtype"]) ? '2' : '1';
+$type = isset($_POST["abtype"]) ? 'B' : 'A';
 
 
 $writer_ip = $_POST["writer_ip"];
 
 $sql="
         insert into contact_tbl
-            (flow, sort, ad_code, name, phone, manager_name, email, 
-            contact_desc, result_status,
+            (flow, ad_code, name, phone, email, location,
+            store, contact_desc, result_status,
             consult_fk, writer_ip, write_date)
         value
-            (?, ?, ?, ?, ?, ?, ?, 
-            ?, ?, 
+            (?, ?, ?, ?, ?, ?, 
+            ?, ?, ?, 
             ?, ?, ?)";
 
 $db_conn->prepare($sql)->execute(
-    [$flow, $sort, $adCode, $b_name, $phone, $m_name, $email,
-        $desc, '대기',
+    [$flow, $adCode, $name, $phone, $email, $location,
+        $store, $desc, '대기',
         0, $writer_ip, $posted]);
 
 
@@ -49,18 +49,22 @@ $contact_cnt_sql = "insert into contact_log_tbl
 $db_conn->prepare($contact_cnt_sql)->execute(
     [1, $posted]);
 
+$update_ab_sql = "UPDATE ab_test_tbl SET contact = contact + 1 WHERE id = 1";
+$update_ab_stmt = $db_conn->prepare($update_ab_sql);
+$update_ab_stmt->execute();
 
 
 $message = '<html><body>
                         <div style="width: 500px; margin: 0 auto; text-align: left;">
-                             <p style="font-size: 25px; color:#06acc4; font-weight: 600; margin-bottom: 30px; text-align: center;">잇소 랜딩 문의</p>
+                             <p style="font-size: 25px; color:#06acc4; font-weight: 600; margin-bottom: 30px; text-align: center;">회사명 랜딩 문의</p>
                              <p style="font-size: 20px; margin-bottom: 30px;"><strong style="color:#06acc4;">신규 문의</strong> 안내입니다.</p>
                              <p style="font-size: 16px; margin-bottom: 40px;">
                                  <strong style="margin-right: 30px">유입경로: </strong> '.$flow.'<br>
-                                 <strong style="margin-right: 30px">회사명: </strong> '.$b_name.'<br>
+                                 <strong style="margin-right: 30px">성함: </strong> '.$name.'<br>
                                  <strong style="margin-right: 30px">연락처:</strong> '.$phone.'<br>
-                                 <strong style="margin-right: 30px">담당자명:</strong> '.$m_name.'<br>
                                  <strong style="margin-right: 30px">이메일:</strong> '.$email.'<br>
+                                 <strong style="margin-right: 30px">창업희망지역:</strong> '.$location.'<br>
+                                 <strong style="margin-right: 30px">점포보유여부:</strong> '.$store.'<br>
                                  <strong style="margin-right: 30px">문의 내용:</strong><br>
                                  '.$desc.'
                              </p>

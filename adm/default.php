@@ -1,7 +1,5 @@
 <?
-session_start();
-
- if( isset( $_SESSION[ 'manager_id' ] ) ) {
+if( isset( $_SESSION[ 'manager_id' ] ) ) {
      $adm_login = TRUE;
      $manager_key = $_SESSION[ 'manager_id' ];
 
@@ -10,7 +8,7 @@ session_start();
             console.log(".$manager_key."); 
         </script>
      ";
- }
+}
 
 if (!$adm_login) {
     header('Location: bbs/login.php');
@@ -32,6 +30,24 @@ $contact_alert_stt=$db_conn->prepare($contact_alert_sql);
 $contact_alert_stt->execute();
 $contact_alert_result = $contact_alert_stt->fetch(PDO::FETCH_ASSOC);
 $contact_alert_count = $contact_alert_result['today_count'];
+
+// 관리자 테이블에서 role 값 먼저 가져오기
+$admin_sql = "select role from admin_tbl where id = $manager_key";
+$admin_stt = $db_conn->prepare($admin_sql);
+$admin_stt->execute();
+$admin_result = $admin_stt->fetch(PDO::FETCH_ASSOC);
+
+$role = $admin_result['role'];
+
+// 역할(Role)에 따른 권한 정보 가져오기
+$access_sql = "select * from admin_role_tbl WHERE id = $role";
+$access_stt = $db_conn->prepare($access_sql);
+$access_stt->execute();
+$access_result = $access_stt->fetch(PDO::FETCH_ASSOC);
+
+// 권한 파싱, [1, 1, 1, 1, 1, 1] = [홈, 기본설정, 광고관리, A/B테스트, 문의관리, 팝업설정]
+$authority_json = $access_result['authority']; 
+$authority = json_decode($authority_json);
 
 ?>
 
@@ -67,37 +83,52 @@ $contact_alert_count = $contact_alert_result['today_count'];
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
+                <?php if ($authority[0]) { ?>
                 <li <?php if($menu == 0  || $menu == "") echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/index.php?menu=0">
                         <i class="fas fa-chart-bar"></i>
                         <p>홈</p>
                     </a>
                 </li>
+                <?php } ?>
+
+                <?php if ($authority[1]) { ?>
                 <li <?php if($menu == 11) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/config_form.php?menu=11">
                         <i class="fas fa-list-ul"></i>
                         <p>기본 설정</p>
                     </a>
                 </li>
+                <?php } ?>
+
+                <?php if ($authority[2]) { ?>
                 <li <?php if($menu == 77) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/ad/ad_list.php?menu=77">
                         <i class="fas fa-ad"></i>
                         <p>광고 관리</p>
                     </a>
                 </li>
+                <?php } ?>
+
+                <?php if ($authority[3]) { ?>
                 <li <?php if($menu == 99) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/test/test_list.php?menu=99">
                         <i class="fas fa-laptop-code"></i>
                         <p>A/B 테스트</p>
                     </a>
                 </li>
+                <?php } ?>
+
+                <?php if ($authority[4]) { ?>
                 <li <?php if($menu == 55) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/apply_list.php?menu=55">
                         <i class="far fa-envelope"></i>
                         <p class="contact_col">문의 관리 <span class="today-new"><?= $contact_alert_count ?></span></p>
                     </a>
                 </li>
-                <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
+                <?php } ?>
+
+                <?php if($_SESSION[ 'manager_id' ] == 1 && ($authority[5]) ){ ?>
                 <li <?php if($menu == 66) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/popup_list.php?menu=66">
                         <i class="far fa-clone"></i>
@@ -105,6 +136,7 @@ $contact_alert_count = $contact_alert_result['today_count'];
                     </a>
                 </li>
                 <?php } ?>
+                
                 <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
                 <li <?php if($menu == 111) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/manager/manager_list.php?menu=111">

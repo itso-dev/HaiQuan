@@ -13,10 +13,10 @@
 .float-right {
     float: right!important;
 }
-.page .search-wrap label{
+.page label {
     font-size: 1em;
     margin-bottom: 5px;
-    color: #213350;
+    color: #9a9a9a;
     display: inline-block;
 }
 .border {
@@ -29,9 +29,10 @@
     padding-left: .5rem;
     font-size: .875rem;
 }
-.custom-select, .form-control {
+.custom-select {
     display: inline-block;
     width: 100%;
+    height: 100%;
     height: calc(2.25rem + 2px);
     padding: .375rem 1.75rem .375rem .75rem;
     font-weight: 400;
@@ -40,9 +41,8 @@
     vertical-align: middle;
     background-color: #fff;
     border: 1px solid #ced4da;
-    border-radius: 4px;
+    border-radius: 5px !important;
 }
-
 .flatpickr-input[readonly] {
     cursor: pointer;
 }
@@ -55,59 +55,22 @@
     background-color: #e9ecef;
     opacity: 1;
 }
-
-#etc-mo{
-    display: none;
+.bg-white {
+    background-color: #fff!important;
 }
-#etc-pc{
-    display: flex;
-}
-
-.btn_fixed_top2{
-    display: flex;
-    justify-content: space-between;
-}
-
-
-.d-none .row > div,
-.d-none .row > div:nth-of-type(2),
-.d-none .row > div:nth-of-type(3),
-.d-none .row > div:nth-of-type(4){
-    max-width: 20%;
-}
-.row > div:nth-of-type(5){
-  
-}
-.d-none .row{
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.scroll-msg {
-    display: block;
-    text-align: right;
-    font-size: 14px;
-    color: rgba(33,51,80,0.6);
-}
-.scroll-msg > i{
-    margin-left: 2px;
-}
-
-.f-left {
-    display: flex;
-    float:left;
+.form-control {
+    background-color: transparent;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px !important;
+    color: #2c2c2c;
+    line-height: normal;
+    height: auto;
+    font-size: 1em;
+    transition: color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out;
+    box-shadow: none;
+    padding: 0.78em;
     width: 100%;
 }
-
-.f-left > div{
-    width: 100%;
-}
-
-.custom-select:hover, 
-.form-control:hover{
-    border: 1px solid #6C93CA;
-}
-
 .position-relative {
     position: relative!important;
 }
@@ -127,27 +90,40 @@ img {
 .m-auto {
     margin: auto!important;
 }
-
-.search-wrap .tit{
-    font-size: 1.2em;
-    font-weight: 500;
-    margin-bottom: 8px;
+.table > thead > tr > th {
+    border-bottom-width: 1px;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    border: 0;
 }
-
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    padding: 12px 7px;
+    vertical-align: middle;
+}
+table{
+    text-align: left;
+}
 .button4 {
     background-color: white;
     color: #5D6369;
     border: 1px solid #CED4DA;
 }
 .writer-ip{
-    color: rgb(255, 109, 93, 0.85);
+    color: #ce1a1a !important;
     cursor: pointer;
+    text-decoration: underline;
 }
-.writer-ip:hover{
-    color: rgb(255, 109, 93, 1);
+.modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #000;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    display: none;
 }
-
-/*
 .ip-modal-container{
     position: fixed;
     top: 10%;
@@ -176,7 +152,6 @@ img {
     right: 25px;
     color: #fff;
 }
-*/
 .ip-modal-container .ip-table{
     width: 90%;
     margin: 15px auto;
@@ -208,33 +183,6 @@ img {
     font-weight: 500;
 }
 
-.exel-modal-container .body input[type=file]{
-    width: 100%;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-}
-.exel-modal-container .body .label-name{
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.exel-modal-container .body .state{
-    position: absolute;
-    top: 56%;
-    left: calc(50% - 75px);
-    background: #00000090;
-    color: #fff;
-    width: 150px;
-    text-align: center;
-    font-size: 18px;
-    padding: 8px 0;
-    border-radius: 8px;
-    display: none;
-}
-
-/*
 .button {
     font-weight: 200;
     text-align: center;
@@ -246,7 +194,7 @@ img {
     font-size: 15px;
     border-radius: 0.1875rem;
     padding: 7.5px 15px;
-}*/
+}
 .modal-dialog .table th{
     font-size: 17px !important;
 }
@@ -255,17 +203,6 @@ img {
     white-space: nowrap;
 }
 
-@media (max-width: 991px){
-    #etc-mo{
-        display: flex;
-    }
-    #etc-pc{
-        display: none;
-    }
-    .search-wrap{
-        display:none;
-    }
-}
 @media (min-width: 992px){
     .modal-lg, .modal-xl {
         max-width: 800px;

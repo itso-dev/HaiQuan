@@ -23,6 +23,7 @@ $height2 = '';
 $popup_name = '';
 $file1 = '';
 $file2 = '';
+$link = '';
 
 if ($type == 'modify') {
     // 리스트에 출력하기 위한 sql문
@@ -37,13 +38,15 @@ if ($type == 'modify') {
     $mo_file = $row[8];
 
 
-    $start_date = $row[2];
-    $end_date = $row[3];
-    $width = $row[4];
-    $height = $row[5];
-    $width2 = $row[9];
-    $height2 = $row[10];
-    $popup_name = $row[1];
+    $start_date = $row['start_date'];
+    $end_date = $row['end_date'];
+    $popup_name = $row['popup_name'];
+    $link = $row['link'];
+    $width = $row['width'];
+    $height = $row['height'];
+    $width2 = $row['width_mobile'];
+    $height2 = $row['height_mobile'];
+    $link = $row['link'];
 }
 ?>
 
@@ -80,10 +83,13 @@ if ($type == 'modify') {
                     종료일시를 오늘로
                 </label>
             </div>
-            <hr>
             <div class="input-wrap">
                 <p class="label-name">팝업 제목*</p>
                 <input type="text" name="popup_name" class="form-control" value="<?= $popup_name ?>">
+            </div>
+            <div class="input-wrap">
+                <p class="label-name">팝업 링크</p>
+                <input type="text" name="link" class="form-control" placeholder="클릭 시 이동할 링크를 입력해주세요" value="<?= $link ?>">
             </div>
             <hr>
             <div class="input-wrap">
@@ -95,7 +101,6 @@ if ($type == 'modify') {
                 <p class="label-name">높이(px)*</p>
                 <input type="text" name="height" class="form-control" value="<?= $height ?>">
             </div>
-            <hr>
             <div class="input-wrap input-file">
                 <p class="label-name">팝업 PC 이미지 업로드*</p>
                 <input type="file" id="img_upload1" name="img_upload1" class="form-control">
@@ -115,7 +120,6 @@ if ($type == 'modify') {
                 <p class="label-name">높이(px)*</p>
                 <input type="text" name="height2" class="form-control" value="<?= $height2 ?>">
             </div>
-            <hr>
             <div class="input-wrap input-file">
                 <p class="label-name">팝업 모바일 이미지 업로드*</p>
                 <input type="file" id="img_upload2" name="img_upload2" class="form-control">

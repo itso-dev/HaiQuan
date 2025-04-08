@@ -50,14 +50,14 @@ $sheet = $spreadsheet->getActiveSheet();
 $sheet
     ->setCellValue("A1", "등록일")
     ->setCellValue("B1", "유입 경로")
-    ->setCellValue("C1", "문의타입")
-    ->setCellValue("D1", "A/B 테스트")
-    ->setCellValue("E1", "광고 코드")
-    ->setCellValue("F1", "등록 페이지 구분")
-    ->setCellValue("G1", "이름")
-    ->setCellValue("H1", "연락처")
-    ->setCellValue("I1", "창업희망지역")
-    ->setCellValue("J1", "예상창업비용")
+    ->setCellValue("C1", "A/B 테스트")
+    ->setCellValue("D1", "광고 코드")
+    ->setCellValue("E1", "이름")
+    ->setCellValue("F1", "연락처")
+    ->setCellValue("G1", "이메일")
+    ->setCellValue("H1", "창업희망지역")
+    ->setCellValue("I1", "창업예상비용")
+    ->setCellValue("J1", "점포보유여부")
     ->setCellValue("K1", "담당자")
     ->setCellValue("L1", "문의내용")
     ->setCellValue("M1", "결과")
@@ -69,14 +69,14 @@ while ($list_row = $list_stt->fetch()) {
     $sheet
         ->setCellValue("A".$line, $list_row['write_date'])
         ->setCellValue("B".$line, $list_row['flow'])
-        ->setCellValue("C".$line, $list_row['type'])
-        ->setCellValue("D".$line, $list_row['ab_test'])
-        ->setCellValue("E".$line, $list_row['ad_code'])
-        ->setCellValue("F".$line, $list_row['sort'])
-        ->setCellValue("G".$line, $list_row['name'])
-        ->setCellValue("H".$line, $list_row['phone'])
-        ->setCellValue("I".$line, $list_row['locate'])
-        ->setCellValue("J".$line, $list_row['price'])
+        ->setCellValue("C".$line, $list_row['ab_test'])
+        ->setCellValue("D".$line, $list_row['ad_code'])
+        ->setCellValue("E".$line, $list_row['name'])
+        ->setCellValue("F".$line, $list_row['phone'])
+        ->setCellValue("G".$line, $list_row['email'])
+        ->setCellValue("H".$line, $list_row['location'])
+        ->setCellValue("I".$line, $list_row['cost'])
+        ->setCellValue("J".$line, $list_row['store'])
         ->setCellValue("K".$line, $list_row['manager_name'])
         ->setCellValue("L".$line, $list_row['contact_desc'])
         ->setCellValue("M".$line, $list_row['result_status'])
@@ -89,17 +89,17 @@ while ($list_row = $list_stt->fetch()) {
 // Set column widths
 $sheet->getColumnDimension('A')->setWidth(20);
 $sheet->getColumnDimension('B')->setWidth(10);
-$sheet->getColumnDimension('C')->setWidth(20);
+$sheet->getColumnDimension('C')->setWidth(10);
 $sheet->getColumnDimension('D')->setWidth(20);
-$sheet->getColumnDimension('E')->setWidth(10);
-$sheet->getColumnDimension('F')->setWidth(40);
-$sheet->getColumnDimension('G')->setWidth(10);
-$sheet->getColumnDimension('H')->setWidth(15);
+$sheet->getColumnDimension('E')->setWidth(15);
+$sheet->getColumnDimension('F')->setWidth(25);
+$sheet->getColumnDimension('G')->setWidth(25);
+$sheet->getColumnDimension('H')->setWidth(25);
 $sheet->getColumnDimension('I')->setWidth(15);
 $sheet->getColumnDimension('J')->setWidth(15);
 $sheet->getColumnDimension('K')->setWidth(15);
 $sheet->getColumnDimension('L')->setWidth(15);
-$sheet->getColumnDimension('M')->setWidth(15);
+$sheet->getColumnDimension('M')->setWidth(50);
 $sheet->getColumnDimension('N')->setWidth(15);
 
 header('Content-Type: application/vnd.ms-excel');

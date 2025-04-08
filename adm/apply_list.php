@@ -245,7 +245,7 @@ $admin_stt->execute();
                     <a class="position-absolute" href="javascript:initSchEndDate();" style="top:23%; right:6%;"><img src="<?= $site_url ?>/img/close.png" class="w-75"></a>
                 </div>
                 <div class="col-12 col-md-2 my-1 my-md-0 px-1 position-relative">
-                    <input type="text" class="form-control h-100 pr-5" value="<?= $stx ?>" name="stx" id="sch_str" placeholder="검색어 입력" style="border-radius: 0;border: 1px solid #ced4da;">
+                    <input type="text" class="form-control h-100 pr-5" value="<?= $stx ?>" name="stx" id="sch_str" placeholder="검색어 입력" style="background:#FFF; border-radius: 0;border: 1px solid #ced4da;">
                     <a class="position-absolute" href="javascript:initSchStr();" style="top:23%; right:2%;"><img src="<?= $site_url ?>/img/close.png" class="w-75"></a>
                 </div>
                 <div class="col-12 col-md-2 my-1 my-md-0 px-1">
@@ -263,14 +263,14 @@ $admin_stt->execute();
                         <th scope="col" class="cursor: pointer; text-center" style="width: 30px;"><input type="checkbox" class="checkbox-controller" onclick="check_all(this)"></th>
                         <th scope="col" style="width: 165px;" class="text-center" onclick="sortColumn('sort_date');">등록일</th>
                         <th scope="col" style="width: 170px;" class="text-center">유입 경로</th>
-                        <th scope="col" style="width: 170px;" class="text-center">문의 타입</th>
                         <th scope="col" style="width: 170px;" class="text-center">A/B 테스트</th>
                         <th scope="col" style="width: 170px;" class="text-center">광고 코드</th>
-                        <th scope="col" style="width: 170px;" class="text-center">등록 페이지 구분</th>
-                        <th scope="col" style="width: 200px; cursor: pointer;" class="text-center">브랜드명</th>
-                        <th scope="col" style="width: 100px; cursor: pointer;" class="text-center">담당자명</th>
+                        <th scope="col" style="width: 150px; cursor: pointer;" class="text-center">성함</th>
                         <th scope="col" style="width: 150px;" class="text-center">연락처</th>
                         <th scope="col" style="width: 200px;" class="text-center">이메일</th>
+                        <th scope="col" style="width: 250px;" class="text-center">창업희망지역</th>
+                        <th scope="col" style="width: 200px;" class="text-center">창업예상비용</th>
+                        <th scope="col" style="width: 150px;" class="text-center">점포보유여부</th>
                         <th scope="col" style="width: 150px;" class="text-center">아이피</th>
                         <th scope="col" class="d-none" style="width:500px;cursor: pointer;" onclick="sortColumn('sort_importance');">중요도<span></th>
                     </tr>
@@ -288,7 +288,6 @@ $admin_stt->execute();
                             </td>
                             <td class="text-center"><?=$list_row['write_date']?></td>
                             <td class="text-center"><?=$list_row['flow']?></td>
-                            <td class="text-center"><?=$list_row['type']?></td>
                             <td class="text-center">
                                 <?
                                 if($list_row['ab_test'] != ''){
@@ -297,11 +296,12 @@ $admin_stt->execute();
                                 ?>
                             </td>
                             <td class="text-center"><?=$list_row['ad_code']?></td>
-                            <td class="text-center"><?=$list_row['sort']?></td>
                             <td class="text-center"><?=$list_row['name']?></td>
-                            <td class="text-center"><?=$list_row['manager_name']?></td>
                             <td class="text-center"><?=$list_row['phone']?></td>
                             <td class="text-center"><?=$list_row['email']?></td>
+                            <td class="text-center"><?=$list_row['location']?></td>
+                            <td class="text-center"><?=$list_row['cost']?></td>
+                            <td class="text-center"><?=$list_row['store']?></td>
                             <td class="text-center"><span class="writer-ip"><?=$list_row['writer_ip']?></span></td>
                             <td>
                                 <button type="button" class="button button4" style="width: 100px;" onclick="openContactDescModal(<?= $list_row['id'] ?>);">문의 내용</button>
