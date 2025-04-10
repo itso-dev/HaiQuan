@@ -36,7 +36,37 @@ function mailer_naver($fname, $fmail, $tomail, $subject, $content, $file="", $cc
     return $mail->send();
 }
 
+// 네이버 웍스 SMTP 이용한 메일발송 함수 //
+function mailer_naverworks($fname, $fmail, $tomail, $subject, $content, $file = "", $cc = "", $bcc = "")
+{
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->SMTPDebug = 0;
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = "tls";
+    $mail->Host = "smtp.worksmobile.com"; // 네이버 웍스 SMTP 서버
+    $mail->Port = "587";
+    $mail->isHTML(true);
+    $mail->Username = "네이버 웍스 아이디"; // 네이버 웍스 이메일 주소
+    $mail->Password = "앱 비밀번호"; // 앱 비밀번호(비밀번호 생성)
+    $mail->CharSet = "UTF-8";
+    $mail->Encoding = "base64";
+    $mail->From = $fmail;
+    $mail->FromName = $fname;
+    $mail->Subject = $subject;
+    $mail->AltBody = "";
+    $mail->msgHTML($content);
+    $mail->addAddress($tomail);
 
+    if ($cc) $mail->addCC($cc);
+    if ($bcc) $mail->addBCC($bcc);
+
+    if (!empty($file) && file_exists($file)) {
+        $mail->addAttachment($file);
+    }
+
+    return $mail->send();
+}
 
 // 구글 SMTP 이용한 메일발송 함수 //
 function mailer_google($fname, $fmail, $tomail, $subject, $content, $file="", $cc="", $bcc="")
