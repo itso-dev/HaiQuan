@@ -10,30 +10,19 @@ $modal_stt->execute();
 $row = $modal_stt -> fetch();
 ?>
 
-<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form name="madal_form" id="madal_form" method="post" action="./ajax/contact_insert.php">
-        <input type="hidden" name="id" value="<?= $row[0] ?>" />
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><?= $row['name'] ?>님 문의 내용</h5>
-                </div>
-                <div class="modal-body">
-                    <div>
-                        <p><?= $row['contact_desc'] ?></p>
-                    </div>
-                </div>
-            </div>
 
-        </div>
-
-    </form>
+<div class="head-wrap">
+    <span><?= $row['name'] ?>님 문의 내용</span>
+    <i class="fas fa-times modal-close"></i>
+</div>
+<div class="body">
+    <p class="desc"><?= $row['contact_desc'] ?></p>
 </div>
 
+
 <script>
-    $( document ).ready(function() {
-        $('#modal-close').click(function(){
-            $('#contactModal').modal('hide');
-        })
+    $(".modal-close").click(function (){
+        $(".modal-public").fadeOut("300")
+        $(".modal-bg").hide();
     });
 </script>

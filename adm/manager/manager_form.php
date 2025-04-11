@@ -30,7 +30,7 @@ $role_stt->execute();
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="../css/manager_form.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../css/board_form.css" rel="stylesheet" />
 
 <div class="page-header">
     <h4 class="page-title">담당자 설정</h4>
@@ -48,7 +48,7 @@ $role_stt->execute();
         <div class="input-wrap">
             <p class="label-name">담당부서</p>
 
-            <select name="role" style="font-size: 17px; padding: 10px;">
+            <select name="role">
                 <?php
                 while($role_val=$role_stt->fetch()){
                 ?>
@@ -67,8 +67,8 @@ $role_stt->execute();
 
         </div>
         <div class="btn-wrap">
-            <input type="submit" class="submit" value="확인" />
             <a href="./manager_list.php?menu=4" class="go-back">목록</a>
+            <input type="submit" class="submit" value="확인" />
         </div>
     </form>
 </div>

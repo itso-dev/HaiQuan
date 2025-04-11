@@ -2,7 +2,6 @@
 if( isset( $_SESSION[ 'manager_id' ] ) ) {
      $adm_login = TRUE;
      $manager_key = $_SESSION[ 'manager_id' ];
-
      echo "
         <script>
             console.log(".$manager_key."); 
@@ -46,7 +45,7 @@ $access_stt->execute();
 $access_result = $access_stt->fetch(PDO::FETCH_ASSOC);
 
 // 권한 파싱, [1, 1, 1, 1, 1, 1] = [홈, 기본설정, 광고관리, A/B테스트, 문의관리, 팝업설정]
-$authority_json = $access_result['authority']; 
+$authority_json = $access_result['authority'];
 $authority = json_decode($authority_json);
 
 ?>
@@ -78,8 +77,39 @@ $authority = json_decode($authority_json);
 <!-- admin menu -->
 <div class="gnb-container">
     <div class="sidebar">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <!--a class="navbar-brand" href="apply_list.php">예반스</a-->
+                </div>
+                <div class="navbar-collapse">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/index.php"> <i class="fas fa-home"></i> </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adm/index_bak.php"><i class="fas fa-redo-alt"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./ajax/logout.php?is_login=<?= $adm_login ?>"> <i class="fas fa-sign-out-alt"></i></a>
+
+                        </li>
+                    </ul>
+                    <p class="manager-info"><?= $_SESSION['manager_name'] ?></p>
+                </div>
+
+            </div>
+        </nav>
         <div class="brand-wrapper">
-            <a class="brand" ><img src="<?= $site_url ?>/img/logo.png" class="adm_logo"></a>
+            <a class="brand" href="index.php">랜딩페이지명</a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
@@ -136,7 +166,7 @@ $authority = json_decode($authority_json);
                     </a>
                 </li>
                 <?php } ?>
-                
+
                 <?php if($_SESSION[ 'manager_id' ] == 1){ ?>
                 <li <?php if($menu == 111) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/manager/manager_list.php?menu=111">
@@ -146,54 +176,15 @@ $authority = json_decode($authority_json);
                 </li>
                 <?php } ?>
             </ul>
-            <div class="service-center-wrap">
-                <p class="tit"><i class="fas fa-headphones"></i> 고객센터</p>
-                <p class="text">사용 중인 관리서비스에<br>
-                    필요한 내용을 확인하세요.</p>
-                <a href="<?= $site_url ?>/service_center.php?menu=10">고객센터</a>
-            </div>
+        </div>
+        <div class="service-center-wrap">
+            <a href="<?= $site_url ?>/service_center.php?menu=10"><i class="fas fa-headphones"></i> 고객센터</a>
         </div>
     </div>
 </div>
 
 <!-- 컨텐츠 영역 시작 -->
 <div class="main-wrapper" id="wrapper">
-
-    <!-- 상단 레이아웃 -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-wrapper">
-                <div class="navbar-toggle">
-                    <button type="button" class="navbar-toggler">
-                        <span class="navbar-toggler-bar bar1"></span>
-                        <span class="navbar-toggler-bar bar2"></span>
-                        <span class="navbar-toggler-bar bar3"></span>
-                    </button>
-                </div>
-                <!--a class="navbar-brand" href="apply_list.php">예반스</a-->
-            </div>
-            <div class="navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/adm/apply_list.php"><i class="fas fa-redo-alt"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="./ajax/logout.php?is_login=<?= $adm_login ?>"> <i class="fas fa-sign-out-alt"></i></a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a href="/index.php"> <i class="fas fa-home"></i> </a>
-                    </li>
-                </ul>
-
-            </div>
-
-        </div>
-    </nav>
-
-
-    <div class="panel-header"></div>
-
     <div id="container">
         <div class="content-box-wrap">
             <div class="box">

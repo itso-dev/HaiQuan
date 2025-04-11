@@ -40,8 +40,8 @@ $today = date("Y-m-d");
         </div>
 
         <div class="btn-wrap">
-            <input type="submit" class="submit" id="submit" value="확인" />
             <a href="./ad_list.php?menu=77" class="go-back">목록</a>
+            <input type="submit" class="submit" id="submit" value="확인" />
         </div>
     </form>
 </div>

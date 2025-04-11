@@ -16,7 +16,7 @@ $ad_stt2->execute();
 
 <div class="page-header">
     <h4 class="page-title">
-        광고 관리
+        광고 링크 관리
     </h4>
 </div>
 
@@ -24,13 +24,18 @@ $ad_stt2->execute();
     <input type="hidden" name="link" value="portfolio_list.php"/>
     <input type="hidden" name="type" value="all"/>
     <div class="btn_fixed_top">
-        <span class="ad-tab1 ab-tab active" href="a_config.php?menu=77">A 페이지</span>
-        <span class="ad-tab2 ab-tab" href="b_config.php?menu=77">B 페이지</span>
-        <a href="ad_form.php?menu=77&mode=insert" id="member_add" class="btn btn_01">고유코드 추가</a>
+        <div class="tab-wrap">
+            <span class="ad-tab1 tab-item active" href="a_config.php?menu=77">A 페이지</span>
+            <span class="ad-tab2 tab-item" href="b_config.php?menu=77">B 페이지</span>
+        </div>
+        <div class="top_btn-wrap">
+            <span onclick="delData()" class="btn btn-danger">선택삭제</span>
+            <a href="ad_form.php?menu=77&mode=insert" id="member_add" class="btn btn-primary">고유코드 추가</a>
+        </div>
     </div>
+
     <div class="card-body">
         <div class="table-responsive">
-            <span onclick="delData()" class="btn btn_02">선택삭제</span>
 
             <!--     A사이트      -->
             <table class="a-table table border-bottom" style="min-width: 800px;">
@@ -69,7 +74,7 @@ $ad_stt2->execute();
                         <td headers="mb_list_mng" class="td_mng td_mng_s text-center" onclick="copyToClipboard('<?= $root_url ?>?adCode=<?= $ad1['link'] ?>')" style="cursor: pointer; color: blue; text-decoration: underline;"
                         ><?= $root_url ?>?adCode=<?= $ad1['link'] ?></td>
                         <td class="text-center">
-                                    <span class="memo" onclick="memoModal(<?= $ad1['id'] ?>)">메모 <i class="far fa-edit"></i>
+                                    <span class="memo" onclick="memoModal(<?= $ad1['id'] ?>)"><i class="far fa-edit"></i>
                                     </span>
                         </td>
                     </tr>
@@ -128,7 +133,7 @@ $ad_stt2->execute();
 <!-- box end -->
 
 <div class="modal-bg"></div>
-<div class="memo-modal-container">
+<div class="memo-modal-container modal-public">
 </div>
 
 </div>

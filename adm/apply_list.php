@@ -160,6 +160,10 @@ $admin_stt=$db_conn->prepare($admin_sql);
 $admin_stt->execute();
 
 
+//광고코드 리스트
+$adCode_sql = "select * from ad_link_tbl order by id";
+$adCode_stt=$db_conn->prepare($adCode_sql);
+$adCode_stt->execute();
 
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -178,101 +182,136 @@ $admin_stt->execute();
             <h4 class="page-title">전체보기
                 <small class="text-muted text-xs">(<?= $total_list ?>)</small>
             </h4>
-            <div class="btn_fixed_top">
-                <div class="d-none">
-                    <button type="submit" value="검색" onclick="document.pressed = this.value">삭제방지</button>
+
+
+            <div class="btn_fixed_top mt-4">
+                <div class="top_btn_wrap">
+                    <div class="d-none">
+                        <button type="submit" value="검색" onclick="document.pressed = this.value">삭제방지</button>
+                    </div>
+                    <button type="submit" name="act_button" id="delete_btn" value="선택삭제" onclick="document.pressed=this.value" class="btn btn-danger">선택삭제</button>
                 </div>
-                <button type="submit" name="act_button" id="delete_btn" value="선택삭제" onclick="document.pressed=this.value" class="btn btn-danger btn-sm shadow">선택삭제</button>
-                <button type="submit" id="export_chks" class="btn btn-primary btn-sm float-right shadow" onclick="document.pressed = '다운로드'" data-href="./ajax/apply_list_export.php">선택 엑셀 다운로드</button>
-                <a id="export_all" href="./ajax/contact_list_export.php?type=all" target="_self" class="btn btn-sm float-right shadow">액셀 다운로드</a>
-                <a id="export_chks" class="btn btn-primary btn-sm float-right shadow" href="email_form.php?menu=1">발송 이메일 관리</a>
-                <span id="export_chks" class="btn btn-primary btn-sm float-right shadow ip-modal-open">차단 아이피 관리</span>
+                <div class="top_btn-wrap" id="etc-pc">
+                    <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
+                    <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
+                    <a id="export_all" href="./ajax/contact_list_export.php?type=all" target="_self" class="btn btn-default float-right">액셀 다운로드</a>
+                    <a href="email_form.php?menu=1" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
+                    <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
+                </div>
+                <span onclick="addModal();" class="btn btn-primary mt-0">문의 데이터 추가</span>
             </div>
             <div class="btn_fixed_top justify-end">
 <!--                <a href="./schedule.php?menu=55" class="btn btn-sm btn-danger shadow mt-0">교육/행사 일정 관리</a>-->
 <!--                <a href="./calendar.php?menu=55" class="btn btn-sm btn-danger shadow mt-0">미팅 일정 관리</a>-->
             </div>
         </div>
-        <div class="mx-3 my-2 p-3 page-header border">
-            <div class="my-2">상세검색</div>
-            <div class="d-none d-md-block">
-                <div class="row mx-0">
-                    <div class="col-md-2 my-1 my-md-0 px-1">
-                        <label>담당자</label>
-                    </div>
-                    <div class="col-md-2 my-1 my-md-0 px-1">
-                        <label>결과</label>
-                    </div>
-                    <div class="col-md-2 my-1 my-md-0 px-1" >
-                        <label>검색 시작일</label>
-                    </div>
-                    <div class="col-md-2 my-1 my-md-0 px-1" >
-                        <label>검색 종료일</label>
-                    </div>
-                    <div class="col-md-4 my-1 my-md-0 px-1">
-                        <label>통합검색</label>
-                    </div>
-                </div>
-            </div>
-            <div class="row mx-0 mb-2">
-                <div class="col-6 col-md-2 my-1 my-md-0 px-1">
-                    <select class="custom-select custom-select-sm rounded-0" name="sch_manager">
-                        <option value="">없음</option>
-                        <?php
-                        while($admin_row1=$admin_stt->fetch()){
-                            ?>
-                            <option value="<?= $admin_row1['id'] ?>"><?= $admin_row1['login_name'] ?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-                <div class="col-6 col-md-2 my-1 my-md-0 px-1">
-                    <select class="custom-select custom-select-sm rounded-0" name="sch_c_result">
-                        <option value="" <? if($sch_c_result == "" || $sch_c_result == "전체") echo "selected" ?> >전체</option>
-                        <option value="대기" <? if($sch_c_result == "대기") echo "selected" ?> >대기</option>
-                        <option value="진행" <? if($sch_c_result == "진행") echo "selected" ?> >진행</option>
-                        <option value="부재" <? if($sch_c_result == "부재") echo "selected" ?> >부재</option>
-                        <option value="재통화" <? if($sch_c_result == "재통화") echo "selected" ?> >재통화</option>
-                        <option value="거절" <? if($sch_c_result == "거절") echo "selected" ?> >거절</option>
-                        <option value="완료" <? if($sch_c_result == "완료") echo "selected" ?> >완료</option>
-                    </select>
-                </div>
-                <div class="col-12 col-md-2 py-md-0 my-1 my-md-0 px-1 position-relative">
-                    <input type="text" class="form-control h-100 bg-white date-picker" value="<?= $sch_startdate ?>" name="sch_startdate" id="sch_startdate" autocomplete="off" placeholder="검색 시작일" style="border-radius: 0;border: 1px solid #ced4da;">
-                    <a class="position-absolute" href="javascript:initSchDate();" style="top:23%; right:6%;"><img src="<?= $site_url ?>/img/close.png" class="w-75"></a>
-                </div>
-                <div class="col-12 col-md-2 py-md-0 my-1 my-md-0 px-1 position-relative">
-                    <input type="text" class="form-control h-100 bg-white date-picker" value="<?= $sch_enddate ?>" name="sch_enddate" id="sch_enddate" autocomplete="off" placeholder="검색 종료일" style="border-radius: 0;border: 1px solid #ced4da;">
-                    <a class="position-absolute" href="javascript:initSchEndDate();" style="top:23%; right:6%;"><img src="<?= $site_url ?>/img/close.png" class="w-75"></a>
-                </div>
-                <div class="col-12 col-md-2 my-1 my-md-0 px-1 position-relative">
-                    <input type="text" class="form-control h-100 pr-5" value="<?= $stx ?>" name="stx" id="sch_str" placeholder="검색어 입력" style="background:#FFF; border-radius: 0;border: 1px solid #ced4da;">
-                    <a class="position-absolute" href="javascript:initSchStr();" style="top:23%; right:2%;"><img src="<?= $site_url ?>/img/close.png" class="w-75"></a>
-                </div>
-                <div class="col-12 col-md-2 my-1 my-md-0 px-1">
-                    <div class="w-100 py-1 py-md-1 my-md-auto row mx-0 rounded-0" style="background-color:#F66332; border-radius: 3px; color:white; border:none; cursor:pointer" onclick="search();">
-                        <div class="m-auto text-center">검색</div>
-                    </div>
-                </div>
-            </div>
+        <div class="top_btn-wrap mt-2" id="etc-mo">
+            <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
+            <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
+            <a id="export_all" href="./ajax/contact_list_export.php?type=all" target="_self" class="btn btn-default float-right">액셀 다운로드</a>
+            <a href="email_form.php?menu=1" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
+            <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
         </div>
-        <div class="page-body">
+
+        <div class="mt-3 p-3 page-header search-wrap border">
+            <div class="f-left">
+                <div class="d-none d-md-block">
+                    <div class="row mx-0">
+                        <div class="col-6 my-1 my-md-0 px-1">
+                            <div class="my-1 my-md-0">
+                                <label>광고 코드</label>
+                            </div>
+                            <select class="custom-select custom-select-sm form-control" name="sch_ad_type">
+                                <option value="">없음</option>
+                                <?php
+                                while($adCode=$adCode_stt->fetch()){
+                                    ?>
+                                    <option value="<?= $adCode['link'] ?>" <? if($sch_ad_type == $adCode['link']) echo "selected" ?> ><?= $adCode['link'] ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                        <? if($_SESSION['manager_id'] == 1){ ?>
+                            <div class="col-6 my-1 my-md-0 px-1">
+                                <div class="my-1 my-md-0">
+                                    <label>담당자</label>
+                                </div>
+                                <select class="custom-select custom-select-sm form-control" name="sch_manager">
+                                    <option value="">없음</option>
+                                    <?php
+                                    while($admin_row1=$admin_stt->fetch()){
+                                        ?>
+                                        <option value="<?= $admin_row1['id'] ?>"><?= $admin_row1['login_name'] ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        <? } ?>
+                        <div class="col-6 my-1 my-md-0 px-1">
+                            <div class="my-1 my-md-0">
+                                <label>결과</label>
+                            </div>
+                            <select class="custom-select custom-select-sm form-control" name="sch_c_result">
+                                <option value="" <? if($sch_c_result == "" || $sch_c_result == "전체") echo "selected" ?> >전체</option>
+                                <option value="대기" <? if($sch_c_result == "대기") echo "selected" ?> >대기</option>
+                                <option value="잔행" <? if($sch_c_result == "잔행") echo "selected" ?> >잔행</option>
+                                <option value="부재" <? if($sch_c_result == "부재") echo "selected" ?> >부재</option>
+                                <option value="재통화" <? if($sch_c_result == "재통화") echo "selected" ?> >재통화</option>
+                                <option value="거절" <? if($sch_c_result == "거절") echo "selected" ?> >거절</option>
+                                <option value="완료" <? if($sch_c_result == "완료") echo "selected" ?> >완료</option>
+                            </select>
+                        </div>
+                        <div class="col-6 py-md-0 my-1 my-md-0 px-1 position-relative">
+                            <div class="my-1 my-md-0">
+                                <label>검색 시작일</label>
+                            </div>
+                            <input type="text" class="form-control bg-white date-picker" value="<?= $sch_date ?>" name="sch_date" id="sch_date" autocomplete="off" placeholder="생성일">
+                            <a class="position-absolute" href="javascript:initSchDate();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
+                        </div>
+                        <div class="col-6 py-md-0 my-1 my-md-0 px-1 position-relative">
+                            <div class="my-1 my-md-0">
+                                <label>검색 종료일</label>
+                            </div>
+                            <input type="text" class="form-control bg-white date-picker" value="<?= $sch_date ?>" name="sch_date" id="sch_date" autocomplete="off" placeholder="생성일">
+                            <a class="position-absolute" href="javascript:initSchDate();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
+                        </div>
+                        <div class="col-6 col-md-3 my-1 my-md-0 px-1 position-relative">
+                            <div class="my-1 my-md-0">
+                                <label>통합검색</label>
+                            </div>
+                            <input type="text" class="form-control pr-5" value="<?= $stx ?>" name="stx" id="sch_str" placeholder="검색어 입력">
+                            <a class="position-absolute" href="javascript:initSchStr();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="row mx-0" onclick="search();">
+                <div class="btn btn-default text-center">상세검색</div>
+            </a>
+        </div>
+
+
+        <div class="scroll-msg mt-4">표를 좌우로 스크롤하여 전체내용을 확인하세요 <i class="fa-solid fa-right-left"></i>  </div>
+        <div class="mt-2">
             <div class="table-responsive">
                 <table class="table border-bottom border-top" style="min-width: 2100px;">
                     <thead>
                     <tr>
-                        <th scope="col" class="cursor: pointer; text-center" style="width: 30px;"><input type="checkbox" class="checkbox-controller" onclick="check_all(this)"></th>
-                        <th scope="col" style="width: 165px;" class="text-center" onclick="sortColumn('sort_date');">등록일</th>
-                        <th scope="col" style="width: 170px;" class="text-center">유입 경로</th>
+                        <th scope="col" class="text-center" style="width: 50px;"><input type="checkbox" class="checkbox-list" onclick="check_all(this)" id="chk_all"><label for="chk_all"></label></th>
+                        <th scope="col" style="width: 190px;" class="text-center">광고 코드</th>
+                        <th scope="col" style="width: 250px;" class="text-center">유입 경로</th>
+                        <th scope="col" style="width: 200px;" class="text-center" onclick="sortColumn('sort_date');">등록일</th>
+                        <th scope="col" style="width: 200px;" class="text-center">아이피</th>
                         <th scope="col" style="width: 170px;" class="text-center">A/B 테스트</th>
-                        <th scope="col" style="width: 170px;" class="text-center">광고 코드</th>
                         <th scope="col" style="width: 150px; cursor: pointer;" class="text-center">성함</th>
                         <th scope="col" style="width: 150px;" class="text-center">연락처</th>
                         <th scope="col" style="width: 200px;" class="text-center">이메일</th>
                         <th scope="col" style="width: 250px;" class="text-center">창업희망지역</th>
                         <th scope="col" style="width: 200px;" class="text-center">창업예상비용</th>
                         <th scope="col" style="width: 150px;" class="text-center">점포보유여부</th>
-                        <th scope="col" style="width: 150px;" class="text-center">아이피</th>
-                        <th scope="col" class="d-none" style="width:500px;cursor: pointer;" onclick="sortColumn('sort_importance');">중요도<span></th>
+                        <th scope="col" style="width: 150px;" class="text-center">문의 내용</th>
+                        <th scope="col" style="width: 150px;" class="text-center">상담 내역</th>
+                        <th scope="col" style="width: 150px;" class="text-center">진행 상태</th>
+                        <th scope="col" style="width: 150px;" class="text-center">담당자</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -282,31 +321,30 @@ $admin_stt->execute();
                         $is_data = 1;
                         ?>
                         <tr class="bg0">
-                            <td class="td_chk text-center">
-                                <label for="chk_0" class="sound_only"></label>
-                                <input type="checkbox" name="chk[]" class="checkbox-list" value="<?= $list_row['id'] ?>" id="chk_">
+                            <td class="td_chk text-center"> <!--두번째줄도 체크 되는지 확인필요-->
+                                <input type="checkbox" name="chk[]" class="checkbox-list" value="<?= $list_row['id'] ?>" id="<?= $list_row['id'] ?>">
+                                <label for="<?= $list_row['id'] ?>"></label>
                             </td>
-                            <td class="text-center"><?=$list_row['write_date']?></td>
+                            <td class="text-center"><?=$list_row['ad_code']?></td>
                             <td class="text-center"><?=$list_row['flow']?></td>
+                            <td class="text-center"><?=$list_row['write_date']?></td>
+                            <td class="text-center"><span class="writer-ip"><?=$list_row['writer_ip']?></span></td>
                             <td class="text-center">
                                 <?
                                 if($list_row['ab_test'] != ''){
                                     echo $list_row['ab_test'] ."페이지";
                                 }
                                 ?>
-                            </td>
-                            <td class="text-center"><?=$list_row['ad_code']?></td>
-                            <td class="text-center"><?=$list_row['name']?></td>
+                            </td><td class="text-center"><?=$list_row['name']?></td>
                             <td class="text-center"><?=$list_row['phone']?></td>
                             <td class="text-center"><?=$list_row['email']?></td>
                             <td class="text-center"><?=$list_row['location']?></td>
                             <td class="text-center"><?=$list_row['cost']?></td>
                             <td class="text-center"><?=$list_row['store']?></td>
-                            <td class="text-center"><span class="writer-ip"><?=$list_row['writer_ip']?></span></td>
-                            <td>
-                                <button type="button" class="button button4" style="width: 100px;" onclick="openContactDescModal(<?= $list_row['id'] ?>);">문의 내용</button>
+                            <td class="text-center">
+                                <button type="button" class="button button4" style="width: 100px; " onclick="openContactDescModal(<?= $list_row['id'] ?>);">문의 내용</button>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <button type="button" class="button button4" style="width: 90px;" onclick="openCounselModal(<?= $list_row['id'] ?>);">상담 내역</button>
                             </td>
                             <!-- <td>
@@ -413,13 +451,53 @@ $admin_stt->execute();
 
 <!-- Popup Modal -->
 <div class="modal-bg"></div>
-<div class="ip-modal-container">
-
+<div class="ip-modal-container modal-public"></div>
+<div class="add-modal-container modal-public"></div>
+<div class="modal-container modal-public"></div>
+<div class="exel-modal-container modal-public">
+    <div class="head-wrap">
+        <span>엑셀 업로드</span>
+        <i class="fas fa-times modal-close"></i>
+    </div>
+    <div class="body">
+        <form action="ajax/excel_upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="excel_file"  accept=".xls,.xlsx" required />
+            <p class="tip">*업로드 하는 엑셀 파일의 항목이 일치해야 정상적으로 데이터가 등록됩니다.</p>
+            <span class="submit" onclick="testSave()">업로드</span>
+        </form>
+    </div>
 </div>
-
-<div class="modal-container">
-</div>
-
+<div class="add-modal-container modal-public">
+    <div class="head-wrap">
+        <span>문의 데이터 추가</span>
+        <i class="fas fa-times modal-close"></i>
+    </div>
+    <div class="body">
+        <div>
+            <div class="input-wrap">
+                <p class="label">브랜드명</p>
+                <input type="text" name="brand_name" required />
+            </div>
+            <div class="input-wrap">
+                <p class="label">연락처</p>
+                <input type="text" name="phone" required />
+            </div>
+            <div class="input-wrap">
+                <p class="label">담당자 명</p>
+                <input type="text" name="manager_name" required />
+            </div>
+            <div class="input-wrap">
+                <p class="label">이메일</p>
+                <input type="email" name="email" required />
+            </div>
+            <div class="input-wrap">
+                <p class="label">문의 내용</p>
+                <input type="text" name="contact_desc" required />
+            </div>
+            <span class="submit btn btn-primary w-100" onclick="testSave()">저장</span>
+            </form>
+        </div>
+    </div>
 
 <script type="text/javascript">
 
@@ -504,47 +582,41 @@ $admin_stt->execute();
             dateFormat: "yy-mm-dd"
         });
     });
-    //문의 내용 팝업
+    //상담 내역 팝업
     function openCounselModal(index){
-
         $.ajax({
             type:'post',
             url:'./ajax/counsel_modal_open.php',
             data:{wr_id:index},
             success:function(html){
-
+                $('.modal-container').addClass('counsel');
                 $('.modal-container').empty();
                 $('.modal-container').html(html);
-                $('#contactModal').modal('show');
                 $('.modal-bg').show();
-                $('#contactModal').attr('aria-hidden', 'false');
-
+                $('.modal-container').fadeIn("300")
             }
         });
     }
-    //상담 내역 팝업
+    //문의 내용 팝업
     function openContactDescModal(index){
-
         $.ajax({
             type:'post',
             url:'./ajax/contact_desc_modal_open.php',
             data:{wr_id:index},
             success:function(html){
-
                 $('.modal-container').empty();
                 $('.modal-container').html(html);
-                $('#contactModal').modal('show');
                 $('.modal-bg').show();
-                $('#contactModal').attr('aria-hidden', 'false');
+                $('.modal-container').fadeIn("300")
             }
         });
     }
 
     // 모달 닫기 (배경 클릭 포함)
     $(document).on('click', '.modal-bg, .close-modal', function (e) {
-        $('#contactModal').modal('hide');
-        $('#contactModal').attr('aria-hidden', 'true');
+        $('.modal-public').hide();
         $('.modal-bg').fadeOut(300);
+        $('.modal-container').removeClass('counsel');
     });
 
     $(".writer-ip").click(function (){
@@ -575,6 +647,16 @@ $admin_stt->execute();
             }
         });
     });
+
+    function exelModal(){
+        $(".modal-bg").show();
+        $(".exel-modal-container").fadeIn("300")
+    }
+    function addModal(){
+        $(".modal-bg").show();
+        $(".add-modal-container").fadeIn("300")
+    }
+
     $(".modal-close").click(function (){
         $(".ip-modal-container").fadeOut("300")
         $(".modal-bg").hide();

@@ -10,6 +10,16 @@ error_reporting(E_ALL);
 include_once($site_path.'/db/dbconfig.php');
 
 
+//스팸봇 차단
+$bad_agents = ['MJ12bot', 'AhrefsBot', 'SemrushBot', 'DotBot'];
+foreach ($bad_agents as $bot) {
+    if (stripos($_SERVER['HTTP_USER_AGENT'], $bot) !== false) {
+        header('HTTP/1.0 403 Forbidden');
+        exit;
+    }
+}
+
+
 // 현재 URL 가져오기
 $current_url = $_SERVER['REQUEST_URI'];
 
@@ -122,6 +132,8 @@ if(isset($_SERVER['HTTP_REFERER'])) {
         $flow = "네이버 플레이스";
     } elseif (strpos($referer, 'blog.naver.com') !== false || strpos($referer, 'm.blog.naver.com') !== false) {
         $flow = "네이버 블로그";
+    } elseif (strpos($referer, 'cafe.naver.com') !== false) {
+        $flow = "네이버 카페";
     } elseif (strpos($referer, 'searchad.naver.com') !== false) {
         $flow = "네이버 파워링크 광고";
     } elseif (strpos($referer, 'facebook.com') !== false || strpos($referer, 'lm.facebook.com') !== false) {
@@ -181,7 +193,7 @@ echo "<script>console.log('유입 경로: " . addslashes($flow) . "');</script>"
 
 <body>
     <?= $site['body_script'] ?>
-    
+
     <div id="header">
         <img src="img/logo.png" class="logo">
         <img src="img/mo-logo.svg" class="mo-logo">
@@ -257,12 +269,12 @@ echo "<script>console.log('유입 경로: " . addslashes($flow) . "');</script>"
 
             $.each(menuOffsets, function(menu, offset) {
                 if (scrollPosition >= offset && scrollPosition < offset + $('#' + menu).outerHeight()) {
-                    $('nav ul li').removeClass('tap'); 
-                    $('nav ul li[data-target="' + menu + '"]').addClass('tap'); 
+                    $('nav ul li').removeClass('tap');
+                    $('nav ul li[data-target="' + menu + '"]').addClass('tap');
                 }
             });
         }
-                
+
         $('nav ul li').on('click', function(){
             var target = $(this).data('target');
 

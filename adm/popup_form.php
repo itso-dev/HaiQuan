@@ -50,7 +50,7 @@ if ($type == 'modify') {
 }
 ?>
 
-<link rel="stylesheet" type="text/css" href="./css/popup_form.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./css/board_form.css" rel="stylesheet" />
 
 <div class="page-header">
     <h4 class="page-title">팝업 설정</h4>
@@ -61,46 +61,53 @@ if ($type == 'modify') {
         <input type="hidden" name="pc_file" value="<?= $pc_file ?>" />
         <input type="hidden" name="mo_file" value="<?= $mo_file ?>" />
         <div>
-            <div class="input-wrap">
-                <p class="label-name">시작일시*</p>
-                <input type="text" name="start_date" id="start_date" class="form-control" value="<?= $start_date ?>"
-                       placeholder="ex) 2021-01-01 00:00:00" required>
-                <label>
-                    <input type="checkbox" name="today_chk"
-                           onclick="if (this.checked == true) this.form.start_date.value=this.form.today_chk.value; else this.form.start_date.value = this.form.start_date.defaultValue;"
-                           value="<?= $today ?> 00:00:00">
-                    시작일시를 오늘로
-                </label>
+            <div class="col-2">
+                <div class="input-wrap w-100">
+                    <p class="label-name">시작일시*</p>
+                    <input type="text" name="start_date" id="start_date" class="form-control" value="<?= $start_date ?>"
+                           placeholder="ex) 2021-01-01 00:00:00" required>
+                    <div class="checkbox-wrap">
+                        <input type="checkbox" name="today_chk" class="checkbox-list" id="chk-st"
+                               onclick="if (this.checked == true) this.form.start_date.value=this.form.today_chk.value; else this.form.start_date.value = this.form.start_date.defaultValue;"
+                               value="<?= $today ?> 00:00:00">
+                        <label for="chk-st"></label> 시작일시를 오늘로
+                    </div>
+                </div>
+                <div class="input-wrap w-100">
+                    <p class="label-name">종료일시*</p>
+                    <input type="text" name="end_date" id="end_date" class="form-control" value="<?= $end_date ?>"
+                           placeholder="ex) 2021-01-01 23:59:59" required>
+
+                    <div class="checkbox-wrap">
+                        <input type="checkbox" name="seven_chk" class="checkbox-list" id="chk-ed"
+                               onclick="if (this.checked == true) this.form.end_date.value=this.form.seven_chk.value; else this.form.end_date.value = this.form.end_date.defaultValue;"
+                               value="<?= $seven_day ?> 23:59:59">
+                        <label for="chk-ed"></label>  종료일시를 오늘로부터 일주일로
+                    </div>
+                </div>
             </div>
-            <div class="input-wrap">
-                <p class="label-name">종료일시*</p>
-                <input type="text" name="end_date" id="end_date" class="form-control" value="<?= $end_date ?>"
-                       placeholder="ex) 2021-01-01 23:59:59" required>
-                <label>
-                    <input type="checkbox" name="seven_chk"
-                           onclick="if (this.checked == true) this.form.end_date.value=this.form.seven_chk.value; else this.form.end_date.value = this.form.end_date.defaultValue;"
-                           value="<?= $seven_day ?> 23:59:59">
-                    종료일시를 오늘로
-                </label>
-            </div>
+            <hr>
             <div class="input-wrap">
                 <p class="label-name">팝업 제목*</p>
                 <input type="text" name="popup_name" class="form-control" value="<?= $popup_name ?>">
             </div>
+            <hr>
             <div class="input-wrap">
                 <p class="label-name">팝업 링크</p>
                 <input type="text" name="link" class="form-control" placeholder="클릭 시 이동할 링크를 입력해주세요" value="<?= $link ?>">
             </div>
             <hr>
-            <div class="input-wrap">
-                <p class="label-name">PC 팝업 사이즈*</p>
-                <p class="label-name">넓이(px)*</p>
-                <input type="text" name="width" class="form-control" value="<?= $width ?>">
+            <div class="col-2">
+                <div class="input-wrap">
+                    <p class="label-name">PC 팝업 넓이(px)*</p>
+                    <input type="text" name="width" class="form-control" value="<?= $width ?>">
+                </div>
+                <div class="input-wrap">
+                    <p class="label-name">PC 팝업 높이(px)*</p>
+                    <input type="text" name="height" class="form-control" value="<?= $height ?>">
+                </div>
             </div>
-            <div class="input-wrap">
-                <p class="label-name">높이(px)*</p>
-                <input type="text" name="height" class="form-control" value="<?= $height ?>">
-            </div>
+            <hr>
             <div class="input-wrap input-file">
                 <p class="label-name">팝업 PC 이미지 업로드*</p>
                 <input type="file" id="img_upload1" name="img_upload1" class="form-control">
@@ -111,17 +118,19 @@ if ($type == 'modify') {
             </div>
             <hr>
             <!-- 모바일 -->
-            <div class="input-wrap">
-                <p class="label-name">모바일 팝업 사이즈*</p>
-                <p class="label-name">넓이(px)*</p>
-                <input type="text" name="width2" class="form-control" value="<?= $width2 ?>">
+            <div class="col-2">
+                <div class="input-wrap">
+                    <p class="label-name">모바일 팝업 넓이(px)*</p>
+                    <input type="text" name="width2" class="form-control" value="<?= $width2 ?>">
+                </div>
+                <div class="input-wrap">
+                    <p class="label-name">모바일 팝업 높이(px)*</p>
+                    <input type="text" name="height2" class="form-control" value="<?= $height2 ?>">
+                </div>
             </div>
-            <div class="input-wrap">
-                <p class="label-name">높이(px)*</p>
-                <input type="text" name="height2" class="form-control" value="<?= $height2 ?>">
-            </div>
+            <hr>
             <div class="input-wrap input-file">
-                <p class="label-name">팝업 모바일 이미지 업로드*</p>
+                <p class="label-name">모바일 팝업 이미지 업로드*</p>
                 <input type="file" id="img_upload2" name="img_upload2" class="form-control">
                 <small>5MB 이하의 파일만 업로드 가능합니다.</small>
                 <div class="img-preview">
@@ -130,8 +139,8 @@ if ($type == 'modify') {
             </div>
         </div>
         <div class="btn-wrap">
-            <input type="submit" class="submit" value="확인" required />
             <a href="./popup_list.php" class="go-back">목록</a>
+            <input type="submit" class="submit" value="확인" required />
         </div>
     </form>
 </div>

@@ -21,11 +21,14 @@ ini_set('display_errors', '1');
 <div class="page-header">
     <h4 class="page-title">기본 설정</h4>
 
-    <span class="tab tab1 active">A사이트 기본설정</span>
-    <span class="tab tab2">B사이트 기본설정</span>
+    <div class="tab-wrap">
+        <span class="tab-item tab1  active">A사이트 기본설정</span>
+        <span class="tab-item tab2">B사이트 기본설정</span>
+    </div>
+
 
     <!--     A사이트      -->
-    <form name="config_form" id="config_form_a" method="post" action="./ajax/site_modify.php">
+    <form name="config_form" id="config_form_a" method="post" action="./ajax/site_modify.php" style="margin-top: 30px">
         <input type="hidden" name="type" value="1">
         <div class="row">
             <div class="col-md-5 pr-1">
@@ -99,7 +102,7 @@ ini_set('display_errors', '1');
     </form>
 
     <!--     B사이트      -->
-    <form name="config_form" id="config_form_b" method="post" action="./ajax/site_modify.php">
+    <form name="config_form" id="config_form_b" method="post" action="./ajax/site_modify.php" style="margin-top: 30px">
         <input type="hidden" name="type" value="2">
         <div class="row">
             <div class="col-md-5 pr-1">

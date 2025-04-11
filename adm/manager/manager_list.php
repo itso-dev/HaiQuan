@@ -26,9 +26,12 @@
         <small class="text-muted text-xs">(총 <?= $total[0] ?> 명)</small>
         </h4>
         <div class="btn_fixed_top">
-           <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
-            <a href="./access_list.php?menu=111&type=insert" id="member_add" class="btn2 btn_01">담당 부서 설정</a>
-            <a href="./manager_form.php?menu=111&type=insert" id="member_add" class="btn2 btn_01">담당자 추가</a>
+           <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn-danger">
+            <div class="top_btn-wrap">
+                <a href="./access_list.php?menu=111&type=insert" id="member_add" class="btn btn-default">담당 부서 설정</a>
+                <a href="./manager_form.php?menu=111&type=insert" id="member_add" class="btn btn-primary">담당자 추가</a>
+
+            </div>
         </div>
     </div>
     <div class="card-body">

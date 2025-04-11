@@ -17,8 +17,8 @@
     <input type="hidden" name="page" value="1">
     <div class="page-header">
         <div class="btn_fixed_top">
-           <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn_02">
-            <span onclick="memoModal()" id="member_add" class="btn2 btn_01">담당 부서 추가</span>
+           <input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value" class="btn btn-danger">
+            <span onclick="memoModal()" id="member_add" class="btn btn-primary">담당 부서 추가</span>
         </div>
     </div>
     <div class="card-body">
@@ -28,7 +28,7 @@
                     <tr>
                         <th scope="col" id="mb_list_chk" width="3%">
                             <label for="chkall" class="d-none">회원 전체</label>
-                            <input type="checkbox" name="chkall" value="1" onclick="check_all(this)">
+                            <input type="checkbox" class="checkbox-list" name="chkall" id="chkall" value="1" onclick="check_all(this)"><label for="chkall" class="d-done">회원전체</label>
                         </th>
                         <th scope="col" id="mb_list_id" class="text-center" width="10%">부서명</th>
                         <th scope="col" id="mb_list_name" class="text-center" width="10%">홈</th>
@@ -46,7 +46,7 @@
                         <tr class="bg0">
                             <td headers="mb_list_chk" class="td_chk">
                                 <input type="hidden" name="mb_id[<?=$row['id']?>]" value="admin" id="mb_id_<?=$row['id']?>">
-                                <input type="checkbox" name="chk[]" class="m_chk" value="<?=$row['id']?>" id="chk_<?=$row['id']?>">
+                                <input type="checkbox" name="chk[]" class="m_chk checkbox-list" value="<?=$row['id']?>" id="chk_<?=$row['id']?>"><label for="chk_<?=$row['id']?>"></label>
                             </td>
                             <td headers="mb_list_id" class="td_name sv_use text-center"> <?=$row['name']?></td>
                             <?php foreach (json_decode($row['authority'], true) as $index => $value): ?>
@@ -70,7 +70,7 @@
  <!-- box end -->
 
 <div class="modal-bg"></div>
-<div class="modal-container">
+<div class="modal-container modal-public">
     <div class="head-wrap">
         <span>담당 부서 추가</span>
         <i class="fas fa-times modal-close"></i>
