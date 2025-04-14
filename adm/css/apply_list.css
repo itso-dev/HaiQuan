@@ -73,10 +73,10 @@
 .d-none .row > div:nth-of-type(2),
 .d-none .row > div:nth-of-type(3),
 .d-none .row > div:nth-of-type(4){
-    max-width: 16.5%;
+    max-width: 20%;
 }
 .row > div:nth-of-type(5){
-
+  
 }
 .d-none .row{
     display: flex;
@@ -103,7 +103,7 @@
     width: 100%;
 }
 
-.custom-select:hover,
+.custom-select:hover, 
 .form-control:hover{
     border: 1px solid #6C93CA;
 }
@@ -147,7 +147,7 @@ img {
     color: rgb(255, 109, 93, 1);
 }
 
-/*
+
 .ip-modal-container{
     position: fixed;
     top: 10%;
@@ -159,59 +159,56 @@ img {
     overflow: hidden;
     display: none;
 }
-.ip-modal-container .head-wrap{
-    text-align: center;
-    position: relative;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: 700;
-    background-color: #00a1b7;
-    color: #fff;
-}
-.ip-modal-container .head-wrap i{
-    cursor: pointer;
-    font-size: 25px;
-    position: absolute;
-    top: 17px;
-    right: 25px;
-    color: #fff;
-}
-*/
 .ip-modal-container .ip-table{
-    width: 90%;
-    margin: 15px auto;
-    background: #f2f2f2;
-    height: 300px;
+    width: 100%;
+    margin: 0pxs;
+    height: 450px;
     overflow-y: scroll;
 }
 .ip-modal-container .ip-table table{
     width: 100%;
 }
 .ip-modal-container .ip-table th{
-    text-align: center;
-    padding: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 2px;
+    color: rgba(33, 51, 80, 0.8);
+    text-align:center;
 }
 
 .ip-modal-container .ip-table tr{
-    border-bottom: 1px solid #d1d1d1;
+    border-bottom: 1px solid #dee2e6;
 }
 
 .ip-modal-container .ip-table td{
-    padding: 8px 15px;
+    font-size:13px;
     text-align: center;
+    padding: 2px 4px;
+    height: 40px;
+    vertical-align: middle;
+    color: rgba(0, 0, 0, 0.75);
 
 }
 .ip-modal-container .ip-del{
     cursor: pointer;
-    font-size: 15px;
-    color: #961818;
+    font-size: 12px;
+    border: 1px solid #FFC1BA;
+    padding: 5px 4px;
+    border-radius: 4px;
+    color: rgb(255, 109, 93, 0.85);
     font-weight: 500;
+
+}
+
+.ip-modal-container .ip-del:hover{
+    background-color: #FFF2F0;
+    border: 1px solid #FFC1BA;
 }
 
 .exel-modal-container .body input[type=file]{
     width: 100%;
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 5px;
     border-radius: 8px;
 }
 .exel-modal-container .body .label-name{

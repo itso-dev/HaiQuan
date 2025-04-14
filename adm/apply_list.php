@@ -195,7 +195,7 @@ $adCode_stt->execute();
                     <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
                     <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
                     <a id="export_all" href="./ajax/contact_list_export.php?type=all" target="_self" class="btn btn-default float-right">액셀 다운로드</a>
-                    <a href="email_form.php?menu=1" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
+                    <a href="email_form.php?menu=55" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
                     <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
                 </div>
                 <span onclick="addModal();" class="btn btn-primary mt-0">문의 데이터 추가</span>
@@ -319,14 +319,18 @@ $adCode_stt->execute();
                     $is_data = 0;
                     while($list_row=$list_stt->fetch()){
                         $is_data = 1;
-                        ?>
+
+                        $flow = $list_row['flow'] ?? ''; 
+                        // 괄호 안에 index.php 또는 contact_write.php가 포함되어 있으면 괄호 전체 제거
+                        $flow = preg_replace('/\(([^)]*(index\.php|contact_write\.php|thankyou\.php)[^)]*)\)/', '', $flow);
+                    ?>
                         <tr class="bg0">
                             <td class="td_chk text-center"> <!--두번째줄도 체크 되는지 확인필요-->
                                 <input type="checkbox" name="chk[]" class="checkbox-list" value="<?= $list_row['id'] ?>" id="<?= $list_row['id'] ?>">
                                 <label for="<?= $list_row['id'] ?>"></label>
                             </td>
                             <td class="text-center"><?=$list_row['ad_code']?></td>
-                            <td class="text-center"><?=$list_row['flow']?></td>
+                            <td class="text-center"><?=$flow?></td>
                             <td class="text-center"><?=$list_row['write_date']?></td>
                             <td class="text-center"><span class="writer-ip"><?=$list_row['writer_ip']?></span></td>
                             <td class="text-center">

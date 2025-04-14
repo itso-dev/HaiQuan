@@ -14,6 +14,11 @@ $total_contact_sql = "SELECT COUNT(contact_cnt) FROM contact_log_tbl";
 $total_contact_stt=$db_conn->prepare($total_contact_sql);
 $total_contact_stt->execute();
 $total_contact = $total_contact_stt -> fetch();
+// 전체 대기자 수
+$total_wait_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%대기%'";
+$total_wait_stt=$db_conn->prepare($total_wait_sql);
+$total_wait_stt->execute();
+$total_wait = $total_wait_stt -> fetch();
 // 전체 진행자 수
 $total_processing_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%진행%'";
 $total_processing_stt=$db_conn->prepare($total_processing_sql);
@@ -34,6 +39,11 @@ $today_contact_sql = "SELECT COUNT(contact_cnt) FROM contact_log_tbl WHERE DATE(
 $today_contact_stt=$db_conn->prepare($today_contact_sql);
 $today_contact_stt->execute();
 $today_contact = $today_contact_stt -> fetch();
+// 오늘 대기자 수
+$today_wait_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%대기%' AND DATE(write_date) = DATE(NOW())";
+$today_wait_stt=$db_conn->prepare($today_wait_sql);
+$today_wait_stt->execute();
+$today_wait = $today_wait_stt -> fetch();
 // 오늘 진행자 수
 $today_processing_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%진행%' AND DATE(write_date) = DATE(NOW())";
 $today_processing_stt=$db_conn->prepare($today_processing_sql);
@@ -94,74 +104,152 @@ $dates = array_keys($result); // 날짜 리스트
 $contact_counts = array_column($result, 'contact_count'); // 문의 건수 리스트
 $view_counts = array_column($result, 'view_count'); // 조회수 리스트
 
+// 담당자 쿼리
+$admin_sql = "select * from admin_tbl order by id";
+$admin_stt=$db_conn->prepare($admin_sql);
+$admin_stt->execute();
+
+$stDate = '';
+$endDate = '';
 ?>
 
-<link rel="stylesheet" type="text/css" href="<?= $site_url ?>/css/board_list.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?= $site_url ?>/css/home.css" rel="stylesheet" />
 
-<div class="page-header">
-    <h4 class="page-title">
-        홈
-    </h4>
-</div>
+    <div class="page-header">
+        <h4 class="page-title">방문자 통계</h4>
+        <div class="content-container">
+           <div class="content-wrap">
+               <p class="tit">전체</p>
+               <div class="view-wrap">
+                   <div class="item">
+                       <p class="name">방문자 수</p>
+                       <p class="cnt"><?=number_format($total_view[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">문의 건수</p>
+                       <p class="cnt"><?=number_format($total_contact[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 대기자 수</p>
+                       <p class="cnt"><?=number_format($total_wait[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 진행 수</p>
+                       <p class="cnt"><?=number_format($total_processing[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 완료 수<p>
+                       <p class="cnt"><?=number_format($total_finish[0])?></p>
+                   </div>
+               </div>
+           </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">오늘</p>
+                <div class="view-wrap">
+                    <div class="item">
+                        <p class="name">방문자 수</p>
+                        <p class="cnt"><?=number_format($today_view[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">문의 건수</p>
+                        <p class="cnt"><?=number_format($today_contact[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 대기자 수</p>
+                        <p class="cnt"><?=number_format($today_wait[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 진행자 수</p>
+                        <p class="cnt"><?=number_format($today_processing[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 완료 수<p>
+                        <p class="cnt"><?=number_format($today_finish[0])?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">방문자 현황</p>
+                <div class="py-2"><div id="chart"></div></div>
+            </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">선택 조회</p>
+                <div id="search_form">
+                    <div class="choice-wrap">
+                        <div class="item">
+                            <p>시작 날짜</p>
+                            <input type="date" id="stDate" name="stDate" class="date-input form-control" value=""/>
+                        </div>
+                        <div class="item">
+                            <p>종료 날짜</p>
+                            <input type="date" id="endDate" name="endDate" class="date-input form-control" value=""/>
+                        </div>
+                        <div class="item">
+                            <input type="submit" id="search" class="btn btn-default search-btn" value="검색하기" />
+                        </div>
+                    </div>
+                </div>
+                <div id="search-result" class="search-result">
+                    <?php if($stDate != ""){ ?>
+                    <p class="tit">검색 결과</p>
+                        <div class="view-wrap">
+                            <div class="item">
+                                <p class="name">방문자 수</p>
+                                <p class="cnt">682</p>
+                            </div>
+                            <div class="item">
+                                <p class="name">문의 건수</p>
+                                <p class="cnt">1</p>
+                            </div>
+                            <div class="item">
+                                <p class="name">상담 대기자 수</p>
+                                <p class="cnt">1</p>
+                            </div>
+                            <div class="item">
+                                <p class="name">상담 진행자 수</p>
+                                <p class="cnt">0</p>
+                            </div>
+                                <div class="item">
+                                    <p class="name">상담 완료 수<p>
+                                    <p class="cnt">0</p>
+                                </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">담당자 현황</p>
 
-<div class="log-container">
-    <span class="tit">Today</span>
-    <div class="status-wrap first">
-        <div class="item">
-            <p class="label">방문자 수</p>
-            <p class="val"><?=number_format($today_view[0])?></p>
-        </div>
-        <div class="item">
-            <p class="label">문의건 수</p>
-            <p class="val"><?=number_format($today_contact[0])?></p>
-        </div>
-        <div class="item">
-            <p class="label">상담 진행 수</p>
-            <p class="val"><?=number_format($today_processing[0])?></p>
-        </div>
-        <div class="item">
-            <p class="label">상담 완료 수</p>
-            <p class="val"><?=number_format($today_finish[0])?></p>
-        </div>
-    </div>
+                <div class="admin-list">
+                    <div class="item">
+                        <p class="admin-name">이름</p>
+                        <p class="admin-name">담당 건수</p>
+                        <p class="admin-name">성사 건수</p>
+                    </div>
+                    <?php
+                    while($list_row=$admin_stt->fetch()){
 
-    <span class="tit" style="color: #999">Total</span>
-    <div class="status-wrap second">
-        <div class="item">
-            <p class="label">방문자 수</p>
-            <p class="val"><?=number_format($total_view[0])?></p>
+                        $admin_cnt_sql = "
+                            SELECT COUNT(DISTINCT c.id) as manager, (
+                            
+                            SELECT COUNT(DISTINCT cc.id) FROM admin_tbl as aa, contact_tbl as cc WHERE  cc.manager_fk = " .$list_row['id']. " AND cc.result_status like '%완료%'
+            
+                            ) as result  FROM admin_tbl as a, contact_tbl as c where c.manager_fk = " .$list_row['id'] ;
+
+                        $admin_cnt_stt=$db_conn->prepare($admin_cnt_sql);
+                        $admin_cnt_stt->execute();
+                        $admin_cnt = $admin_cnt_stt -> fetch();
+
+                    ?>
+                    <div class="item">
+                        <p class="val"><?=$list_row['login_name']?></p>
+                        <p class="val"><?=$admin_cnt[0]?></p>
+                        <p class="val"><?=$admin_cnt[1]?></p>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
-        <div class="item">
-            <p class="label">문의건 수</p>
-            <p class="val"><?=number_format($total_contact[0])?></p>
-        </div>
-        <div class="item">
-            <p class="label">상담 진행 수</p>
-            <p class="val"><?=number_format($total_processing[0])?></p>
-        </div>
-        <div class="item">
-            <p class="label">상담 완료 수</p>
-            <p class="val"><?=number_format($total_finish[0])?></p>
-        </div>
-    </div>
-    <hr class="log-hr">
-    <div class="chart-container">
-        <span class="label">방문자 현황</span>
-        <div id="chart"></div>
-    </div>
-    <span class="tit">선택조회</span>
-    <div class="date-picker-container">
-        <div class="date-picker">
-            <input type="date" id="stDate" name="stDate" class="date-input">
-            <span class="placeholder">시작일</span>
-            <span class="calendar-icon"><i></i></span>
-        </div>
-        <div class="date-picker">
-            <input type="date" id="endDate" name="endDate" class="date-input">
-            <span class="placeholder">종료일</span>
-            <span class="calendar-icon"><i></i></span>
-        </div>
-        <span id="search" class="search-btn">검색</span>
     </div>
 
     <div id="search-result">

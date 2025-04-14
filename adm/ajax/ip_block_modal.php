@@ -15,7 +15,7 @@ $ip_stt->execute();
         <table>
             <thead>
             <tr>
-                <th width="20%">아이피</th>
+                <th width="50%">아이피</th>
                 <th width="10%">문의 수</th>
                 <th width="15%">차단 후 접속 수</th>
                 <th width="25%">차단일</th>

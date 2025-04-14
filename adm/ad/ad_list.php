@@ -42,8 +42,8 @@ $ad_stt2->execute();
                 <thead>
                 <tr>
                     <th scope="col" id="mb_list_chk" rowspan="2" width="5%">
-                        <label for="chkall" class="d-none">게시글 전체</label>
-                        <input type="checkbox" name="chkall" value="1" class="check_all_a">
+                        <input type="checkbox" name="chkall" value="1" class="check_all_a checkbox-list" id="check_all_a">
+                        <label for="check_all_a"></label>
                     </th>
                     <!-- <th scope="col" id="mb_list_id" width="10%" class="text-center">구분</th> -->
                     <th scope="col" id="mb_list_join" width="20%" class="text-center">고유코드</th>
@@ -64,8 +64,9 @@ $ad_stt2->execute();
                     ?>
                     <tr class="bg0">
                         <td headers="mb_list_chk" class="td_chk">
-                            <input type="hidden" name="mb_id[<?=$ad1['id']?>]" value="admin" id="mb_id_<?=$ad1['id']?>">
-                            <input type="checkbox" name="chk[]" class="m_chk" value="<?=$ad1['id']?>" id="chk_<?=$ad1['id']?>">
+                            <!-- <input type="hidden" name="mb_id[<?=$ad1['id']?>]" value="admin" id="mb_id_<?=$ad1['id']?>"> -->
+                            <input type="checkbox" name="chk[]" class="m_chk checkbox-list" value="<?=$ad1['id']?>" id="chk_<?=$ad1['id']?>">
+                            <label for="chk_<?= $ad1['id'] ?>"></label>
                         </td>
                         <td headers="mb_list_join" class="td_date text-center"><?=$ad1['link']?></td>
                         <td headers="mb_list_join" class="td_date text-center"><?= number_format($ad1['view'])?></td>
@@ -86,8 +87,8 @@ $ad_stt2->execute();
                 <thead>
                 <tr>
                     <th scope="col" id="mb_list_chk" rowspan="2" width="5%">
-                        <label for="chkall" class="d-none">게시글 전체</label>
-                        <input type="checkbox" name="chkall" value="1" class="check_all_b">
+                        <input type="checkbox" name="chkall" value="1" class="check_all_b checkbox-list" id="check_all_b">
+                        <label for="check_all_b"></label>
                     </th>
                     <!-- <th scope="col" id="mb_list_id" width="10%" class="text-center">구분</th> -->
                     <th scope="col" id="mb_list_join" width="20%" class="text-center">고유코드</th>
@@ -109,7 +110,8 @@ $ad_stt2->execute();
                     <tr class="bg0">
                         <td headers="mb_list_chk" class="td_chk">
                             <input type="hidden" name="mb_id[<?=$ad2['id']?>]" value="admin" id="mb_id_<?=$ad2['id']?>">
-                            <input type="checkbox" name="chk[]" class="m_chk" value="<?=$ad2['id']?>" id="chk_<?=$ad2['id']?>">
+                            <input type="checkbox" name="chk[]" class="m_chk checkbox-list" value="<?=$ad2['id']?>" id="chk_<?=$ad2['id']?>">
+                            <label for="chk_<?= $ad2['id'] ?>"></label>
                         </td>
                         <td headers="mb_list_join" class="td_date text-center"><?=$ad2['link']?></td>
                         <td headers="mb_list_join" class="td_date text-center"><?= number_format($ad2['view'])?></td>

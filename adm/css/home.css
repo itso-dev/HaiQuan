@@ -120,6 +120,29 @@
     width: 100%;
 }
 
+.result-wrap .content-wrap .view-wrap .item {
+    border-right: none;
+}
+
+.result-table th {
+    font-size: 14px;
+    color: rgb(33, 51, 80, 0.6);
+    padding: 1rem 2rem;
+    font-weight: 400;
+    text-align: center;
+}
+
+.result-table td {
+    font-size: 14px;
+    color: rgb(33, 51, 80, 1);
+    text-align: center;
+    height: 40px;
+}
+
+.result-table td:first-child {
+    font-weight: 600;
+}
+
 @media screen and (max-width: 499px){
     .content-wrap{
         min-width: auto;

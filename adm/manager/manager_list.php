@@ -40,8 +40,8 @@
                 <thead>
                     <tr>
                         <th scope="col" id="mb_list_chk" rowspan="2">
-                            <label for="chkall" class="d-none">회원 전체</label>
-                            <input type="checkbox" name="chkall" value="1" onclick="check_all(this)">
+                            <input type="checkbox" name="chkall" id="chkall" value="1" class="checkbox-list" onclick="check_all(this)">
+                            <label for="chkall"></label>
                         </th>
                         <th scope="col" id="mb_list_id" colspan="2">아이디</th>
                         <th scope="col" id="mb_list_name" class="text-center">이름</th>
@@ -56,8 +56,9 @@
                         ?>
                         <tr class="bg0">
                             <td headers="mb_list_chk" class="td_chk">
-                                <input type="hidden" name="mb_id[<?=$list_row['id']?>]" value="admin" id="mb_id_<?=$list_row['id']?>">
-                                <input type="checkbox" name="chk[]" class="m_chk" value="<?=$list_row['id']?>" id="chk_<?=$list_row['id']?>">
+                                <!-- <input type="hidden" name="mb_id[<?=$list_row['id']?>]" value="admin" id="mb_id_<?=$list_row['id']?>"> -->
+                                <input type="checkbox" name="chk[]" class="m_chk checkbox-list" value="<?=$list_row['id']?>" id="chk_<?=$list_row['id']?>">
+                                <label for="chk_<?=$list_row['id']?>"></label>
                             </td>
                             <td headers="mb_list_id" colspan="2" class="td_name sv_use"> <?=$list_row['login_id']?></td>
                             <td headers="mb_list_name" class="td_mbname text-center"><?=$list_row['login_name']?></td>

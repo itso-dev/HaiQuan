@@ -16,30 +16,25 @@ include_once('default.php');
     ini_set('display_errors', '1');
 
 ?>
-<link rel="stylesheet" type="text/css" href="<?= $site_url ?>/css/config_form.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="<?= $site_url ?>/css/board_form.css" rel="stylesheet" />
         <div class="page-header">
             <h4 class="page-title">발송 이메일 관리</h4>
             <form name="config_form" id="config_form" method="post" action="./ajax/email_insert.php">
-                <div class="row">
+                <div class="mt-3">
                     <div class="col-md-5 pr-1">
+                        <label class="label-name">이메일 추가</label>
                         <div class="form-group">
-                            <label>이메일 추가</label>
-                            <input type="email" name="email" value="" id="email" required class="required frm_input form-control" style="width: 400px">
+                            <input type="email" name="email" value="" id="email" required class="required frm_input form-control">
                             <?php if($count['total_count'] < 5){ ?>
-                            <input type="submit" value="추가" class="btn_submit btn btn-primary" style="background: #0eb1c9;" >
+                            <input type="submit" value="추가" class="btn btn-primary">
                             <?php } else { ?>
-                            <span id="add_not" class="btn_submit btn btn-primary" style="background: #0eb1c9;" >추가</span>
+                            <span id="add_not" class="btn btn-primary">추가</span>
                             <?php } ?>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <small class="description text-xs">이메일은 최대 5개까지 등록 가능합니다.</small>
-                    </div>
-                </div>
             </form>
-            <div class="row">
+            <div class="mt-3">
                 <div class="email-list-wrap">
                     <?php
                     while($email=$email_stt->fetch()){
@@ -50,9 +45,10 @@ include_once('default.php');
                     </div>
                     <?php } ?>
                 </div>
+                <small class="small">이메일은 최대 5개까지 등록 가능합니다.</small>
             </div>
-            <div>
-                <a href="./apply_list.php?menu=55" class="btn_submit btn btn-primary">뒤로가기</a>
+            <div class="btn-wrap">
+                <a href="./apply_list.php?menu=55" class="go-back">뒤로가기</a>
             </div>
         </div>
         <!-- page-header end -->
@@ -62,31 +58,72 @@ include_once('default.php');
 </div>
 
 <style>
-    .email-list-wrap{
-        padding: 10px;
-        background: #f2f2f2;
-        border-radius: 5px;
-        height: 250px;
-        margin-bottom: 20px;
+       .form-group {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
         width: 400px;
     }
+    .label-name{
+        display: block;
+        font-size: 14px;
+        color: #213350;
+        margin-bottom: 8px;
+    }
+    .btn-primary {
+        border-radius: 4px !important;
+    }
+    input[type=email]{
+        border-radius: 4px;
+    }
+    .email-list-wrap{
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        height: 250px;
+        overflow: hidden;
+        width: 400px;
+        padding: 0;
+        background-color: #fff;
+    }
     .email-list-wrap .item{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
         background: #fff;
-        padding: 5px;
+        padding: 8px 12px;
+        height: 40px;
         box-sizing: border-box;
         font-size: 16px;
-        margin-bottom: 10px;
+        border-bottom: 1px solid #ced4da;
+        background-color: #fff;
     }
+    .email-list-wrap .item span{
+        color: #505050;
+        font-size: 14px;
+    }
+
+    .email-list-wrap .item:hover{
+        background-color: rgba(216, 227, 243, 0.2);
+    }
+
     .email-list-wrap .item .del-email{
-        font-size: 13px;
-        padding: 3px 6px 2px;
-        box-sizing: border-box;
-        border: 1px solid;
-        border-radius: 5px;
-        margin-left: 15px;
+        display: inline-flex;
+        align-items: center;
         cursor: pointer;
-        color: #fff;
-        background: #b14040;
+        font-size: 12px;
+        border: 1px solid #FFC1BA;
+        padding: 4px 8px;
+        border-radius: 4px;
+        background-color: #fff;
+        color: rgb(255, 109, 93, 0.85);
+        font-weight: 500;
+        margin-left: 6px;
+    }
+
+    .email-list-wrap .item .del-email:hover{
+        background-color: #FFF2F0;
+        border: 1px solid #FFC1BA;
     }
 </style>
 
