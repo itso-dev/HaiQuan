@@ -118,7 +118,7 @@ html, body {
     color: #4873B8;
 }
 .gnb-container .sidebar .nav li .toggle{
-    position: absolute;
+    position: absolute;    
     top: 50%;
     transform: translateY(-50%);
     right: 10px;
@@ -233,7 +233,7 @@ html, body {
     transition: all .5s cubic-bezier(.685,.0473,.346,1);
 }
 /* 상단 영역 */
-.container
+.container 
 .container-fluid{
     width: 100%;
     padding-right: 12px;
@@ -460,7 +460,7 @@ html, body {
 }
 
 .btn-primary, .submit{
-    background-color: #6C93CA !important;
+    background-color: #6C93CA !important;   
     color:#fff;
 }
 .btn-primary:hover, .submit:hover{
@@ -474,8 +474,8 @@ html, body {
 
 
 .submit {
-    color:#fff !important;
-    background-color: #6C93CA !important;
+    color:#fff;
+    background-color: #6C93CA !important;   
 }
 
 .submit:hover{
@@ -605,7 +605,6 @@ html, body {
 
 /* table layout */
 .table-responsive {
-    width: 100%;
     overflow: auto;
     /*padding-bottom: 10px;*/
     font-size: 14px;
@@ -614,7 +613,7 @@ table{
     border-collapse: collapse;
 }
 
-table
+table 
 
 .table{
     /*width: 100%;*/
@@ -831,11 +830,6 @@ table
     overflow: hidden;
     display: none;
 }
-.modal-public.counsel{
-    width: 500px;
-    left: calc(50% - 250px);
-}
-
 .modal-public .head-wrap{
     text-align: center;
     position: relative;
@@ -855,7 +849,7 @@ table
     color: rgb(33, 51, 80, 0.55);
 }
 .modal-public .head-wrap i:hover{
-    color: rgb(33, 51, 80, 1);
+    color: rgb(33, 51, 80, 1);   
 }
 .modal-public .body{
     padding: 15px;
@@ -869,7 +863,7 @@ table
     color: #213350;
 }
 
-.modal-public input, textarea, select, input[type=text],input[type=date],input[type=number],input[type=password], input[type=email] {
+.modal-public textarea, select, input[type=text],input[type=date],input[type=number],input[type=password],input[type=email],input[type=search],input[type=date] {
     display: inline-block;
     width: 100%;
     height: calc(2.25rem + 2px);
@@ -884,6 +878,24 @@ table
     font-size: 14px;
 }
 
+/* 상담내역 모달 */
+.modal-container table {
+    border: 1px solid #dee2e6;
+    font-size: 13px;
+    overflow: auto !important;
+}
+.modal-container table>thead>tr>th, .modal-public table>tbody>tr>td {
+    height: 40px;   
+}
+
+.modal-container table>thead>tr>th {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(33, 51, 80, 0.2) !important;
+}
+
+.modal-container table>tbody>tr:last-child td{
+    border-bottom: 1px solid rgba(33, 51, 80, 0.2) !important;
+}
 textarea::placeholder, input[type=text]::placeholder, input[type=email]::placeholder{
     color: #999;
 }
@@ -919,18 +931,12 @@ input:focus, .form-control:focus{
     background-color: #e9ecef;
     opacity: 1;
 }
-.modal-public .body .desc{
-    font-size: 15px;
-    line-height: 25px;
-}
+
 .modal-public .body .tip{
     display: block;
     font-size: 12px;
     margin-top: 10px;
     color: #6C93CA;
-}
-.modal-public .body .tip.status{
-    display: none;
 }
 .modal-public .body .state{
     position: absolute;
@@ -953,9 +959,6 @@ input:focus, .form-control:focus{
     margin-top: 8px;
     padding: 10px;
     width: 100%;
-    height: 43px;
-    border-radius: 8px;
-    border: none
 }
 
 /* modal popup */
@@ -1108,4 +1111,4 @@ input:focus, .form-control:focus{
         font-size: 14px;
         padding: 8px 12px;
     }
-}
+}   

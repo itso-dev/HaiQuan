@@ -16,7 +16,7 @@ $row = $modal_stt -> fetch();
     <i class="fas fa-times modal-close"></i>
 </div>
 <div class="body">
-    <p class="desc"><?= $row['contact_desc'] ?></p>
+    <p class="label"><?= $row['contact_desc'] ?></p>
 </div>
 
 

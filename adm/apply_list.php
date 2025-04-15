@@ -597,7 +597,7 @@ $adCode_stt->execute();
                 $('.modal-container').empty();
                 $('.modal-container').html(html);
                 $('.modal-bg').show();
-                $('.modal-container').fadeIn("300")
+                $('.modal-container').fadeIn("300");
             }
         });
     }
@@ -611,7 +611,7 @@ $adCode_stt->execute();
                 $('.modal-container').empty();
                 $('.modal-container').html(html);
                 $('.modal-bg').show();
-                $('.modal-container').fadeIn("300")
+                $('.modal-container').fadeIn("300");
             }
         });
     }
