@@ -1,5 +1,5 @@
 <?
-    include_once('../head.php');
+    include_once('../../head.php');
 
     $chk_count = count($_POST['chk']);
 

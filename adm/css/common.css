@@ -933,7 +933,7 @@ input:focus, .form-control:focus{
 }
 
 .modal-public .body .tip{
-    display: block;
+    display: none;
     font-size: 12px;
     margin-top: 10px;
     color: #6C93CA;

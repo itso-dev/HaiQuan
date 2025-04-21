@@ -33,7 +33,7 @@ $role_stt->execute();
 <link rel="stylesheet" type="text/css" href="../css/board_form.css" rel="stylesheet" />
 
 <div class="page-header">
-    <h4 class="page-title">담당자 설정</h4>
+    <h4 class="page-title">담당자 추가</h4>
     <form name="manager_form" id="manager_form" method="post" action="./setting/manager_setting.php">
         <input type="hidden" name="id" value="<?= $id ?>" />
         <input type="hidden" name="type" value="<?= $type ?>" />
@@ -61,7 +61,7 @@ $role_stt->execute();
             <input type="text" name="login_name" class="form-control" value="<?= $name ?>">
         </div>
         <div class="input-wrap">
-            <p class="label-name">연락처</p>
+            <p class="label-name">휴대폰번호</p>
             <input type="text" name="phone" class="form-control" value="<?= $phone ?>">
         </div>
 

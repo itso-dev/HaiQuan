@@ -17,7 +17,7 @@ $memo = $ad_stt1 -> fetch();
 <div class="body">
     <textarea name="memo" placeholder="메모를 입력해주세요."><?= $memo['memo'] ?></textarea>
     <span class="submit" type="submit">저장</span>
-    <span class="tip status">저장되었습니다.</span>
+    <span class="tip">저장되었습니다.</span>
 </div>
 <script>
     $(".modal-close").click(function (){
@@ -35,9 +35,9 @@ $memo = $ad_stt1 -> fetch();
             url:'./setting/memo_edit.php',
             data:{id:id, data: data},
             success:function(data){
-                $(".status").fadeIn("300")
+                $(".tip").fadeIn("300")
                 setTimeout(function() {
-                    $(".status").fadeOut("300")
+                    $(".tip").fadeOut("300")
                 }, 2000);
             }
         });

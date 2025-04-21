@@ -118,61 +118,7 @@ $endDate = '';
     <div class="page-header">
         <h4 class="page-title">방문자 통계</h4>
         <div class="content-container">
-           <div class="content-wrap">
-               <p class="tit">전체</p>
-               <div class="view-wrap">
-                   <div class="item">
-                       <p class="name">방문자 수</p>
-                       <p class="cnt"><?=number_format($total_view[0])?></p>
-                   </div>
-                   <div class="item">
-                       <p class="name">문의 건수</p>
-                       <p class="cnt"><?=number_format($total_contact[0])?></p>
-                   </div>
-                   <div class="item">
-                       <p class="name">상담 대기자 수</p>
-                       <p class="cnt"><?=number_format($total_wait[0])?></p>
-                   </div>
-                   <div class="item">
-                       <p class="name">상담 진행 수</p>
-                       <p class="cnt"><?=number_format($total_processing[0])?></p>
-                   </div>
-                   <div class="item">
-                       <p class="name">상담 완료 수<p>
-                       <p class="cnt"><?=number_format($total_finish[0])?></p>
-                   </div>
-               </div>
-           </div>
-            <div class="content-wrap mt-3">
-                <p class="tit">오늘</p>
-                <div class="view-wrap">
-                    <div class="item">
-                        <p class="name">방문자 수</p>
-                        <p class="cnt"><?=number_format($today_view[0])?></p>
-                    </div>
-                    <div class="item">
-                        <p class="name">문의 건수</p>
-                        <p class="cnt"><?=number_format($today_contact[0])?></p>
-                    </div>
-                    <div class="item">
-                        <p class="name">상담 대기자 수</p>
-                        <p class="cnt"><?=number_format($today_wait[0])?></p>
-                    </div>
-                    <div class="item">
-                        <p class="name">상담 진행자 수</p>
-                        <p class="cnt"><?=number_format($today_processing[0])?></p>
-                    </div>
-                    <div class="item">
-                        <p class="name">상담 완료 수<p>
-                        <p class="cnt"><?=number_format($today_finish[0])?></p>
-                    </div>
-                </div>
-            </div>
-            <div class="content-wrap mt-3">
-                <p class="tit">방문자 현황</p>
-                <div class="py-2"><div id="chart"></div></div>
-            </div>
-            <div class="content-wrap mt-3">
+            <div class="content-wrap">
                 <p class="tit">선택 조회</p>
                 <div id="search_form">
                     <div class="choice-wrap">
@@ -218,11 +164,67 @@ $endDate = '';
                 </div>
             </div>
             <div class="content-wrap mt-3">
+                <p class="tit">방문자 현황</p>
+                <div class="py-2"><div id="chart"></div></div>
+            </div>
+            <div class="content-wrap mt-3">
+               <p class="tit">전체</p>
+               <div class="view-wrap">
+                   <div class="item">
+                       <p class="name">방문자 수</p>
+                       <p class="cnt"><?=number_format($total_view[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">문의 건수</p>
+                       <p class="cnt"><?=number_format($total_contact[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 대기자 수</p>
+                       <p class="cnt"><?=number_format($total_wait[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 진행 수</p>
+                       <p class="cnt"><?=number_format($total_processing[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 완료 수<p>
+                       <p class="cnt"><?=number_format($total_finish[0])?></p>
+                   </div>
+               </div>
+            </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">오늘</p>
+                <div class="view-wrap">
+                    <div class="item">
+                        <p class="name">방문자 수</p>
+                        <p class="cnt"><?=number_format($today_view[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">문의 건수</p>
+                        <p class="cnt"><?=number_format($today_contact[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 대기자 수</p>
+                        <p class="cnt"><?=number_format($today_wait[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 진행자 수</p>
+                        <p class="cnt"><?=number_format($today_processing[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 완료 수<p>
+                        <p class="cnt"><?=number_format($today_finish[0])?></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-wrap mt-3">
                 <p class="tit">담당자 현황</p>
 
                 <div class="admin-list">
                     <div class="item">
+                        <p class="admin-name">아이디</p>
                         <p class="admin-name">이름</p>
+                        <p class="admin-name">휴대폰번호</p>
                         <p class="admin-name">담당 건수</p>
                         <p class="admin-name">성사 건수</p>
                     </div>
@@ -243,6 +245,8 @@ $endDate = '';
                     ?>
                     <div class="item">
                         <p class="val"><?=$list_row['login_name']?></p>
+                        <p class="val"><?=$list_row['login_id']?></p>
+                        <p class="val"><?=$list_row['phone']?></p>
                         <p class="val"><?=$admin_cnt[0]?></p>
                         <p class="val"><?=$admin_cnt[1]?></p>
                     </div>

@@ -45,7 +45,7 @@
                         </th>
                         <th scope="col" id="mb_list_id" colspan="2">아이디</th>
                         <th scope="col" id="mb_list_name" class="text-center">이름</th>
-                        <th scope="col" id="mb_list_mobile" class="text-center">휴대폰</th>
+                        <th scope="col" id="mb_list_mobile" class="text-center">휴대폰번호</th>
                         <th scope="col" id="mb_list_join" class="text-center">가입일</th>
                         <th scope="col" rowspan="2" id="mb_list_mng" class="text-center">관리</th>
                     </tr>
@@ -64,7 +64,7 @@
                             <td headers="mb_list_name" class="td_mbname text-center"><?=$list_row['login_name']?></td>
                             <td headers="mb_list_mobile" class="td_tel text-center"><?=$list_row['phone']?></td>
                             <td headers="mb_list_join" class="td_date text-center"><?=$list_row['reg_date']?></td>
-                            <td headers="mb_list_mng" class="td_mng td_mng_s text-center"><a href="./manager_form.php?menu=4&type=modify&id=<?=$list_row['id']?>" class="btn btn_03">수정</a></td>
+                            <td headers="mb_list_mng" class="td_mng td_mng_s text-center"><a href="./manager_form.php?menu=4&type=modify&id=<?=$list_row['id']?>" class="btn btn-default">수정</a></td>
                         </tr>
                         <?php } ?>
                     </tbody>

@@ -16,7 +16,7 @@ $ad_stt2->execute();
 
 <div class="page-header">
     <h4 class="page-title">
-        광고 링크 관리
+        광고 관리
     </h4>
 </div>
 

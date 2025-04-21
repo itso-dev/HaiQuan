@@ -8,7 +8,15 @@ $type = $_POST['type'];
 $role = $_POST['role'];
 $login_id = $_POST['login_id'];
 $password = $_POST['password'];
+
 $phone = $_POST['phone'];
+$phone = preg_replace("/[^0-9]/", "", $phone);
+if(strlen($phone) === 11){
+    $phone = preg_replace("/^(\d{3})(\d{4})(\d{4})$/", "$1-$2-$3", $phone);
+} elseif(strlen($phone) === 10) {
+    $phone = preg_replace("/^(\d{3})(\d{3})(\d{4})$/", "$1-$2-$3", $phone);
+}
+
 $login_name = $_POST['login_name'];
 
 //비밀번호 암호화
