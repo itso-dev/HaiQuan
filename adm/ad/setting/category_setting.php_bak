@@ -1,0 +1,51 @@
+<?
+include_once('../../../db/dbconfig.php');
+
+$posted = date("Y-m-d H:i:s");
+
+$id = isset($_POST['id']) ? $_POST['id'] : '';
+$type = $_POST['type'];
+$name = $_POST['name'];
+
+
+//입력
+if($type == 'insert'){
+
+    $insert_sql = "insert into ad_type_tbl
+                          (name, regdate)
+                     value
+                          (?, ?)";
+
+
+    $db_conn->prepare($insert_sql)->execute(
+        [$name, $posted]);
+
+    echo "<script type='text/javascript'>";
+    echo "alert('등록 되었습니다.'); location.href='../ad_list.php?menu=77&'";
+    echo "</script>";
+
+}
+
+//수정
+if($type == 'modify'){
+
+    $modify_sql = "update ad_type_tbl
+               set 
+          name = '$name'
+               where
+          id = $id";
+
+    $updateStmt = $db_conn->prepare($modify_sql);
+    $updateStmt->execute();
+
+    $count = $updateStmt->rowCount();
+
+
+    echo "<script type='text/javascript'>";
+    echo "alert('수정 되었습니다.'); location.href='../ad_list.php?menu=77&'";
+    echo "</script>";
+
+}
+
+
+?>
