@@ -61,8 +61,8 @@
 }
 
 .close-popup:hover {
-  border: 1px solid #505050; 
-  background-color:#505050; 
+  border: 1px solid #505050;
+  background-color:#505050;
   color: #fff !important;
   transition: 0.3s;
 }

@@ -377,3 +377,12 @@ table th:nth-child(1), th:nth-child(2){
 .td_mng:hover {
     color: #4873B8;
 }
+
+.add-category{
+    position: absolute;
+    right: -25px;
+    font-size: 20px;
+    color: #4873B8;
+    top: 4px;
+    cursor: pointer;
+}

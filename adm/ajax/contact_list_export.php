@@ -1,5 +1,6 @@
 <?php
 
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls; # Xls 파일로 다운받을경우
 // use PhpOffice\PhpSpreadsheet\Writer\Xlsx; # Xlsx 파일로 다운받을경우
@@ -15,8 +16,21 @@ if(isset($_GET['type'])){
     $type = $_GET['type'];
 }
 if($type == 'all'){
-    $list_sql = "select * from contact_tbl order by id desc";
+    if(isset($_POST['sch_startdate']) && $_POST['sch_startdate'] != "" &&  isset($_POST['sch_enddate']) && $_POST['sch_enddate'] != ""){
+        $startDate = $_POST['sch_startdate'] . " 00:00:00";
+        $endDate = $_POST['sch_enddate'] . " 23:59:59";
+
+        $list_sql = "SELECT * FROM contact_tbl 
+                     WHERE write_date BETWEEN :startDate AND :endDate 
+                     ORDER BY id DESC";
+    } else {
+        $list_sql = "select * from contact_tbl order by id desc";
+    }
     $list_stt=$db_conn->prepare($list_sql);
+    if (strpos($list_sql, ':startDate') !== false && strpos($list_sql, ':endDate') !== false) {
+        $list_stt->bindParam(':startDate', $startDate);
+        $list_stt->bindParam(':endDate', $endDate);
+    }
     $list_stt->execute();
 } else if ($type == 'select' && isset($_GET['date'])) {
     $date = $_GET['date'];
@@ -39,8 +53,6 @@ if($type == 'all'){
                             order by id";
     $list_stt=$db_conn->prepare($list_sql);
     $list_stt->execute();
-
-
 }
 
 // PhpSpreadsheet 객체를 생성합니다.
@@ -48,39 +60,29 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 $sheet
-    ->setCellValue("A1", "등록일")
-    ->setCellValue("B1", "유입 경로")
-    ->setCellValue("C1", "A/B 테스트")
-    ->setCellValue("D1", "광고 코드")
-    ->setCellValue("E1", "이름")
-    ->setCellValue("F1", "연락처")
-    ->setCellValue("G1", "이메일")
-    ->setCellValue("H1", "창업희망지역")
-    ->setCellValue("I1", "창업예상비용")
-    ->setCellValue("J1", "점포보유여부")
-    ->setCellValue("K1", "담당자")
-    ->setCellValue("L1", "문의내용")
-    ->setCellValue("M1", "결과")
-    ->setCellValue("N1", "아이피");
+    ->setCellValue("A1", "생성일")
+    ->setCellValue("B1", "이름")
+    ->setCellValue("C1", "연락처")
+    ->setCellValue("D1", "창업희망지역")
+    ->setCellValue("E1", "광고코드")
+    ->setCellValue("F1", "문의 타입")
+    ->setCellValue("G1", "유입경로")
+    ->setCellValue("H1", "결과")
+    ->setCellValue("I1", "아이피");
 
 $sheet->getRowDimension('1')->setRowHeight(20);
 $line = 2;
 while ($list_row = $list_stt->fetch()) {
     $sheet
         ->setCellValue("A".$line, $list_row['write_date'])
-        ->setCellValue("B".$line, $list_row['flow'])
-        ->setCellValue("C".$line, $list_row['ab_test'])
-        ->setCellValue("D".$line, $list_row['ad_code'])
-        ->setCellValue("E".$line, $list_row['name'])
-        ->setCellValue("F".$line, $list_row['phone'])
-        ->setCellValue("G".$line, $list_row['email'])
-        ->setCellValue("H".$line, $list_row['location'])
-        ->setCellValue("I".$line, $list_row['cost'])
-        ->setCellValue("J".$line, $list_row['store'])
-        ->setCellValue("K".$line, $list_row['manager_name'])
-        ->setCellValue("L".$line, $list_row['contact_desc'])
-        ->setCellValue("M".$line, $list_row['result_status'])
-        ->setCellValue("N".$line, $list_row['writer_ip']);
+        ->setCellValue("B".$line, $list_row['name'])
+        ->setCellValue("C".$line, $list_row['phone'])
+        ->setCellValue("D".$line, $list_row['location'])
+        ->setCellValue("E".$line, $list_row['ad_code'])
+        ->setCellValue("F".$line, $list_row['contact_type'])
+        ->setCellValue("G".$line, $list_row['flow'])
+        ->setCellValue("H".$line, $list_row['result_status'])
+        ->setCellValue("I".$line, $list_row['writer_ip']);
 
     $sheet->getRowDimension($line)->setRowHeight(20);
     $line++;
@@ -89,18 +91,13 @@ while ($list_row = $list_stt->fetch()) {
 // Set column widths
 $sheet->getColumnDimension('A')->setWidth(20);
 $sheet->getColumnDimension('B')->setWidth(10);
-$sheet->getColumnDimension('C')->setWidth(10);
+$sheet->getColumnDimension('C')->setWidth(20);
 $sheet->getColumnDimension('D')->setWidth(20);
-$sheet->getColumnDimension('E')->setWidth(15);
-$sheet->getColumnDimension('F')->setWidth(25);
-$sheet->getColumnDimension('G')->setWidth(25);
-$sheet->getColumnDimension('H')->setWidth(25);
+$sheet->getColumnDimension('E')->setWidth(20);
+$sheet->getColumnDimension('F')->setWidth(30);
+$sheet->getColumnDimension('G')->setWidth(10);
+$sheet->getColumnDimension('H')->setWidth(15);
 $sheet->getColumnDimension('I')->setWidth(15);
-$sheet->getColumnDimension('J')->setWidth(15);
-$sheet->getColumnDimension('K')->setWidth(15);
-$sheet->getColumnDimension('L')->setWidth(15);
-$sheet->getColumnDimension('M')->setWidth(50);
-$sheet->getColumnDimension('N')->setWidth(15);
 
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment; filename="문의_' . date('Y-m-d_H-i-s') . '.xls"'); // filename 수정
@@ -108,4 +105,5 @@ header('Cache-Control: max-age=0');
 
 $writer = new Xls($spreadsheet);
 $writer->save('php://output');
+
 ?>

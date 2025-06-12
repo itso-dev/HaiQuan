@@ -10,8 +10,6 @@ html, body {
     letter-spacing: -0.25px;
     background-color: #E9F0FA;
 }
-
-
 .adm_logo {
     width: 100px;
 }
@@ -118,7 +116,7 @@ html, body {
     color: #4873B8;
 }
 .gnb-container .sidebar .nav li .toggle{
-    position: absolute;    
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 10px;
@@ -233,7 +231,7 @@ html, body {
     transition: all .5s cubic-bezier(.685,.0473,.346,1);
 }
 /* 상단 영역 */
-.container 
+.container
 .container-fluid{
     width: 100%;
     padding-right: 12px;
@@ -385,13 +383,18 @@ html, body {
     padding: 1rem 0px !important;
 }
 /* tab */
-
+.tab-container{
+    position: relative;
+}
 .tab-wrap{
     display: inline-flex;
     flex-direction: row;
     gap:0;
     background-color: #D0DEF2;
     border-radius: 8px;
+    width: 600px;
+    overflow-x: scroll;
+    white-space: nowrap;
 }
 .tab-item{
     padding: 8px 20px;
@@ -460,7 +463,7 @@ html, body {
 }
 
 .btn-primary, .submit{
-    background-color: #6C93CA !important;   
+    background-color: #6C93CA !important;
     color:#fff;
 }
 .btn-primary:hover, .submit:hover{
@@ -475,7 +478,7 @@ html, body {
 
 .submit {
     color:#fff;
-    background-color: #6C93CA !important;   
+    background-color: #6C93CA !important;
 }
 
 .submit:hover{
@@ -613,7 +616,7 @@ table{
     border-collapse: collapse;
 }
 
-table 
+table
 
 .table{
     /*width: 100%;*/
@@ -623,12 +626,12 @@ table
 
 
 /*checkbox*/
-  .checkbox-list {
+.checkbox-list {
     position: absolute;
     opacity: 0;
-  }
-  .checkbox-list + label,
-  .checkbox-list ~ label {
+}
+.checkbox-list + label,
+.checkbox-list ~ label {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -639,16 +642,16 @@ table
     background: #fff;
     border: 1px solid #ddd;
     overflow: hidden;
-  }
-  .checkbox-list + label:before {
+}
+.checkbox-list + label:before {
     content: "";
     margin-right: 10px;
     display: inline-block;
     vertical-align: text-top;
     width: 20px;
     height: 20px;
-  }
-  .checkbox-list:hover + label:before {
+}
+.checkbox-list:hover + label:before {
     position: absolute;
     background: #f5f5f5;
     width:24px;
@@ -657,11 +660,11 @@ table
     left: 0;
     border-radius: 4px;
 
-  }
+}
 /*  .checkbox-list:focus + label:before {
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
   }*/
-  .checkbox-list:checked + label:before {
+.checkbox-list:checked + label:before {
     position: absolute;
     background: #4873B8;
     width: 24px;
@@ -669,16 +672,16 @@ table
     top: 0;
     left: 0;
     border-radius: 2px;
-  }
-  .checkbox-list:disabled + label {
+}
+.checkbox-list:disabled + label {
     color: #b8b8b8;
     cursor: auto;
-  }
-  .checkbox-list:disabled + label:before {
+}
+.checkbox-list:disabled + label:before {
     box-shadow: none;
     background: #ddd;
-  }
-  .checkbox-list:checked + label:after {
+}
+.checkbox-list:checked + label:after {
     content: "";
     position: absolute;
     left: 6px;
@@ -771,6 +774,43 @@ table
     border: 1px solid rgba(108, 147, 202, 1);
 }
 
+.table .link{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #4873B8;
+    background-color: #fff;
+    border: 1px solid rgba(108, 147, 202, 0.7);
+}
+.table .link:hover{
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #4873B8;
+    background-color: #fff;
+    border: 1px solid rgba(108, 147, 202, 0.7);
+}
+
 /* pagination */
 .pagination {
     display: -ms-flexbox;
@@ -849,7 +889,7 @@ table
     color: rgb(33, 51, 80, 0.55);
 }
 .modal-public .head-wrap i:hover{
-    color: rgb(33, 51, 80, 1);   
+    color: rgb(33, 51, 80, 1);
 }
 .modal-public .body{
     padding: 15px;
@@ -885,7 +925,7 @@ table
     overflow: auto !important;
 }
 .modal-container table>thead>tr>th, .modal-public table>tbody>tr>td {
-    height: 40px;   
+    height: 40px;
 }
 
 .modal-container table>thead>tr>th {
@@ -997,6 +1037,16 @@ input:focus, .form-control:focus{
 
 .modal-backdrop {
     display: none !important;
+}
+
+.input-wrap .label-name {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #9a9a9a;
+    font-weight: 500;
+}
+.input-wrap .val{
+    font-size: 16px;
 }
 
 @media screen and (max-width: 991px){
@@ -1111,4 +1161,4 @@ input:focus, .form-control:focus{
         font-size: 14px;
         padding: 8px 12px;
     }
-}   
+}

@@ -74,10 +74,10 @@
 .d-none .row > div:nth-of-type(2),
 .d-none .row > div:nth-of-type(3),
 .d-none .row > div:nth-of-type(4){
-    max-width: 20%;
+    max-width: 15%;
 }
 .row > div:nth-of-type(5){
-  
+
 }
 .d-none .row{
     display: flex;
@@ -104,7 +104,7 @@
     width: 100%;
 }
 
-.custom-select:hover, 
+.custom-select:hover,
 .form-control:hover{
     border: 1px solid #6C93CA;
 }
