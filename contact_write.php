@@ -87,7 +87,6 @@ $_SESSION['message'] = $message;
 
 
 echo "<script type='text/javascript'>";
-echo "alert('문의가 등록되었습니다.');";
 echo "location.href = 'thankyou.php?c=0&type=".$type."';";
 echo "</script>";
 
