@@ -475,8 +475,8 @@ $admin_stt->execute();
                 <input type="text" name="manager_name" required />
             </div>
             <div class="input-wrap">
-                <p class="label">이메일</p>
-                <input type="email" name="email" required />
+                <p class="label">창업희망지역</p>
+                <input type="email" name="location" required />
             </div>
             <div class="input-wrap">
                 <p class="label">문의 내용</p>
