@@ -277,7 +277,7 @@ $admin_stt->execute();
                     <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
                     <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
                     <button id="export_all" type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '전체다운로드'" data-href="./ajax/contact_list_export.php?type=all">엑셀 다운로드</button>
-                    <a id="export_chks" class="btn btn-default float-right" href="./contact/email_form.php?menu=55">발송 이메일 관리</a>
+                    <a id="export_chks" class="btn btn-default float-right" href=".<?= $site_url ?>/email_form.php?menu=55">발송 이메일 관리</a>
                     <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
                 </div>
                 <span onclick="addModal();" class="btn btn-primary">문의 데이터 추가</span>
@@ -287,7 +287,7 @@ $admin_stt->execute();
                 <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
                 <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
                 <button id="export_all" type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '전체다운로드'" data-href="./ajax/contact_list_export.php?type=all">엑셀 다운로드</button>
-                <a href="email_form.php?menu=1" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
+                <a href="<?= $site_url ?>/email_form.php?menu=55" target="_self" class="btn btn-default float-right">발송 이메일 관리</a>
                 <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
             </div>
             <!-- <div class="btn_fixed_top2 mt-2">
@@ -309,10 +309,10 @@ $admin_stt->execute();
                         <th scope="col" style="width: 170px; cursor: pointer;" class="text-center">성함</th>
                         <th scope="col" style="width: 170px;" class="text-center">연락처</th>
                         <th scope="col" style="width: 150px;" class="text-center">아이피</th>
+                        <th scope="col" style="width: 150px;" class="text-center">문의 내용</th>
                         <th scope="col" style="width: 150px;" class="text-center">상담 내역</th>
                         <th scope="col" style="width: 150px;" class="text-center">진행 상태</th>
                         <th scope="col" style="width: 150px;" class="text-center">담당자</th>
-                        <th scope="col" style="width: 150px;" class="text-center">관리</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -333,6 +333,9 @@ $admin_stt->execute();
                             <td class="text-center"><?=$list_row['name']?></td>
                             <td class="text-center"><?=$list_row['phone']?></td>
                             <td class="text-center"><span class="writer-ip"><?=$list_row['writer_ip']?></span></td>
+                            <td class="text-center">
+                                <button type="button" class="button button4" style="width: 100px;" onclick="openContactDescModal(<?= $list_row['id'] ?>);">문의 내용</button>
+                            </td>
                             <td class="text-center">
                                 <button type="button" class="button button4" style="width: 90px;" onclick="openCounselModal(<?= $list_row['id'] ?>);">상담 내역</button>
                             </td>
@@ -357,9 +360,6 @@ $admin_stt->execute();
                                         <option value="<?= $manager_row['id'] ?>" <? if($list_row['manager_fk'] == $manager_row['id']) echo "selected"?>><?= $manager_row['login_name'] ?></option>
                                     <?php } ?>
                                 </select>
-                            </td>
-                            <td class="text-center">
-                                <a class="link" href="./contact/contact_form.php?menu=55&id=<?= $list_row['id'] ?>" class="button button4" style="width: 90px;">상세보기</>
                             </td>
                             <td class="d-none">
                                 <select class="custom-select" onchange="changeImportance('2630', this.value);">
