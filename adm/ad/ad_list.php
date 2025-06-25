@@ -134,19 +134,11 @@ foreach ($ad_categories as $category) {
 <script type="text/javascript">
 
 
-    $(".check_all_a").click(function (){
-        if($(this).prop("checked") == true) {
-            $(".a-table").find("input[type=checkbox]").prop("checked", true);
-        } else {
-            $(".a-table").find("input[type=checkbox]").prop("checked", false);
-        }
-    });
-    $(".check_all_b").click(function (){
-        if($(this).prop("checked") == true) {
-            $(".b-table").find("input[type=checkbox]").prop("checked", true);
-        } else {
-            $(".b-table").find("input[type=checkbox]").prop("checked", false);
-        }
+    $(document).on("click", "#check_all_a", function () {
+        const isChecked = $(this).is(":checked");
+
+        // 현재 화면에 보이는 테이블 안에서만 체크박스 선택
+        $("#ad_list table:visible").find("input[type='checkbox'].m_chk").prop("checked", isChecked);
     });
 
     function delData(){

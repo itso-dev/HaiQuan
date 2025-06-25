@@ -16,11 +16,8 @@ if($ab_type === 'A'){
 } elseif ($ab_type === 'B') {
     $type = 2;
     $redirect = './B/index.php';
-} elseif ($ab_type === '') {
-    $type = '';
-    $redirect = './index.php';
 } else {
-    $type = '';
+    $type = 1;
     $redirect = './index.php';
 }
 $message = isset($_SESSION['message']) ? $_SESSION["message"] : '';

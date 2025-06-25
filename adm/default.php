@@ -87,19 +87,17 @@ $authority = json_decode($authority_json);
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <!--a class="navbar-brand" href="apply_list.php">예반스</a-->
                 </div>
                 <div class="navbar-collapse">
-
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/index.php"> <i class="fas fa-home"></i> </a>
+                            <a href="<?= $root_url ?>/index.php"> <i class="fas fa-home"></i> </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/adm/index_bak.php"><i class="fas fa-redo-alt"></i></a>
+                            <a href="javascript:location.reload();"><i class="fas fa-redo-alt"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a href="./ajax/logout.php?is_login=<?= $adm_login ?>"> <i class="fas fa-sign-out-alt"></i></a>
+                            <a href="<?= $site_url ?>/ajax/logout.php?is_login=<?= $adm_login ?>"> <i class="fas fa-sign-out-alt"></i></a>
 
                         </li>
                     </ul>
@@ -109,7 +107,7 @@ $authority = json_decode($authority_json);
             </div>
         </nav>
         <div class="brand-wrapper">
-            <a class="brand" href="index.php">랜딩페이지명</a>
+            <a class="brand" href="<?= $site_url ?>/index.php">랜딩페이지명</a>
         </div>
         <div class="sidebar-wrapper">
             <ul class="nav">
@@ -140,16 +138,16 @@ $authority = json_decode($authority_json);
                 </li>
                 <?php } ?>
 
-                <?php if ($authority[3]) { ?>
+                <!-- <?php if ($authority[3]) { ?>
                 <li <?php if($menu == 99) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/test/test_list.php?menu=99">
                         <i class="fas fa-laptop-code"></i>
                         <p>A/B 테스트</p>
                     </a>
                 </li>
-                <?php } ?>
+                <?php } ?> -->
 
-                <?php if ($authority[4]) { ?>
+                <?php if ($authority[3]) { ?>
                 <li <?php if($menu == 55) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/apply_list.php?menu=55">
                         <i class="far fa-envelope"></i>
@@ -158,7 +156,7 @@ $authority = json_decode($authority_json);
                 </li>
                 <?php } ?>
 
-                <?php if($_SESSION[ 'manager_id' ] == 1 && ($authority[5]) ){ ?>
+                <?php if($_SESSION[ 'manager_id' ] == 1 && ($authority[4]) ){ ?>
                 <li <?php if($menu == 66) echo "class='active'" ?> >
                     <a class="menu" href="<?= $site_url ?>/popup_list.php?menu=66">
                         <i class="far fa-clone"></i>

@@ -5,7 +5,8 @@
         <div class="floating-wrap">
             <div class="floating-form">
                 <p><span class="primary">창업문의</span> 문의번호</p>
-                <form class="floating-contact" name="contact_form" id="contact_form" method="post" action="contact_write.php" onsubmit="return FormSubmit();">
+                <form class="floating-contact" name="contact_form" id="contact_form2" method="post" action="contact_write.php">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">  
                     <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="adCode" value="<?= $adCode ?>" />
                     <input type="hidden" name="flow" value="<?= $flow ?>" />
@@ -49,23 +50,13 @@
         </div>
     </div>
 
-
-    <!-- <div id="floating-mo-container">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-        <path d="M22.25 12C22.25 6.62402 17.876 2.25 12.5 2.25C7.12402 2.25 2.75 6.62402 2.75 12C2.75 17.376 7.12402 21.75 12.5 21.75C17.876 21.75 22.25 17.376 22.25 12ZM20.75 12C20.75 16.5645 17.0645 20.25 12.5 20.25C7.93555 20.25 4.25 16.5645 4.25 12C4.25 7.43555 7.93555 3.75 12.5 3.75C17.0645 3.75 20.75 7.43555 20.75 12ZM17.5391 13.3359L13.0391 8.83594L12.5 8.32031L11.9609 8.83594L7.46094 13.3359L8.53906 14.4141L12.5 10.4531L16.4609 14.4141L17.5391 13.3359Z" fill="#19493B"/>
-        </svg>
-        가맹문의
-    </div> -->
-
     <div id="go-contact">
-        <div class="headset-div">
-            <!-- <img src="img/headset.svg" alt="가맹문의"> -->
-        </div>
         문의하기
     </div>
 
     <div class="floating-mo-form">
-        <form name="contact_form" class="mo-form" id="contact_form" method="post" action="contact_write2.php" onsubmit="return FormSubmit();"">
+        <form name="contact_form" class="mo-form" id="contact_form3" method="post" action="contact_write2.php">
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-3">  
             <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
             <input type="hidden" name="action" value="go">
             <input type="hidden" name="adCode" value="<?= $adCode ?>" />
@@ -230,9 +221,25 @@
 
     });
 
-    grecaptcha.ready(function() {
-        grecaptcha.execute('', {action: 'submit'}).then(function(token) {
-            document.getElementById('g-recaptcha2').value = token;
+    document.querySelector("#contact_form2").addEventListener("submit", function(e) {
+        e.preventDefault(); // 기본 제출 방지
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute('', {action: 'contact_form2'}).then(function(token) {
+                document.getElementById('g-recaptcha-response-2').value = token;
+                e.target.submit(); 
+            });
+        });
+    });
+
+    document.querySelector("#contact_form3").addEventListener("submit", function(e) {
+        e.preventDefault(); // 기본 제출 방지
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute('', {action: 'contact_form3'}).then(function(token) {
+                document.getElementById('g-recaptcha-response-3').value = token;
+                e.target.submit(); 
+            });
         });
     });
 

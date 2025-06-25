@@ -34,7 +34,6 @@
                         <th scope="col" id="mb_list_name" class="text-center" width="10%">홈</th>
                         <th scope="col" id="mb_list_mobile" class="text-center" width="10%">기본설정</th>
                         <th scope="col" id="mb_list_join" class="text-center" width="10%">광고관리</th>
-                        <th scope="col" id="mb_list_join" class="text-center" width="10%">A/B테스트</th>
                         <th scope="col" id="mb_list_join" class="text-center" width="10%">문의관리</th>
                         <th scope="col" id="mb_list_join" class="text-center" width="10%">팝업설정</th>
                     </tr>

@@ -53,7 +53,7 @@ if ($popup_stt->rowCount() > 0) {
             $arr[] = $popup['id'];
             ?>
             <div class="layer-popup pc"
-                 style="display: block; width: 80%; max-width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px; top: 10%; left: 5%; z-index: <?= $z_index ?>;">
+                 style="display: none; width: 80%; max-width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px; top: 10%; left: 5%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup<?= $popup['id'] ?>" class="agree-popup-frame">
                     <img src="data/popup/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
@@ -113,10 +113,10 @@ if ($popup_stt->rowCount() > 0) {
         var blnCookie = getCookie(winName);
         var obj = eval("window." + winName);
         console.log(blnCookie);
-        if (blnCookie != "expire") {
-            $('#' + winName).show();
+        if (blnCookie !== "expire") {
+            $('#' + winName).closest('.layer-popup').show(); 
         } else {
-            $('#' + winName).hide();
+            $('#' + winName).closest('.layer-popup').hide(); 
         }
     }
     // 창닫기
@@ -164,6 +164,62 @@ if ($popup_stt->rowCount() > 0) {
     }
 </script>
 
+<div id="contact">
+    <form class="contact-form" name="contact_form" id="contact_form" method="post" action="contact_write.php" data-aos="fade-up" data-aos-duration="800">
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-1">    
+        <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
+        <input type="hidden" name="adCode" value="<?= $adCode ?>" />
+        <input type="hidden" name="flow" value="<?= $flow ?>" />
+
+        <div class="contact-form-div">
+            <div class="item">
+                <div class="label">
+                    <label for="name">성함 <span>*</span></label>
+                </div>
+                <div class="input">
+                    <input type="text" id="name" name="name" placeholder="성함" required>
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">
+                    <label for="phone">연락처 <span>*</span></label>
+                </div>
+                <div class="input">
+                    <input type="tel" name="phone" id="phone-input" placeholder="연락처" required maxlength="11">
+                </div>
+            </div>
+            <div class="item">
+                <div class="label">
+                    <label for="location">창업 희망 지역 <span>*</span></label>
+                </div>
+                <div class="input">
+                    <input type="text" id="location" name="location" placeholder="창업 희망 지역" required>
+                </div>
+            </div>
+            <div class="item">
+                <div class="s-btn-wrap">
+                    <input type="hidden" name="sort" value="신규 창업">
+                    <div class="form-tab s-tab have">
+                        <span>신규 창업</span>
+                    </div>
+                    <div class="form-tab s-tab">
+                        <span>업종 변경</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-wrap">
+            <div class="agree-wrap">
+                <label class="checkbox-label">
+                    <input class="round-checkbox" type="checkbox" id="agree" name="agree" required>
+                </label>
+                <label for="agree" class="agree"><span class="agree-open">개인정보취급방침(보기)</span> 동의</label>
+            </div>
+            <input type="hidden" id="g-recaptcha" name="g-recaptcha">
+            <input type="submit" value="문의하기" class="c-btn">
+        </div>
+    </form>
+</div>
 
 <script type="text/javascript">
 
@@ -175,6 +231,17 @@ if ($popup_stt->rowCount() > 0) {
             window.open(url, '_blank');
         }
     }
+
+    document.querySelector("#contact_form").addEventListener("submit", function(e) {
+        e.preventDefault(); // 기본 제출 방지
+
+        grecaptcha.ready(function () {
+            grecaptcha.execute('', {action: 'contact_form'}).then(function(token) {
+                document.getElementById('g-recaptcha-response-1').value = token;
+                e.target.submit(); 
+            });
+        });
+    });
 
 </script>
 

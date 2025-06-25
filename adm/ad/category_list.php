@@ -11,7 +11,7 @@ $ad_category_stt->execute();
 
 <div class="page-header">
     <h4 class="page-title">
-        광고 관리
+        매체 관리
     </h4>
 </div>
 
@@ -20,7 +20,7 @@ $ad_category_stt->execute();
     <input type="hidden" name="type" value="all"/>
     <div class="btn_fixed_top">
         <div class="top_btn-wrap">
-            <span onclick="delData()" class="btn btn-danger">선택삭제</span>
+            <!-- <span onclick="delData()" class="btn btn-danger">선택삭제</span> -->
             <a href="ad_list.php?menu=77" id="member_add" class="btn btn-primary">코드 관리</a>
         </div>
     </div>

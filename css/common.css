@@ -375,68 +375,6 @@ footer {
     fill: #FFF;
 }
 
-.fixed-btn {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: fixed;
-    right: 20px;
-    bottom: 100px;
-    z-index: 100;
-}
-
-#fixed-up {
-    border-radius: 4px;
-    background: #FFF;  
-    display: flex;
-    width: 50px;
-    height: 50px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#fixed-up>svg {
-    width: 35px;
-    height: 35px;
-}
-
-#fixed-up:hover {
-    transform: translateY(-10px);
-}
-
-.fixed-btn {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: fixed;
-    right: 20px;
-    bottom: 100px;
-    z-index: 100;
-}
-
-#fixed-up {
-    border-radius: 4px;
-    background: #FFF;  
-    display: flex;
-    width: 50px;
-    height: 50px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#fixed-up>svg {
-    width: 35px;
-    height: 35px;
-}
-
-#fixed-up:hover {
-    transform: translateY(-10px);
-}
-
 #floating-container {
     width: 100%;
     position: fixed;
@@ -451,13 +389,6 @@ footer {
     transition: 1s all;
     box-sizing: border-box;
     padding: 3px 10px;
-}
-
-.desktop {
-    width: 343px;
-    position: absolute;
-    top: -250px;
-    left: 3%;
 }
 
 .floating-wrap {
@@ -645,21 +576,6 @@ option {
     transition: transform 0.8s ease-in-out;
 }
 
-#floating-container.open {
-    width: 100%;
-    justify-content: center;
-}
-
-#floating-container.open .form-bg svg path {
-    fill: #EFE4CB;
-}
-
-#floating-container.open .floating-form {
-    width: auto;
-    left: 0;
-    opacity: 1;
-}
-
 #floating-mo-container {
     background: #EFE4CB;
     display: none;
@@ -678,10 +594,6 @@ option {
     left: 0;
     bottom: 0;
     z-index: 50;
-}
-
-#floating-mo-container.click {
-    background: #E7DBC1;
 }
 
 .floating-mo-form {
@@ -769,25 +681,8 @@ option {
     cursor: pointer;
 }
 
-.headset-div {
-    border-radius: 100px;
-    border: 1px solid #FFF;
-    background: #F0832C;
-    display: flex;
-    width: 40px;
-    aspect-ratio: 1/1;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-}
-
 #go-contact:hover {
     background: #FFF;
-}
-
-#go-contact:hover .headset-div {
-    background: #E87519;
 }
 
 .agree-modal {
@@ -932,7 +827,7 @@ option {
     z-index: 5;
 }
 
-.pg-tit {
+.st-tit {
     color: #4F2323;
     text-align: center;
     font-family: "Gmarket Sans";
@@ -943,7 +838,7 @@ option {
     z-index: 5;
 }
 
-.pg-sub-tit {
+.st-sub-tit {
     color: #4F2323;
     text-align: center;
     font-size: 30px;
@@ -964,6 +859,11 @@ option {
 
 /* 900px */
 .mi-br {
+    display: none;
+}
+
+/* 768px */
+.ta-br {
     display: none;
 }
 
@@ -990,11 +890,6 @@ option {
         font-size: 18px;
         letter-spacing: -0.45px;
     }
-    .desktop {
-        width: 250px;
-        top: -182px;
-        left: 2%;
-    }
     .floating-form {
         gap: 20px;
     }
@@ -1012,11 +907,11 @@ option {
         font-size: 16px;
         letter-spacing: -0.4px;
     }
-    .pg-tit {
+    .st-tit {
         font-size: 56px;
         letter-spacing: -1.4px;
     }
-    .pg-sub-tit {
+    .st-sub-tit {
         font-size: 28px;
         letter-spacing: -0.7px;
     }
@@ -1151,11 +1046,11 @@ option {
         height: 50px;
         padding: 10px 30px;
     }
-    .pg-tit {
+    .st-tit {
         font-size: 48px;
         letter-spacing: -1.2px;
     }
-    .pg-sub-tit {
+    .st-sub-tit {
         font-size: 24px;
         letter-spacing: -0.6px;
     }
@@ -1167,6 +1062,9 @@ option {
 @media(max-width: 768px) {
     .agree-modal {
         padding: 0 20px;
+    }
+    .ta-br {
+        display: block;
     }
 }
 
@@ -1241,11 +1139,11 @@ option {
     .agree-logo {
         width: 120px;
     }
-    .pg-tit {
+    .st-tit {
         font-size: 40px;
         letter-spacing: -1px;
     }
-    .pg-sub-tit {
+    .st-sub-tit {
         font-size: 20px;
         letter-spacing: -0.5px;
     }
@@ -1255,11 +1153,11 @@ option {
 }
 
 @media(max-width: 480px) {
-    .pg-tit {
+    .st-tit {
         font-size: 32px;
         letter-spacing: -0.8px;
     }
-    .pg-sub-tit {
+    .st-sub-tit {
         font-size: 18px;
         letter-spacing: -0.45px;
     }

@@ -9,14 +9,25 @@ ini_set('display_errors', 0);
 date_default_timezone_set('Asia/Seoul');
 
 
+// recapcha
+$secret = '';
+$response = isset($_POST["g-recaptcha-response"]) ? $_POST["g-recaptcha-response"] : '';
+
+$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+$captcha_success = json_decode($verify);
+
+if (!$captcha_success->success || $captcha_success->score < 0.5) {
+    die("스팸봇으로 의심되어 제출이 거부되었습니다.");
+}
+
+
 $posted = date("Y-m-d H:i:s");
 $flow = $_POST["flow"];
 $adCode = isset($_POST["adCode"]) ? $_POST["adCode"] : '';
 $name = $_POST["name"];
 $phone = $_POST["phone"];
-$email = $_POST["email"];
 $location = $_POST["location"];
-$store = isset($_POST["store"]) ? $_POST["store"] : '';
+$store = isset($_POST["sort"]) ? $_POST["sort"] : '';
 $desc = isset($_POST["contact_desc"]) ? $_POST["contact_desc"] : '';
 
 $type = isset($_POST["abtype"]) ? 'B' : 'A';
@@ -26,17 +37,17 @@ $writer_ip = $_POST["writer_ip"];
 
 $sql="
         insert into contact_tbl
-            (flow, ad_code, name, phone, email, location,
-            store, contact_desc, result_status,
+            (flow, ad_code, name, phone, location,
+            sort, contact_desc, result_status,
             consult_fk, writer_ip, write_date)
         value
-            (?, ?, ?, ?, ?, ?, 
+            (?, ?, ?, ?, ?, 
             ?, ?, ?, 
             ?, ?, ?)";
 
 $db_conn->prepare($sql)->execute(
     [$flow, $adCode, $name, $phone, $email, $location,
-        $store, $desc, '대기',
+        $sort, $desc, '대기',
         0, $writer_ip, $posted]);
 
 
@@ -64,7 +75,7 @@ $message = '<html><body>
                                  <strong style="margin-right: 30px">연락처:</strong> '.$phone.'<br>
                                  <strong style="margin-right: 30px">이메일:</strong> '.$email.'<br>
                                  <strong style="margin-right: 30px">창업희망지역:</strong> '.$location.'<br>
-                                 <strong style="margin-right: 30px">점포보유여부:</strong> '.$store.'<br>
+                                 <strong style="margin-right: 30px">창업형태:</strong> '.$sort.'<br>
                                  <strong style="margin-right: 30px">문의 내용:</strong><br>
                                  '.$desc.'
                              </p>
@@ -76,7 +87,6 @@ $_SESSION['message'] = $message;
 
 
 echo "<script type='text/javascript'>";
-echo "alert('문의가 등록되었습니다.');";
 echo "location.href = 'thankyou.php?c=0&type=".$type."';";
 echo "</script>";
 
