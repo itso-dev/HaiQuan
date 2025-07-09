@@ -79,15 +79,6 @@ $authority = json_decode($authority_json);
     <div class="sidebar">
         <nav class="navbar">
             <div class="container-fluid">
-                <div class="navbar-wrapper">
-                    <div class="navbar-toggle">
-                        <button type="button" class="navbar-toggler">
-                            <span class="navbar-toggler-bar bar1"></span>
-                            <span class="navbar-toggler-bar bar2"></span>
-                            <span class="navbar-toggler-bar bar3"></span>
-                        </button>
-                    </div>
-                </div>
                 <div class="navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -183,6 +174,15 @@ $authority = json_decode($authority_json);
 
 <!-- 컨텐츠 영역 시작 -->
 <div class="main-wrapper" id="wrapper">
+    <div class="navbar-wrapper">
+        <div class="navbar-toggle">
+            <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+            </button>
+        </div>
+    </div>
     <div id="container">
         <div class="content-box-wrap">
             <div class="box">

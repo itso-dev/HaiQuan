@@ -249,9 +249,10 @@ html, body {
     border-bottom: 1px solid rgba(72,115,184,0.2);
 }
 
-.navbar .navbar-wrapper {
+.navbar-wrapper {
     display: inline-flex;
     align-items: center;
+    padding: 10px 8px 0;
 }
 .navbar .navbar-collapse{
     display: flex;
