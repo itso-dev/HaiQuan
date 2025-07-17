@@ -4,6 +4,7 @@
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls; # Xls 파일로 다운받을경우
 // use PhpOffice\PhpSpreadsheet\Writer\Xlsx; # Xlsx 파일로 다운받을경우
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
 
 include_once('PhpOffice/Psr/autoloader.php');
 include_once('PhpOffice/PhpSpreadsheet/autoloader.php');
@@ -74,7 +75,7 @@ $sheet->getRowDimension('1')->setRowHeight(20);
 $line = 2;
 while ($list_row = $list_stt->fetch()) {
     $sheet
-        ->setCellValue("A".$line, $list_row['write_date'])
+        ->setCellValueExplicit("A".$line, $list_row['write_date'], DataType::TYPE_STRING)
         ->setCellValue("B".$line, $list_row['name'])
         ->setCellValue("C".$line, $list_row['phone'])
         ->setCellValue("D".$line, $list_row['location'])

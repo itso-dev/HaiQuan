@@ -472,19 +472,19 @@ $admin_stt->execute();
             </div>
             <div class="input-wrap">
                 <p class="label">창업희망지역</p>
-                <input type="email" name="location" required />
+                <input type="text" name="location" required />
             </div>
             <div class="input-wrap">
                 <p class="label">창업예상비용</p>
-                <input type="email" name="price" required />
+                <input type="text" name="price" required />
             </div>
             <div class="input-wrap">
                 <p class="label">점포보유</p>
-                <input type="email" name="store" required />
+                <input type="text" name="store" required />
             </div>
             <div class="input-wrap">
                 <p class="label">업종변경</p>
-                <input type="email" name="sort" required />
+                <input type="text" name="sort" required />
             </div>
             <div class="input-wrap">
                 <p class="label">문의 내용</p>
