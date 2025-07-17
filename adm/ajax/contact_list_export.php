@@ -4,7 +4,8 @@
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xls; # Xls 파일로 다운받을경우
 // use PhpOffice\PhpSpreadsheet\Writer\Xlsx; # Xlsx 파일로 다운받을경우
-use PhpOffice\PhpSpreadsheet\Cell\DataType;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 include_once('PhpOffice/Psr/autoloader.php');
 include_once('PhpOffice/PhpSpreadsheet/autoloader.php');
@@ -74,8 +75,11 @@ $sheet
 $sheet->getRowDimension('1')->setRowHeight(20);
 $line = 2;
 while ($list_row = $list_stt->fetch()) {
+    // A열에 날짜를 텍스트로 정확히 표시
+    $sheet->setCellValueExplicit("A".$line, $list_row['write_date'], \PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+
+    // 나머지 컬럼들
     $sheet
-        ->setCellValueExplicit("A".$line, $list_row['write_date'], DataType::TYPE_STRING)
         ->setCellValue("B".$line, $list_row['name'])
         ->setCellValue("C".$line, $list_row['phone'])
         ->setCellValue("D".$line, $list_row['location'])
@@ -85,6 +89,8 @@ while ($list_row = $list_stt->fetch()) {
         ->setCellValue("H".$line, $list_row['result_status'])
         ->setCellValue("I".$line, $list_row['writer_ip']);
 
+    $sheet->getStyle("A".$line)->getNumberFormat()->setFormatCode('@'); // 텍스트 서식 고정
+        
     $sheet->getRowDimension($line)->setRowHeight(20);
     $line++;
 }

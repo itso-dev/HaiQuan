@@ -4,6 +4,7 @@ ini_set("display_errors", 1);
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 require_once 'PhpOffice/Psr/autoloader.php';
 require_once 'PhpOffice/PhpSpreadsheet/autoloader.php';
@@ -86,7 +87,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['excel_file'])) {
             foreach ($header as $k => $hanCol) {
                 if (isset($colMap[$hanCol])) {
                     $dbCol = $colMap[$hanCol];
-                    $assoc[$dbCol] = $row[$k] ?? '';
+                    $cellValue = $row[$k] ?? '';
+
+                    if ($dbCol === 'write_date') {
+                        echo "DEBUG write_date 원본 값 (행 {$index}): " . var_export($cellValue, true) . "<br>";
+
+                        // ✅ 엑셀 시리얼 숫자 (정상 숫자)
+                        if (is_numeric($cellValue)) {
+                            try {
+                                $dt = Date::excelToDateTimeObject($cellValue);
+                                $cellValue = $dt->format('Y-m-d H:i:s');
+                            } catch (Exception $e) {
+                                echo "날짜 변환 실패 (숫자): " . $e->getMessage() . "<br>";
+                                $cellValue = null;
+                            }
+
+                        // ✅ 't45855' 형태 처리 (엑셀이 날짜 저장 시 붙일 수 있음)
+                        } elseif (preg_match('/^t(\d{4,6})$/', $cellValue, $matches)) {
+                            try {
+                                $serial = (int)$matches[1];
+                                $dt = Date::excelToDateTimeObject($serial);
+                                $cellValue = $dt->format('Y-m-d H:i:s');
+                            } catch (Exception $e) {
+                                echo "날짜 변환 실패 (t 포맷): " . $e->getMessage() . "<br>";
+                                $cellValue = null;
+                            }
+
+                        // ✅ 텍스트 날짜 (정확한 포맷인지 확인)
+                        } else {
+                            // yyyy-mm-dd or yyyy-mm-dd hh:mm:ss
+                            if (!preg_match('/^\d{4}-\d{2}-\d{2}( \d{2}:\d{2}:\d{2})?$/', $cellValue)) {
+                                echo "❌ 날짜 형식 오류: {$cellValue}<br>";
+                                $cellValue = null;
+                            }
+                        }
+
+                        $assoc[$dbCol] = $cellValue;
+
+                    } else {
+                        $assoc[$dbCol] = $cellValue;
+                    }
                 }
             }
 
