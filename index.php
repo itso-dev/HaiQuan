@@ -114,9 +114,9 @@ if ($popup_stt->rowCount() > 0) {
         var obj = eval("window." + winName);
         console.log(blnCookie);
         if (blnCookie !== "expire") {
-            $('#' + winName).closest('.layer-popup').show(); 
+            $('#' + winName).closest('.layer-popup').show();
         } else {
-            $('#' + winName).closest('.layer-popup').hide(); 
+            $('#' + winName).closest('.layer-popup').hide();
         }
     }
     // 창닫기
@@ -156,9 +156,9 @@ if ($popup_stt->rowCount() > 0) {
     function AllClose() {
         $(".layer-popup").each(function () {
             $(this).animate({
-                    opacity: 0      
-                }, 200, function() { 
-                    $(this).remove();  
+                    opacity: 0
+                }, 200, function() {
+                    $(this).remove();
             });
         });
     }
@@ -166,7 +166,8 @@ if ($popup_stt->rowCount() > 0) {
 
 <div id="contact">
     <form class="contact-form" name="contact_form" id="contact_form" method="post" action="contact_write.php" data-aos="fade-up" data-aos-duration="800">
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-1">    
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-1">
         <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
         <input type="hidden" name="adCode" value="<?= $adCode ?>" />
         <input type="hidden" name="flow" value="<?= $flow ?>" />
@@ -238,7 +239,7 @@ if ($popup_stt->rowCount() > 0) {
         grecaptcha.ready(function () {
             grecaptcha.execute('', {action: 'contact_form'}).then(function(token) {
                 document.getElementById('g-recaptcha-response-1').value = token;
-                e.target.submit(); 
+                e.target.submit();
             });
         });
     });

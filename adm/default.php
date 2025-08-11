@@ -10,7 +10,8 @@ if( isset( $_SESSION[ 'manager_id' ] ) ) {
 }
 
 if (!$adm_login) {
-    header('Location: bbs/login.php');
+    // 세션 만료 또는 미로그인 상태로 접근 시
+    header('Location: ' . $site_url . '/bbs/login.php?expired=1');
     exit;
 }
 

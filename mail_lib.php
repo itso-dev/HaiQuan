@@ -8,7 +8,6 @@ use PHPMailer\PHPMailer\Exception;
 require_once(dirname(__FILE__)."/PHPMailer-master/src/Exception.php");
 require_once(dirname(__FILE__)."/PHPMailer-master/src/PHPMailer.php");
 require_once(dirname(__FILE__)."/PHPMailer-master/src/SMTP.php");
-$site_url = "https://" . $_SERVER["HTTP_HOST"] . "";
 
 // 네이버 SMTP 이용한 메일발송 함수 //
 function mailer_naver($fname, $fmail, $tomail, $subject, $content, $file="", $cc="", $bcc="")
@@ -37,37 +36,7 @@ function mailer_naver($fname, $fmail, $tomail, $subject, $content, $file="", $cc
     return $mail->send();
 }
 
-// 네이버 웍스 SMTP 이용한 메일발송 함수 //
-function mailer_naverworks($fname, $fmail, $tomail, $subject, $content, $file = "", $cc = "", $bcc = "")
-{
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->SMTPDebug = 0;
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = "tls";
-    $mail->Host = "smtp.worksmobile.com"; // 네이버 웍스 SMTP 서버
-    $mail->Port = "587";
-    $mail->isHTML(true);
-    $mail->Username = "네이버 웍스 아이디"; // 네이버 웍스 이메일 주소
-    $mail->Password = "앱 비밀번호"; // 앱 비밀번호(비밀번호 생성)
-    $mail->CharSet = "UTF-8";
-    $mail->Encoding = "base64";
-    $mail->From = $fmail;
-    $mail->FromName = $fname;
-    $mail->Subject = $subject;
-    $mail->AltBody = "";
-    $mail->msgHTML($content);
-    $mail->addAddress($tomail);
 
-    if ($cc) $mail->addCC($cc);
-    if ($bcc) $mail->addBCC($bcc);
-
-    if (!empty($file) && file_exists($file)) {
-        $mail->addAttachment($file);
-    }
-
-    return $mail->send();
-}
 
 // 구글 SMTP 이용한 메일발송 함수 //
 function mailer_google($fname, $fmail, $tomail, $subject, $content, $file="", $cc="", $bcc="")
@@ -98,6 +67,7 @@ function mailer_google($fname, $fmail, $tomail, $subject, $content, $file="", $c
     return $mail->send();
 }
 
+
 function mailForm($arr){
     $site_url = "https://" . $_SERVER["HTTP_HOST"] . "";
     $date =  date("Y년 m월 d일 H시 i분");
@@ -117,7 +87,9 @@ function mailForm($arr){
 
     $message = '<html><body>
                         <div style="width: 570px; margin: 0 auto; border-radius: 4px; border: 2px solid #0CB2C9; background: #FFF; padding: 15px">
-                            <img src="' . $site_url . '/img/email-banner.png" style="width: 100%; margin-bottom: 24px;">
+                             <a href="https://payhere.in/" target="_blank" style="width: 100%;">
+                                <img src="' . $site_url . '/img/email-banner.png" style="width: 100%; margin-bottom: 24px;">
+                            </a>
                             <div style="display: flex; gap:8px; align-items: center; margin-bottom: 8px;">
                                 <div style="width: 125px; padding: 3px 5px; background: #DFEBF0;color: #11488C;font-size: 18px;font-weight: 600;letter-spacing: -0.45px; text-align: center">
                                     접수일시
@@ -135,7 +107,7 @@ function mailForm($arr){
                                 </div>
                             </div>
                             <p style="color: #505050; font-size: 18px;letter-spacing: -0.45px;font-weight: 400; margin-bottom: 24px;">
-                                안녕하세요. 랜딩페이지 담당자님.<br>
+                                안녕하세요. 잇소 담당자님.<br>
                                 새로운 문의가 접수되어 아래와 같이 전달드립니다.
                             </p>
                             <div style="display: flex; align-items: center">
@@ -153,10 +125,6 @@ function mailForm($arr){
 
     return $message;
 }
-
-
-
-
 
 
 

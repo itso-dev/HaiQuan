@@ -221,7 +221,23 @@ html, body {
 .gnb-container .service-center-wrap a i{
     margin-right: 12px;
 }
-
+/*banner*/
+.banner{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.banner img{
+    width: 90%;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.banner:nth-child(2){
+    margin-top: 30px;
+}
+.banner:nth-last-child(1){
+    margin-bottom: 20px;
+}
 
 /* 컨텐츠 영역 */
 #wrapper{

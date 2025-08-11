@@ -9,6 +9,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include_once($site_path.'/db/dbconfig.php');
 
+// CSRF 토큰 생성
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 //스팸봇 차단
 $bad_agents = ['MJ12bot', 'AhrefsBot', 'SemrushBot', 'DotBot'];

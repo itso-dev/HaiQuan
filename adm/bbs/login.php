@@ -1,5 +1,9 @@
 <?php
-    include_once('../head.php'); 
+    include_once('../head.php');
+
+if (isset($_GET['expired'])) {
+    echo "<script>alert('세션이 만료되었거나 로그인하지 않은 상태입니다. 다시 로그인해주세요.');</script>";
+}
 ?>
     <link rel="stylesheet" type="text/css" href="../css/login.css" rel="stylesheet" />
 

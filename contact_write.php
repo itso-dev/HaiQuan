@@ -20,6 +20,16 @@ if (!$captcha_success->success || $captcha_success->score < 0.5) {
     die("스팸봇으로 의심되어 제출이 거부되었습니다.");
 }
 
+//CSRF 처리
+if (
+    empty($_POST['csrf_token']) ||
+    empty($_SESSION['csrf_token']) ||
+    $_POST['csrf_token'] !== $_SESSION['csrf_token']
+) {
+    exit('잘못된 접근입니다 (CSRF 오류)');
+}
+unset($_SESSION['csrf_token']);
+
 
 $posted = date("Y-m-d H:i:s");
 $flow = $_POST["flow"];
