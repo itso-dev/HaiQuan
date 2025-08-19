@@ -171,7 +171,7 @@ html, body {
     margin-top: 8px;
 }*/
 
-.gnb-container .sidebar .nav li .submenu a:hover{
+.gnb-container .sidebar .nav li .submenu a.active, .gnb-container .sidebar .nav li .submenu a:hover{
     color: #4873B8;
 }
 

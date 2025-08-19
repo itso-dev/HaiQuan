@@ -216,7 +216,6 @@ if ($popup_stt->rowCount() > 0) {
                 </label>
                 <label for="agree" class="agree"><span class="agree-open">개인정보취급방침(보기)</span> 동의</label>
             </div>
-            <input type="hidden" id="g-recaptcha" name="g-recaptcha">
             <input type="submit" value="문의하기" class="c-btn">
         </div>
     </form>

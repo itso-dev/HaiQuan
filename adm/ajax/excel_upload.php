@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['excel_file'])) {
 
         // 한글 → DB 컬럼명 매핑
         $colMap = [
-            "생성일"      => "write_date",
+            "등록일"      => "write_date",
             "이름"        => "name",
             "연락처"      => "phone",
             "창업희망지역" => "location",

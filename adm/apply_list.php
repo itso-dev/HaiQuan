@@ -303,16 +303,16 @@ $admin_stt->execute();
                             <input type="checkbox" name="chkall" class="checkbox-list" onclick="check_all(this)" id="chkall">
                             <label for="chkall"></label>
                         </th>
-                        <th scope="col" style="width: 200px;" class="text-center">광고 코드</th>
-                        <th scope="col" style="width: 200px;" class="text-center" onclick="sortColumn('sort_date');">등록일</th>
+                        <th scope="col" style="width: 150px;" class="text-center">광고 코드</th>
+                        <th scope="col" style="width: 170px;" class="text-center" onclick="sortColumn('sort_date');">등록일</th>
                         <th scope="col" style="width: 200px;" class="text-center">유입 경로</th>
-                        <th scope="col" style="width: 170px; cursor: pointer;" class="text-center">성함</th>
-                        <th scope="col" style="width: 170px;" class="text-center">연락처</th>
+                        <th scope="col" style="width: 120px; cursor: pointer;" class="text-center">성함</th>
+                        <th scope="col" style="width: 150px;" class="text-center">연락처</th>
                         <th scope="col" style="width: 150px;" class="text-center">아이피</th>
-                        <th scope="col" style="width: 150px;" class="text-center">문의 내용</th>
-                        <th scope="col" style="width: 150px;" class="text-center">상담 내역</th>
-                        <th scope="col" style="width: 150px;" class="text-center">진행 상태</th>
-                        <th scope="col" style="width: 150px;" class="text-center">담당자</th>
+                        <th scope="col" style="width: 100px;" class="text-center">문의 내용</th>
+                        <th scope="col" style="width: 100px;" class="text-center">상담 내역</th>
+                        <th scope="col" style="width: 110px;" class="text-center">진행 상태</th>
+                        <th scope="col" style="width: 200px;" class="text-center">담당자</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -385,6 +385,9 @@ $admin_stt->execute();
                 <nav>
                     <ul class="pagination">
                         <?php
+                        $search_params = "sch_ad_type=$sch_ad_type&sch_manager=$sch_manager&sch_c_result=$sch_c_result&stx=$stx&sch_startdate=$sch_startdate&sch_enddate=$sch_enddate";
+
+
                         if($start_page<=0){
                             $start_page = 1;
                         }
@@ -398,13 +401,13 @@ $admin_stt->execute();
                                 $back=1;
                             }
                             echo "<li class='page-item'>";
-                            echo "  <a class='page-link' href='$_SERVER[PHP_SELF]?page=$back'>처음</a>";
+                            echo "  <a class='page-link' href='$_SERVER[PHP_SELF]?page=$back&$search_params'>처음</a>";
                             echo "</li>";
                         }
                         for($i=$start_page; $i<=$end_page; $i++){
                             if($_GET['page']!=$i){
                                 echo "<li class='page-item'>";
-                                echo "  <a class='page-link' href='$_SERVER[PHP_SELF]?page=$i'>";
+                                echo "  <a class='page-link' href='$_SERVER[PHP_SELF]?page=$i&$search_params'>";
                                 echo "      $i ";
                                 echo "  </a>";
                                 echo "</li>";
@@ -422,7 +425,7 @@ $admin_stt->execute();
                                 $next=$total_page;
                             }
                             echo "<li class='page-item'>";
-                            echo "<a class='page-link' href='$_SERVER[PHP_SELF]?page=$next'>맨끝</a>";
+                            echo "<a class='page-link' href='$_SERVER[PHP_SELF]?page=$next&$search_params'>맨끝</a>";
                             echo "</li>";
                         }
                         ?>

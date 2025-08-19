@@ -296,21 +296,21 @@ $endDate = '';
     // A/B 시리즈 데이터 설정
     const series = [
         {
-            name: 'A페이지 - 총 문의',
+            name: '총 문의',
             data: chartData.A.contact_counts
         },
         {
-            name: 'A페이지 - 총 방문수(노출)',
+            name: '총 방문수(노출)',
             data: chartData.A.view_counts
         },
-        {
-            name: 'B페이지 - 총 문의',
-            data: chartData.B.contact_counts
-        },
-        {
-            name: 'B페이지 - 총 방문수(노출)',
-            data: chartData.B.view_counts
-        }
+        // {
+        //     name: 'B페이지 - 총 문의',
+        //     data: chartData.B.contact_counts
+        // },
+        // {
+        //     name: 'B페이지 - 총 방문수(노출)',
+        //     data: chartData.B.view_counts
+        // }
     ];
 
     // ApexCharts 옵션 설정

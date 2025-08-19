@@ -21,10 +21,10 @@ ini_set('display_errors', '1');
 <div class="page-header">
     <h4 class="page-title">기본 설정</h4>
 
-    <div class="tab-wrap">
+    <!-- <div class="tab-wrap">
         <span class="tab-item tab1  active">사이트 기본설정</span>
-        <!-- <span class="tab-item tab2">B사이트 기본설정</span> -->
-    </div>
+        <span class="tab-item tab2">B사이트 기본설정</span>
+    </div> -->
 
 
     <!--     A사이트      -->

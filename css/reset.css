@@ -17,7 +17,7 @@ button {cursor:pointer}
 textarea, select {font-family:'Pretendard', dotum, sans-serif;font-size:1em}
 select {margin:0}
 p {margin:0;padding:0;word-break:break-all}
-/* hr {display:none} */
+hr {padding: 0; margin:0;}
 pre {overflow-x:scroll;font-size:1.1em}
 a {color:#000;text-decoration:none}
 

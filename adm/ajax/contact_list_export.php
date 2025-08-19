@@ -62,12 +62,12 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 $sheet
-    ->setCellValue("A1", "생성일")
+    ->setCellValue("A1", "등록일")
     ->setCellValue("B1", "이름")
     ->setCellValue("C1", "연락처")
     ->setCellValue("D1", "창업희망지역")
-    ->setCellValue("E1", "광고코드")
-    ->setCellValue("F1", "문의 타입")
+    ->setCellValue("E1", "문의내용")
+    ->setCellValue("F1", "광고코드")
     ->setCellValue("G1", "유입경로")
     ->setCellValue("H1", "결과")
     ->setCellValue("I1", "아이피");
@@ -83,8 +83,8 @@ while ($list_row = $list_stt->fetch()) {
         ->setCellValue("B".$line, $list_row['name'])
         ->setCellValue("C".$line, $list_row['phone'])
         ->setCellValue("D".$line, $list_row['location'])
-        ->setCellValue("E".$line, $list_row['ad_code'])
-        ->setCellValue("F".$line, $list_row['contact_type'])
+        ->setCellValue("E".$line, $list_row['contact_desc'])
+        ->setCellValue("F".$line, $list_row['ad_code'])
         ->setCellValue("G".$line, $list_row['flow'])
         ->setCellValue("H".$line, $list_row['result_status'])
         ->setCellValue("I".$line, $list_row['writer_ip']);
@@ -98,13 +98,12 @@ while ($list_row = $list_stt->fetch()) {
 // Set column widths
 $sheet->getColumnDimension('A')->setWidth(20);
 $sheet->getColumnDimension('B')->setWidth(10);
-$sheet->getColumnDimension('C')->setWidth(20);
+$sheet->getColumnDimension('C')->setWidth(15);
 $sheet->getColumnDimension('D')->setWidth(20);
-$sheet->getColumnDimension('E')->setWidth(20);
-$sheet->getColumnDimension('F')->setWidth(30);
-$sheet->getColumnDimension('G')->setWidth(10);
+$sheet->getColumnDimension('E')->setWidth(50);
+$sheet->getColumnDimension('F')->setWidth(20);
+$sheet->getColumnDimension('G')->setWidth(20);
 $sheet->getColumnDimension('H')->setWidth(15);
-$sheet->getColumnDimension('I')->setWidth(15);
 
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment; filename="문의_' . date('Y-m-d_H-i-s') . '.xls"'); // filename 수정

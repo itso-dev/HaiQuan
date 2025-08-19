@@ -48,7 +48,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 45;
 }
 
 .logo {
@@ -56,10 +56,6 @@
     position: absolute;
     left: 40px;
     cursor: pointer;
-}
-
-.mo-logo {
-    display: none;
 }
 
 #header nav {
@@ -236,13 +232,6 @@ footer {
     align-items: flex-start;
 }
 
-.footer-big-container>p {
-    color: rgba(255, 255, 255, 0.50);
-    font-size: 14px;
-    line-height: 130%; /* 18.2px */
-    letter-spacing: -0.35px;
-}
-
 .footer-container {
     display: flex;
     gap: 56px;
@@ -339,14 +328,6 @@ footer {
     letter-spacing: -0.6px;
 }
 
-.footer-big-container>p {
-    color: rgba(255, 255, 255, 0.50);
-    font-size: 14px;
-    line-height: 130%; /* 18.2px */
-    letter-spacing: -0.35px;
-    display: none;
-}
-
 .up-btn {
     position: absolute;
     top: -35px;
@@ -375,12 +356,14 @@ footer {
     fill: #FFF;
 }
 
+
+/* 하단 고정 문의 */
 #floating-container {
     width: 100%;
     position: fixed;
     right: 0;
     bottom: 0;
-    z-index: 50;
+    z-index: 45;
     background: #F0832C;
     padding: 3px 0px;
     display: flex;
@@ -576,6 +559,8 @@ option {
     transition: transform 0.8s ease-in-out;
 }
 
+
+/* 하단 고정 문의(모바일) */
 #floating-mo-container {
     background: #EFE4CB;
     display: none;
@@ -593,7 +578,7 @@ option {
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 50;
+    z-index: 45;
 }
 
 .floating-mo-form {
@@ -606,7 +591,7 @@ option {
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 50;
+    z-index: 45;
 }
 
 .mo-form {
@@ -656,12 +641,14 @@ option {
     width: 100%;
 }
 
+
+/* 문의폼 이동 고정 버튼 */
 #go-contact {
     height: fit-content;
     position: fixed;
     bottom: 80px;
     right: 20px;
-    z-index: 99;
+    z-index: 45;
     display: flex;
     box-sizing: border-box;
     padding-right: 12px;
@@ -685,6 +672,8 @@ option {
     background: #FFF;
 }
 
+
+/* 개인정보처리방침 */
 .agree-modal {
     position: fixed;
     top: 2.5vh;
@@ -693,7 +682,7 @@ option {
     transform: translateX(-50%);
     background: #fff;
     cursor: pointer;
-    z-index: 1005;
+    z-index: 60;
     box-sizing: border-box;
     padding: 0 48px;
     padding-top: 60px !important;
@@ -784,7 +773,11 @@ option {
     height: 100%;
     background: #000;
     opacity: 0.3;
-    z-index: 1001 !important;
+    z-index: 50;
+}
+
+.normal {
+    font-weight: 400 !important;
 }
 
 .bold {
@@ -819,7 +812,7 @@ option {
     color: #FFDC6A !important;
 }
 
-.pg-top {
+.st-top {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -849,8 +842,24 @@ option {
     z-index: 5;
 }
 
+.justify-start {
+    justify-content: flex-start !important;
+}
+
+.justify-center {
+    justify-content: center !important;
+}
+
 .justify-end {
     justify-content: flex-end !important;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .text-right {
@@ -874,6 +883,11 @@ option {
 
 /* 480px */
 .xs-br {
+    display: none;
+}
+
+/* 400px */
+.xxs-br {
     display: none;
 }
 
@@ -935,20 +949,6 @@ option {
     .footer-logo {
         width: 185px;
     }
-    .footer-big-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-    }
-    .footer-inner>p:last-child {
-        display: none;
-    }
-    .footer-container, .footer-wrapper, .footer-inner, .footer-right {
-        align-items: center;
-    }
-    .footer-big-container>p {
-        display: inline-block;
-    }
     .footer-container {
         flex-direction: column;
         gap: 20px;
@@ -968,12 +968,6 @@ option {
 }
 
 @media(max-width: 1024px) {
-    .logo {
-        display: none;
-    }
-    .mo-logo {
-        display: inline-block;
-    }
     #header {
         height: 56px;
         padding: 8px 12px;
@@ -1166,6 +1160,12 @@ option {
     }
     .xs-no-br {
         display: none;
+    }
+}
+
+@media(max-width: 400px) {
+    .xxs-br {
+        display: block;
     }
 }
 

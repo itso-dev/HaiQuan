@@ -57,6 +57,7 @@ $authority = json_decode($authority_json);
         $('.navbar-toggler').click(function(){
             $('body').toggleClass('sidebar-open');
         });
+
         $(".sidebar-wrapper .nav li").click(function (){
             if($(this).hasClass("toggle-open")){
                 $(this).find(".submenu").slideUp("300");
@@ -66,6 +67,15 @@ $authority = json_decode($authority_json);
                 $(this).find(".submenu").slideDown("300");
                 $(this).addClass("toggle-open");
             }
+        });
+
+        $('.sidebar-wrapper .nav .active').each(function () {
+            $(this).find('.submenu').each(function () {
+                if ($(this).find('.this').length) {
+                    $(this).show();
+                    $(this).prev('.menu').addClass('toggle-open');
+                }
+            });
         });
     });
 
