@@ -18,6 +18,20 @@
     color: #213350;
     margin-bottom: 8px;
 }
+
+.chk-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+.chk-wrap .chk-item label{
+    margin-bottom: 0;
+}
+.chk-wrap .chk-item{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 .form-control {
     display: block;
     width: 100%;
@@ -38,7 +52,7 @@
     width: 100%;
 }
 */
-.btn-wrap, .col-2{   
+.btn-wrap, .col-2{
     display: flex;
     width: 100%;
     gap: 16px;
@@ -52,6 +66,7 @@
 .col-2 .input-wrap{
     width: 100%;
 }
+
 /*
 .submit, .go-back {
     display: inline-block;
@@ -72,7 +87,7 @@
 
 .submit {
     color:#fff;
-    background-color: #6C93CA !important;   
+    background-color: #6C93CA !important;
 }
 
 .submit:hover{
@@ -202,6 +217,19 @@ textarea.form-control {
 @media (max-width: 768px){
     .img-preview img{
         max-width: 90%;
+    }
+
+    textarea.form-control {
+        height: 200px;
+    }
+
+    input[type=file]{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .chk-wrap {
+        flex-direction: column;
     }
 
     .col-2{

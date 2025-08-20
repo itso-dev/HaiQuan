@@ -5,3 +5,14 @@ table th:nth-child(1), th:nth-child(2){
 .d-none {
     display: none!important;
 }
+
+.list-thumb{
+    width: 200px;
+}
+
+
+@media screen and (max-width: 481px){
+    .list-thumb{
+        width: 80px;
+    }
+}

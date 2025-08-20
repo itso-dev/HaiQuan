@@ -139,7 +139,7 @@ if ($type == 'modify') {
             </div>
         </div>
         <div class="btn-wrap">
-            <a href="./popup_list.php" class="go-back">목록</a>
+            <a href="./popup_list.php?menu=66" class="go-back">목록</a>
             <input type="submit" class="submit" value="확인" required />
         </div>
     </form>

@@ -4,31 +4,31 @@
 }
 .list-container{
     display: flex;
-    gap: 7%;
-    flex-wrap: wrap !important;
-    margin-top: 50px;
+    width: 100%;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 .list-container .item{
-    width: 19%;
     border-radius: 5px;
     border: 1px solid #e2e5ee;
     color: #444;
-    background: #f0f2f9;
-    font-size: 15px;
+    background: #fff;
+    font-size: 1.3em;
     font-weight: 500;
     text-align: center;
+    width: 20%;
     height: 180px;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 5%;
+    border-radius: 12px;
     padding: 1%;
     cursor: pointer;
 }
 .list-container .item .img-wrapper{
-    width:100%;
-    margin-top: 10px;
+    width: 100%;
 }
 .list-container .item img{
     height: 70px;
@@ -37,10 +37,37 @@
 .list-container .item p{
     display: block;
     width: 100%;
-    border-top: 1px solid #c5cadb;
-    padding: 10px 0;
-    margin-top: 10px;
 }
 .list-container .item:hover{
-    box-shadow: 0 .5rem 1rem rgba(55,58,66,.15);
+    border: 1px solid #4873B8;
+    box-shadow: 2px 0px 24px rgba(0,0,0,0.05);
+}
+
+.list-container .item:hover > p{
+    color: #4873B8;
+}
+
+@media screen and (max-width: 991px) {
+
+    .list-container{
+        width: 100%;
+        gap: 10px !important;
+    }
+
+    .list-container .item{
+        width: 48%;
+        width: calc((100vw - 42px) / 2);
+        width: -webkit-calc((100vw - 42px) / 2);
+        height: 148px;
+        gap: 12px;
+    }
+
+    .list-container .item img{
+        height: 50px;
+    }
+
+    .list-container .item p{
+        text-align: center;
+        font-size: 0.9em;
+    }
 }

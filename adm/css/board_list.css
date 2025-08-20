@@ -10,6 +10,9 @@
     display: none;
 }
 
+table {
+    min-width: 800px;
+}
 
 .seo-btn{
     display: inline-block;
@@ -70,7 +73,9 @@ table th:nth-child(1), th:nth-child(2){
     border-radius: 10px;
     top: 11px;
 }
-
+#store.search-wrap {
+    width: 500px;
+}
 .act_button{
     display: inline-block;
 }
@@ -385,4 +390,21 @@ table th:nth-child(1), th:nth-child(2){
     color: #4873B8;
     top: 4px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 480px){
+    table{
+        min-width: 280px;
+    }
+
+
+    #store.search-wrap {
+        width: 100%;
+    }
+
+    #store.search-wrap .btn{
+        width: 72px !important;
+        word-break: keep-all;
+    }
+
 }

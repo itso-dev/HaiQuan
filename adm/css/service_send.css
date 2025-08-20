@@ -1,57 +1,57 @@
-.page-header h4{
-    font-size: 25px;
-    font-weight: 500;
-}
-.form-container{
-    margin-top: 50px;
-}
-.form-container .input-container{
-    display: flex;
-    margin-bottom: 30px;
-}
-.form-container .input-container .label{
-    width: 11%;
-    font-size: 14px;
-    font-weight: 500;
-    padding-top: 8px;
-    padding-right: 1%;
-}
-.form-container .input-container .input-wrap{
-    width: 65%;
-}
-.form-container .input-container .input-wrap textarea{
-    resize: none;
-    height: 200px;
-    font-size: 1em;
-}
-.form-container .input-container input{
-    font-size: 1em;
-}
-.form-container .input-container input[type=submit]{
-    background: #0eb1c9;
-    color: #fff;
-    padding: 9px 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    margin-left: 11%;
-}
-.form-container .input-container input[type=submit]:hover{
-    background: #009cb3 ;
-}
-.form-container .input-container input[type=file]{
-    width: 65%;
-    margin-left: 11%;
-}
-.form-container .input-container .chk-wrap{
-    display: flex;
-}
-.form-container .input-container .chk-wrap label{
-    width: 50%;
-    font-size: 14px;
-}
-.form-container .input-container .chk-wrap input[type=checkbox]{
-    width: 16px;
-    height: 16px;
-}
+/*.page-header h4{*/
+/*    font-size: 25px;*/
+/*    font-weight: 500;*/
+/*}*/
+/*.form-container{*/
+/*    margin-top: 50px;*/
+/*}*/
+/*.form-container .input-container{*/
+/*    display: flex;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+/*.form-container .input-container .label{*/
+/*    width: 11%;*/
+/*    font-size: 14px;*/
+/*    font-weight: 500;*/
+/*    padding-top: 8px;*/
+/*    padding-right: 1%;*/
+/*}*/
+/*.form-container .input-container .input-wrap{*/
+/*    width: 65%;*/
+/*}*/
+/*.form-container .input-container .input-wrap textarea{*/
+/*    resize: none;*/
+/*    height: 200px;*/
+/*    font-size: 1em;*/
+/*}*/
+/*.form-container .input-container input{*/
+/*    font-size: 1em;*/
+/*}*/
+/*.form-container .input-container input[type=submit]{*/
+/*    background: #0eb1c9;*/
+/*    color: #fff;*/
+/*    padding: 9px 20px;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    text-align: center;*/
+/*    margin-left: 11%;*/
+/*}*/
+/*.form-container .input-container input[type=submit]:hover{*/
+/*    background: #009cb3 ;*/
+/*}*/
+/*.form-container .input-container input[type=file]{*/
+/*    width: 65%;*/
+/*    margin-left: 11%;*/
+/*}*/
+/*.form-container .input-container .chk-wrap{*/
+/*    display: flex;*/
+/*}*/
+/*.form-container .input-container .chk-wrap label{*/
+/*    width: 50%;*/
+/*    font-size: 14px;*/
+/*}*/
+/*.form-container .input-container .chk-wrap input[type=checkbox]{*/
+/*    width: 16px;*/
+/*    height: 16px;*/
+/*}*/

@@ -11,7 +11,7 @@ $admin_stt->execute();
 <div class="page-header">
     <h4 class="page-title">팝업 설정</h4>
     <div class="btn_fixed_top fe">
-        <button type="button" onclick="location.href='./popup_form.php?menu=3&type=insert'"
+        <button type="button" onclick="location.href='./popup_form.php?menu=66&type=insert'"
                 class="btn btn-primary">새창관리추가</button>
     </div>
 </div>
@@ -48,7 +48,7 @@ $admin_stt->execute();
                     <?= $list_row['end_date'] ?>
                 </td>
                 <td>
-                    <a href="./popup_form.php?menu=4&type=modify&id=<?= $list_row['id'] ?>"
+                    <a href="./popup_form.php?menu=66&type=modify&id=<?= $list_row['id'] ?>"
                        class="btn btn-default">수정</a>
                     <a href="./ajax/popup_delete.php?id=<?= $list_row['id'] ?>&file=<?= $list_row['file_name'] ?>"
                        onclick="return confirm('선택한 팝업을 삭제하시겠습니까?');" class="btn btn-danger">삭제</a>

@@ -1,4 +1,10 @@
 
+body{
+    background: url('../img/login_bg.png') no-repeat;
+    background-size: cover;
+    margin:0; padding:0;
+}
+
 .container{
     justify-content: center;
     display: flex;
@@ -8,41 +14,32 @@
     height: 100vh;
 }
 .warning{
-    font-size: 1.2em;
-    font-weight: 800;
+    font-size: 2.2em;
+    font-weight: 600;
+    color: #213350;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 1.6rem;
 }
 .login-form{
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
-    width: 255px;
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px -3px rgb(29 20 75 / 12%), 0 4px 12px -2px rgb(29 20 75 / 8%);
+    width: 400px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem 2rem 2rem;
     border-radius: .5rem;
+    margin-bottom: 2rem;
 }
 .login-form .label{
-    font-size: 1.4em;
-    color: #a0aec0;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 1.3em;
+    color: #213350;
+    font-weight: 500;
+    margin: 1rem 0 0.5rem;
 }
-.login-form input{
-    width: 100%;
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px 0 rgb(0 0 0 / 6%);
-    padding: .5rem;
-    border-radius: .25rem;
-    border: 1px solid #e2e8f0;
-    background: #e8f0fe;
-    margin-bottom:15px
-}
+
 .login-form input[type=submit]{
-    padding: 0.5rem;
-    background: #718096;
-    color: #fff;
-    font-size: 1rem;
-    width: 50%;
-    font-weight: 800;
+    margin-top: 1.2rem;
+    font-size: 1.3em;
 }
 
 @media screen and (max-width: 480px){

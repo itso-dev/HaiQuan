@@ -87,6 +87,14 @@ $authority = json_decode($authority_json);
 <body>
 <!-- admin menu -->
 <div class="gnb-container">
+    <nav class="sidebar-mo">
+        <button type="button" id="sidebar-mo-btn" class="navbar-toggler">
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+        </button>
+        <a class="brand" href="index.php">랜딩페이지명(스크립트넣어주셔야함)</a>
+    </nav>
     <div class="sidebar">
         <nav class="navbar">
             <div class="container-fluid">
@@ -105,7 +113,6 @@ $authority = json_decode($authority_json);
                     </ul>
                     <p class="manager-info"><?= $_SESSION['manager_name'] ?></p>
                 </div>
-
             </div>
         </nav>
         <div class="brand-wrapper">
