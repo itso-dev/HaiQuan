@@ -416,12 +416,12 @@ html, body {
 .tab-wrap{
     display: inline-flex;
     flex-direction: row;
-    gap:0;
+    gap: 8px;
     background-color: #D0DEF2;
     border-radius: 8px;
-    width: 600px;
-    overflow-x: scroll;
-    white-space: nowrap;
+    width: 600px;          /* 기준 폭 */
+    overflow-x: auto;      /* 내용이 넘칠 때만 스크롤 표시 */
+    white-space: nowrap;   /* 줄바꿈 방지(가로로 나열) */
 }
 .tab-item{
     padding: 8px 20px;
