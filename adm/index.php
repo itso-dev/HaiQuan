@@ -29,6 +29,16 @@ $total_finish_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like 
 $total_finish_stt=$db_conn->prepare($total_finish_sql);
 $total_finish_stt->execute();
 $total_finish = $total_finish_stt -> fetch();
+// 전체 부재 수
+$total_absence_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%부재%'";
+$total_absence_stt=$db_conn->prepare($total_absence_sql);
+$total_absence_stt->execute();
+$total_absence = $total_absence_stt -> fetch();
+// 전체 거절 수
+$total_refusal_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%거절%'";
+$total_refusal_stt=$db_conn->prepare($total_refusal_sql);
+$total_refusal_stt->execute();
+$total_refusal = $total_refusal_stt -> fetch();
 // 오늘 조회수
 $today_view_sql = "SELECT COUNT(view_cnt) FROM view_log_tbl WHERE DATE(reg_date) = DATE(NOW());";
 $today_view_stt=$db_conn->prepare($today_view_sql);
@@ -49,6 +59,16 @@ $today_processing_sql = "SELECT COUNT(id) FROM contact_tbl where result_status l
 $today_processing_stt=$db_conn->prepare($today_processing_sql);
 $today_processing_stt->execute();
 $today_processing = $today_processing_stt -> fetch();
+// 오늘 부재 수
+$today_absence_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%부재%' AND DATE(write_date) = DATE(NOW())";
+$today_absence_stt=$db_conn->prepare($today_absence_sql);
+$today_absence_stt->execute();
+$today_absence = $today_absence_stt -> fetch();
+// 오늘 거절 수
+$today_refusal_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%거절%' AND DATE(write_date) = DATE(NOW())";
+$today_refusal_stt=$db_conn->prepare($today_refusal_sql);
+$today_refusal_stt->execute();
+$today_refusal = $today_refusal_stt -> fetch();
 // 오늘 완료자 수
 $today_finish_sql = "SELECT COUNT(id) FROM contact_tbl where result_status like '%완료%' AND DATE(write_date) = DATE(NOW())";
 $today_finish_stt=$db_conn->prepare($today_finish_sql);
@@ -201,6 +221,14 @@ $endDate = '';
                        <p class="name">상담 완료 수<p>
                        <p class="cnt"><?=number_format($total_finish[0])?></p>
                    </div>
+                   <div class="item">
+                       <p class="name">상담 부재 수<p>
+                       <p class="cnt"><?=number_format($total_absence[0])?></p>
+                   </div>
+                   <div class="item">
+                       <p class="name">상담 거절 수<p>
+                       <p class="cnt"><?=number_format($total_refusal[0])?></p>
+                   </div>
                </div>
             </div>
             <div class="content-wrap mt-3">
@@ -225,6 +253,14 @@ $endDate = '';
                     <div class="item">
                         <p class="name">상담 완료 수<p>
                         <p class="cnt"><?=number_format($today_finish[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 부재 수</p>
+                        <p class="cnt"><?=number_format($today_absence[0])?></p>
+                    </div>
+                    <div class="item">
+                        <p class="name">상담 거절 수</p>
+                        <p class="cnt"><?=number_format($today_refusal[0])?></p>
                     </div>
                 </div>
             </div>
