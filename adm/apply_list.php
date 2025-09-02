@@ -120,7 +120,7 @@ if($sch_c_result == ""){
 if($stx == ""){
     $stx_key = "";
 }else{
-    $stx_key = " AND ( name like '%$stx%' OR email like '%$stx%' OR phone like '%$stx%' OR  writer_ip like '%$stx%' )";
+    $stx_key = " AND ( name like '%$stx%' OR location like '%$stx%' OR phone like '%$stx%' OR  writer_ip like '%$stx%' )";
 }
 
 

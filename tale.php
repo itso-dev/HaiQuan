@@ -6,6 +6,7 @@
             <div class="floating-form">
                 <p><span class="primary">창업문의</span> 문의번호</p>
                 <form class="floating-contact" name="contact_form" id="contact_form2" method="post" action="contact_write.php">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                     <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">  
                     <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="adCode" value="<?= $adCode ?>" />
@@ -36,6 +37,7 @@
 
     <div class="floating-mo-form">
         <form name="contact_form" class="mo-form" id="contact_form3" method="post" action="contact_write2.php">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
             <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-3">  
             <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
             <input type="hidden" name="action" value="go">
