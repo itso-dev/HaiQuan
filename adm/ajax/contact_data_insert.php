@@ -15,7 +15,6 @@ $location = $_POST["location"];
 $cost = $_POST["cost"];
 $store = $_POST["store"];
 $sort = $_POST["sort"];
-$location = $_POST["location"];
 $manager_name = isset($_POST["manager_name"]) ? $_POST["manager_name"] : '';
 $desc = isset($_POST["contact_desc"]) ? $_POST["contact_desc"] : '';
 

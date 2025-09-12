@@ -6,9 +6,9 @@
             <div class="floating-form">
                 <p><span class="primary">창업문의</span> 문의번호</p>
                 <form class="floating-contact" name="contact_form" id="contact_form2" method="post" action="contact_write.php">
-                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">
-                    <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">  
+                    <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="adCode" value="<?= $adCode ?>" />
                     <input type="hidden" name="flow" value="<?= $flow ?>" />
 
@@ -37,12 +37,13 @@
 
     <div class="floating-mo-form">
         <form name="contact_form" class="mo-form" id="contact_form3" method="post" action="contact_write2.php">
-            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-3">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-3">  
             <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
             <input type="hidden" name="action" value="go">
             <input type="hidden" name="adCode" value="<?= $adCode ?>" />
             <input type="hidden" name="flow" value="<?= $flow ?>" />
-
+            
             <div class="input-wrap">
                 <input type="text" name="name" placeholder="성함" required>
                 <input type="text" name="phone" placeholder="연락처" required>
@@ -93,14 +94,14 @@
                 <div class="footer-inner">
                     <div class="footer-wrap">
                         <div class="footer-div">
-                        사업자등록번호 :
+                        사업자등록번호 : 
                         </div>
                         <div class="footer-big-div">
                             <div class="footer-div">
-                            대표 :
+                            대표 : 
                             </div>
                             <div class="footer-div">
-                            대표번호 :
+                            대표번호 : 
                             </div>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
             <p>문의번호</p>
         </div>
     </div>
-
+    
 
     <div class="up-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -206,7 +207,7 @@
         grecaptcha.ready(function () {
             grecaptcha.execute('', {action: 'contact_form2'}).then(function(token) {
                 document.getElementById('g-recaptcha-response-2').value = token;
-                e.target.submit();
+                e.target.submit(); 
             });
         });
     });
@@ -217,7 +218,7 @@
         grecaptcha.ready(function () {
             grecaptcha.execute('', {action: 'contact_form3'}).then(function(token) {
                 document.getElementById('g-recaptcha-response-3').value = token;
-                e.target.submit();
+                e.target.submit(); 
             });
         });
     });

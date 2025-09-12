@@ -120,7 +120,7 @@ if($sch_c_result == ""){
 if($stx == ""){
     $stx_key = "";
 }else{
-    $stx_key = " AND ( name like '%$stx%' OR email like '%$stx%' OR phone like '%$stx%' OR  writer_ip like '%$stx%' )";
+    $stx_key = " AND ( name like '%$stx%' OR location like '%$stx%' OR phone like '%$stx%' OR  writer_ip like '%$stx%' )";
 }
 
 
@@ -164,14 +164,11 @@ $start_page=(($row-1)*$page_size)+1;
 $adCode_sql = "select * from ad_link_tbl order by id";
 $adCode_stt=$db_conn->prepare($adCode_sql);
 $adCode_stt->execute();
-$adCodes = $adCode_stt->fetchAll(PDO::FETCH_ASSOC);
 
 //담당자 리스트
 $admin_sql = "select * from admin_tbl order by id";
 $admin_stt=$db_conn->prepare($admin_sql);
 $admin_stt->execute();
-$admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
-
 
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -197,7 +194,7 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                                 <select class="custom-select custom-select-sm form-control" name="sch_ad_type">
                                     <option value="">없음</option>
                                     <?php
-                                    foreach ($adCodes as $adCode) {
+                                    while($adCode=$adCode_stt->fetch()){
                                         ?>
                                         <option value="<?= $adCode['link'] ?>" <? if($sch_ad_type == $adCode['link']) echo "selected" ?> ><?= $adCode['link'] ?></option>
                                     <?php } ?>
@@ -211,9 +208,9 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                                     <select class="custom-select custom-select-sm form-control" name="sch_manager">
                                         <option value="">없음</option>
                                         <?php
-                                        foreach ($admins as $admin) {
+                                        while($admin_row1=$admin_stt->fetch()){
                                             ?>
-                                            <option value="<?= $admin['id'] ?>" <? if($sch_manager == $admin['id']) echo "selected"?>><?= $admin['login_name'] ?></option>
+                                            <option value="<?= $admin_row1['id'] ?>" <? if($sch_manager == $admin_row1['id']) echo "selected"?>><?= $admin_row1['login_name'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -261,8 +258,9 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                     상세검색
                 </button>
             </form>
+
         </div>
-        <form name="fboardlist" id="fboardlist" method="post" onsubmit="return fboardlist_submit(this);" class="">
+        <form name="fboardlist" id="fboardlist" method="post" onsubmit="return fboardlist_submit(this);" class="page-body">
             <input type="hidden" name="sst" value="a.wr_id">
             <input type="hidden" name="sod" value="desc">
             <input type="hidden" name="page" value="1">
@@ -282,93 +280,10 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                     <a id="export_chks" class="btn btn-default float-right" href="<?= $site_url ?>/email_form.php?menu=55">발송 이메일 관리</a>
                     <span id="export_chks" class="btn btn-default float-right ip-modal-open">차단 아이피 관리</span>
                 </div>
-                <div class="mo-show">
-                    <span onclick="addModal();" class="btn btn-primary mt-0">문의 데이터 추가</span>
-                    <a class="show-searchwrap btn btn-default">필터 <i class="btn-arrow fa fa-angle-down" aria-hidden="true"></i></a>
-                    <a class="function btn btn-default">부가기능 <i class="btn-arrow fa fa-angle-down" aria-hidden="true"></i></a>
-                </div>
+                <span onclick="addModal();" class="btn btn-primary">문의 데이터 추가</span>
             </div>
-
-            <!-- 모바일 상세검색 -->
-            <form method="get" class="p-1 page-header border">
-                <div class="" id="search-mo" style="display:none">
-                    <div class="">
-                        <div class="row mx-0">
-                            <div class="w-100 my-1 my-md-0 px-1 position-relative">
-                                <div class="my-1 my-md-0">
-                                    <label>광고 코드</label>
-                                </div>
-                                <select class="custom-select custom-select-sm form-control" name="sch_ad_type">
-                                    <option value="">없음</option>
-                                    <?php
-                                    foreach ($adCodes as $adCode) {
-                                        ?>
-                                        <option value="<?= $adCode['link'] ?>" <? if($sch_ad_type == $adCode['link']) echo "selected" ?> ><?= $adCode['link'] ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                            <? if($_SESSION['manager_id'] == 1){ ?>
-                                <div class="col-6 my-1 my-md-0 px-1">
-                                    <div class="my-1 my-md-0">
-                                        <label>담당자</label>
-                                    </div>
-                                    <select class="custom-select custom-select-sm form-control" name="sch_manager">
-                                        <option value="">없음</option>
-                                        <?php
-                                        foreach ($admins as $admin) {
-                                            ?>
-                                            <option value="<?= $admin['id'] ?>" <? if($sch_manager == $admin['id']) echo "selected"?>><?= $admin['login_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                            <? } ?>
-                            <div class="col-6 my-1 my-md-0 px-1">
-                                <div class="my-1 my-md-0">
-                                    <label>결과</label>
-                                </div>
-                                <select class="custom-select custom-select-sm form-control" name="sch_c_result">
-                                    <option value="" <? if($sch_c_result == "" || $sch_c_result == "전체") echo "selected" ?> >전체</option>
-                                    <option value="대기" <? if($sch_c_result == "대기") echo "selected" ?> >대기</option>
-                                    <option value="잔행" <? if($sch_c_result == "잔행") echo "selected" ?> >잔행</option>
-                                    <option value="부재" <? if($sch_c_result == "부재") echo "selected" ?> >부재</option>
-                                    <option value="재통화" <? if($sch_c_result == "재통화") echo "selected" ?> >재통화</option>
-                                    <option value="거절" <? if($sch_c_result == "거절") echo "selected" ?> >거절</option>
-                                    <option value="완료" <? if($sch_c_result == "완료") echo "selected" ?> >완료</option>
-                                </select>
-                            </div>
-                            <div class="col-6 py-md-0 my-1 my-md-0 px-1 position-relative">
-                                <div class="my-1 my-md-0">
-                                    <label>검색 시작일</label>
-                                </div>
-                                <input type="text" class="form-control bg-white date-picker" value="<?= $sch_startdate ?>" name="sch_startdate" id="sch_startdate" autocomplete="off" placeholder="검색 시작일">
-                                <a class="position-absolute" href="javascript:initSchDate();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
-                            </div>
-                            <div class="col-6 py-md-0 my-1 my-md-0 px-1 position-relative">
-                                <div class="my-1 my-md-0">
-                                    <label>검색 종료일</label>
-                                </div>
-                                <input type="text" class="form-control bg-white date-picker" value="<?= $sch_enddate ?>" name="sch_enddate" id="sch_enddate" autocomplete="off" placeholder="검색 종료일">
-                                <a class="position-absolute" href="javascript:initSchEndDate();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
-                            </div>
-                            <div class="w-100 my-1 my-md-0 px-1 position-relative">
-
-                                <label>통합검색</label>
-
-                                <div style="display: flex; flex-direction: row; gap: 8px;">
-                                    <div class="col-6 col-md-3 position-relative">
-                                        <input type="text" class="form-control pr-5" value="<?= $stx ?>" name="stx" id="sch_str" placeholder="검색어 입력">
-                                        <a class="position-absolute" href="javascript:initSchStr();" style="bottom:15%; right:6%;"><i class="far fa-times-circle"></i></a>
-                                    </div>
-                                    <div class="position-relative">
-                                        <button type="submit" class="btn btn-default text-center" style="height: calc(2.25rem + 2px);">통합검색</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <div class="top_btn-wrap mt-2" id="etc-mo" style="display:none">
+            <div class="scroll-msg mt-4">표를 좌우로 스크롤하여 전체내용을 확인하세요 <i class="fa-solid fa-right-left"></i>  </div>
+            <div class="top_btn-wrap mt-2" id="etc-mo">
                 <span class="btn btn-default float-right" onclick="exelModal()">엑셀 데이터 업로드</span>
                 <button type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '다운로드'" data-href="./ajax/contact_list_export.php">선택 엑셀 다운로드</button>
                 <button id="export_all" type="submit" id="export_chks" class="btn btn-default float-right" onclick="document.pressed = '전체다운로드'" data-href="./ajax/contact_list_export.php?type=all">엑셀 다운로드</button>
@@ -379,9 +294,9 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                 <a href="./schedule.php?menu=55" class="btn btn-danger">교육/행사 일정 관리</a>
                 <a href="./calendar.php?menu=55" class="btn btn-danger">미팅 일정 관리</a>
             </div> -->
-            <div class="scroll-msg mt-4">표를 좌우로 스크롤하여 전체내용을 확인하세요 <i class="fa-solid fa-right-left"></i>  </div>
-            <div class="table-responsive">
-                <table class="table border-bottom border-top" style="min-width: 2200px;">
+
+            <div class="table-responsive apply-list">
+                <table class="table border-top" style="min-width: 2200px;">
                     <thead>
                     <tr>
                         <th scope="col" class="cursor: pointer; text-center" style="width: 50px;">
@@ -429,6 +344,7 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
                                     <option value="대기" <? if($list_row['result_status'] == "대기") echo "selected"?>>대기</option>
                                     <option value="진행" <? if($list_row['result_status'] == "진행") echo "selected"?>>진행</option>
                                     <option value="부재" <? if($list_row['result_status'] == "부재") echo "selected"?>>부재</option>
+                                    <option value="재통화" <? if($list_row['result_status'] == "재통화") echo "selected"?>>재통화</option>
                                     <option value="거절" <? if($list_row['result_status'] == "거절") echo "selected"?>>거절</option>
                                     <option value="완료" <? if($list_row['result_status'] == "완료") echo "selected"?>>완료</option>
                                 </select>
@@ -585,61 +501,7 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
 
 
 <script type="text/javascript">
-    $(".function").click(function(){
-        if ($(this).hasClass('toggle-open')) {
-            $("#etc-mo").hide(100);
-            $(this).removeClass('toggle-open');
-            $('.function .btn-arrow').addClass('fa-angle-down');
-            $('.function .btn-arrow').removeClass('fa-angle-up');
-        }
-        else if ($(".show-searchwrap").hasClass('toggle-open')) {
-            $("#etc-mo").slideDown(100);
-            $('.function .btn-arrow').removeClass('fa-angle-down');
-            $('.function .btn-arrow').addClass('fa-angle-up');
-            $(this).addClass('toggle-open');
 
-            $("#etc-mo").hide(0);
-            $('.show-searchwrap .btn-arrow').addClass('fa-angle-down');
-            $('.show-searchwrap .btn-arrow').removeClass('fa-angle-up');
-            $(".show-searchwrap").removeClass('toggle-open');
-        }
-        else {
-            $("#etc-mo").slideDown(100);
-            $('.function .btn-arrow').removeClass('fa-angle-down');
-            $('.function .btn-arrow').addClass('fa-angle-up');
-            $(this).addClass('toggle-open');
-        }
-    });
-
-    $(".show-searchwrap").click(function(){
-
-        if ($(this).hasClass('toggle-open')) {
-            $("#search-mo").hide(100);
-            $(this).removeClass('toggle-open');
-            $('.show-searchwrap .btn-arrow').addClass('fa-angle-down');
-            $('.show-searchwrap .btn-arrow').removeClass('fa-angle-up');
-        }
-        else if ($(".function").hasClass('toggle-open')) {
-
-            $("#search-mo").slideDown(100);
-            $('.show-searchwrap .btn-arrow').removeClass('fa-angle-down');
-            $('.show-searchwrap .btn-arrow').addClass('fa-angle-up');
-            $(this).addClass('toggle-open');
-
-            $("#etc-mo").hide(0);
-            $('.function .btn-arrow').addClass('fa-angle-down');
-            $('.function .btn-arrow').removeClass('fa-angle-up');
-            $(".function").removeClass('toggle-open');
-
-        }
-        else {
-            $("#search-mo").slideDown(100);
-            $('.show-searchwrap .btn-arrow').removeClass('fa-angle-down');
-            $('.show-searchwrap .btn-arrow').addClass('fa-angle-up');
-            $(this).addClass('toggle-open');
-        }
-
-    });
     // 상담 상태 동적 변경
     function changeResultStatus(index, result){
         $.ajax({

@@ -12,12 +12,12 @@ session_start();
 // 로그인 세션 체크
 //print_r($_SESSION);
 
-include_once($_SERVER["DOCUMENT_ROOT"].'/DB_Solution_new/db/dbconfig.php');
+include_once($_SERVER["DOCUMENT_ROOT"].'/DB_Solution_PHP/db/dbconfig.php');
 
-$root_path = $_SERVER["DOCUMENT_ROOT"]."/DB_Solution_new";
+$root_path = $_SERVER["DOCUMENT_ROOT"]."/DB_Solution_PHP";
 $site_path = $_SERVER["DOCUMENT_ROOT"]."/adm";
-$root_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_new";
-$site_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_new/adm";
+$root_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_PHP";
+$site_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_PHP/adm";
 
 //사이트 정보 쿼리
 $site_info_sql = "select * from site_setting_tbl";
