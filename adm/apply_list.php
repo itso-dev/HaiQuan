@@ -609,7 +609,6 @@ $admins = $admin_stt->fetchAll(PDO::FETCH_ASSOC);
             $('.function .btn-arrow').addClass('fa-angle-up');
             $(this).addClass('toggle-open');
         }
-
     });
 
     $(".show-searchwrap").click(function(){
