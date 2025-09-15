@@ -134,6 +134,50 @@ $chart_data_B = [
     'view_counts' => array_column($result['B'], 'view_count')
 ];
 
+// 최근 100개의 문의 데이터를 시간/요일 기준으로 집계
+$sql = "
+    SELECT 
+        HOUR(write_date) AS hour,
+        DAYOFWEEK(write_date) AS weekday,
+        COUNT(*) AS cnt
+    FROM (
+        SELECT write_date 
+        FROM contact_tbl 
+        ORDER BY write_date DESC 
+        LIMIT 100
+    ) sub
+    GROUP BY HOUR(write_date), DAYOFWEEK(write_date)
+";
+$stmt = $db_conn->prepare($sql);
+$stmt->execute();
+$time_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$weekday_map = [1=>'일', 2=>'월', 3=>'화', 4=>'수', 5=>'목', 6=>'금', 7=>'토'];
+
+$matrix = [];
+for ($h=0; $h<24; $h++) {
+    foreach ($weekday_map as $k=>$day) {
+        $matrix[$h][$day] = 0;
+    }
+}
+
+// 데이터 카운트 누적
+foreach ($time_rows as $row) {
+    $h = (int)$row['hour'];
+    $day = $weekday_map[$row['weekday']];
+    $matrix[$h][$day] += $row['cnt'];
+}
+
+// 시간대별 평균 계산 (요일별 데이터 수가 다를 수 있으므로 100건 대비 비율도 가능)
+$chart_time = [];
+foreach ($matrix as $hour=>$days) {
+    $rowData = ['hour'=>sprintf("%02d:00",$hour)];
+    foreach ($days as $day=>$cnt) {
+        $rowData[$day] = $cnt;
+    }
+    $chart_time[] = $rowData;
+}
+
 
 // 담당자 쿼리
 $admin_sql = "select * from admin_tbl order by id";
@@ -197,6 +241,10 @@ $endDate = '';
             <div class="content-wrap mt-3">
                 <p class="tit">방문자 현황</p>
                 <div class="py-2"><div id="chart"></div></div>
+            </div>
+            <div class="content-wrap mt-3">
+                <p class="tit">시간대별 문의 데이터 분석</p>
+                <div class="py-2"><div id="chart_time"></div></div>
             </div>
             <div class="content-wrap mt-3">
                <p class="tit">전체</p>
@@ -384,7 +432,70 @@ $endDate = '';
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     chart.render();
+    // --------   시간,요일별 차트화 -------- //
+    // PHP에서 넘겨준 데이터
+    const chartTimeData = <?= json_encode($chart_time ?? []) ?>;
+    console.log("chartTimeData", chartTimeData);
 
+    if (!Array.isArray(chartTimeData) || chartTimeData.length === 0) {
+        console.warn("chartTimeData가 비어 있습니다. 차트를 렌더링하지 않습니다.");
+    } else {
+        const weekdays = ["월", "화", "수", "목", "금", "토", "일"];
+        const categoriesTime = chartTimeData.map(r => r.hour);
+
+        const seriesTime = weekdays.map(day => {
+            return {
+                name: day + "요일",
+                data: chartTimeData.map(r => {
+                    return { x: r.hour, y: r[day] ?? 0 }
+                })
+            };
+        });
+
+        console.log("seriesTime", seriesTime);
+
+        var optionsTime = {
+            chart: {
+                type: 'bar',
+                height: 500,
+                toolbar: { show: true }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: '90%',
+                    endingShape: 'rounded'
+                }
+            },
+            series: seriesTime.map(s => ({
+                name: s.name,
+                data: s.data.map(d => d.y)
+            })),
+            xaxis: {
+                categories: categoriesTime,
+                title: { text: '시간대' }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            yaxis: {
+                title: { text: '문의 건수' }
+            },
+            colors: ['#008FFB','#00E396','#FEB019','#FF4560','#775DD0','#546E7A','#26A69A'], // 요일별 색상
+
+            tooltip: {
+                shared: true,
+                intersect: false
+            },
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        var chartTime = new ApexCharts(document.querySelector("#chart_time"), optionsTime);
+        chartTime.render();
+    }
+    // --------   시간,요일별 차트화 -------- //
     //선택조회
     $("#search").click(function (){
         var stDate = $("#stDate").val();
