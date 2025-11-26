@@ -3,7 +3,7 @@ include_once('head.php');
 
 
 //팝업 출력하기 위한 sql문
-$popup_sql = "select * from popup_tbl where `end_date` > NOW() order by id ";
+$popup_sql = "select * from popup_tbl where client_key = '$client_key' and `end_date` > NOW() order by id ";
 $popup_stt = $db_conn->prepare($popup_sql);
 $popup_stt->execute();
 
@@ -55,7 +55,7 @@ if ($popup_stt->rowCount() > 0) {
             <div class="layer-popup pc"
                  style="display: none; width: 80%; max-width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px; top: 10%; left: 5%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup<?= $popup['id'] ?>" class="agree-popup-frame">
-                    <img src="data/popup/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
+                    <img src="https://itsoadmin.com/data/itso/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
                         <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
@@ -70,7 +70,7 @@ if ($popup_stt->rowCount() > 0) {
             <div class="layer-popup mobile"
                  style="width: 80%; max-width: <?= $popup['width_mobile'] ?>px; height: <?= $popup['height_mobile'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup_mo<?= $popup['id'] ?>" class="agree-popup-frame">
-                    <img src="data/popup/<?= $popup['file_name_mobile'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
+                    <img src="https://itsoadmin.com/data/itso/<?= $popup['file_name_mobile'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
                         <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
@@ -174,6 +174,8 @@ if ($popup_stt->rowCount() > 0) {
         <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
         <input type="hidden" name="adCode" value="<?= $adCode ?>" />
         <input type="hidden" name="flow" value="<?= $flow ?>" />
+        <input type="hidden" name="client_key" value="<?= $client_key ?>" />
+        <input type="hidden" name="stay_time" id="stay_time" value="0" />
 
         <div class="contact-form-div">
             <div class="item">
@@ -236,15 +238,27 @@ if ($popup_stt->rowCount() > 0) {
         }
     }
 
+    // 페이지 진입 시간 저장
+    const pageEnterTime = Date.now();
+
     document.querySelector("#contact_form").addEventListener("submit", function(e) {
         e.preventDefault(); // 기본 제출 방지
 
-        grecaptcha.ready(function () {
-            grecaptcha.execute('', {action: 'contact_form'}).then(function(token) {
-                document.getElementById('g-recaptcha-response-1').value = token;
-                e.target.submit();
-            });
-        });
+        // 체류 시간 계산 (초 단위)
+        const now = Date.now();
+        const staySeconds = Math.floor((now - pageEnterTime) / 1000);
+
+        document.getElementById('stay_time').value = staySeconds;
+
+        // grecaptcha.ready(function () {
+        //     grecaptcha.execute('', {action: 'contact_form'}).then(function(token) {
+        //         document.getElementById('g-recaptcha-response-1').value = token;
+        //         e.target.submit();
+        //     });
+        // });
+
+        e.target.submit();
+
     });
 
 </script>

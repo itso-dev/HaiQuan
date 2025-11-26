@@ -2,8 +2,8 @@
 header('P3P: CP="NOI CURa ADMa DEVa TAIa OUR DELa BUS IND PHY ONL UNI COM NAV INT DEM PRE"');
 session_start();
 
-$site_path = $_SERVER["DOCUMENT_ROOT"]."/DB_Solution_new";
-$site_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_new";
+$site_path = $_SERVER["DOCUMENT_ROOT"]."/DB_Solution_PHP";
+$site_url = "http://".$_SERVER["HTTP_HOST"]."/DB_Solution_PHP";
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -30,7 +30,7 @@ $current_url = strtolower($_SERVER['REQUEST_URI']);
 $site_info_sql = "";
 $ab_type = "";
 $ab_id = "";
-$client_key = "";
+$client_key = "itso";
 
 try {
     if ($current_url === '/' || $current_url === '/index_bak.php') {
@@ -261,10 +261,10 @@ echo "<script>console.log('유입 경로: " . addslashes($flow) . "');</script>"
 
     $(document).ready(function () {
 
-        checkActivemenu();
+        // checkActivemenu();
 
         $(window).on('scroll', function() {
-            checkActivemenu();
+            // checkActivemenu();
         });
 
         function checkActivemenu() {

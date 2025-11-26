@@ -6,6 +6,7 @@ session_start();
 
 $check = isset($_GET["c"]) ? $_GET["c"]: true ;
 $ab_type = isset($_GET["type"]) ? $_GET["type"] : '';
+$client_key = 'itso';
 
 $type = '';
 $redirect = "";
@@ -27,7 +28,7 @@ if($check || $type == '' || $message == ''){
 }
 
 //사이트 정보 쿼리
-$site_info_sql = "select * from site_setting_tbl where id = " .$type;
+$site_info_sql = "select * from site_setting_tbl where client_key = '$client_key'";
 $site_info_stt=$db_conn->prepare($site_info_sql);
 $site_info_stt->execute();
 $site = $site_info_stt -> fetch();

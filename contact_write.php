@@ -10,15 +10,15 @@ date_default_timezone_set('Asia/Seoul');
 
 
 // recapcha
-$secret = '';
-$response = isset($_POST["g-recaptcha-response"]) ? $_POST["g-recaptcha-response"] : '';
+// $secret = '';
+// $response = isset($_POST["g-recaptcha-response"]) ? $_POST["g-recaptcha-response"] : '';
 
-$verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
-$captcha_success = json_decode($verify);
+// $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
+// $captcha_success = json_decode($verify);
 
-if (!$captcha_success->success || $captcha_success->score < 0.5) {
-    die("스팸봇으로 의심되어 제출이 거부되었습니다.");
-}
+// if (!$captcha_success->success || $captcha_success->score < 0.5) {
+//     die("스팸봇으로 의심되어 제출이 거부되었습니다.");
+// }
 
 //CSRF 처리
 if (
@@ -32,6 +32,7 @@ unset($_SESSION['csrf_token']);
 
 
 $posted = date("Y-m-d H:i:s");
+$client_key = isset($_POST["client_key"]) ? $_POST["client_key"] : '';
 $flow = $_POST["flow"];
 $adCode = isset($_POST["adCode"]) ? $_POST["adCode"] : '';
 $name = $_POST["name"];
@@ -40,6 +41,9 @@ $location = $_POST["location"];
 $sort = isset($_POST["sort"]) ? $_POST["sort"] : '';
 $desc = isset($_POST["contact_desc"]) ? $_POST["contact_desc"] : '';
 
+// 사이트 체류시간
+$stay_time = isset($_POST['stay_time']) ? intval($_POST['stay_time']) : 0;
+
 $type = isset($_POST["abtype"]) ? 'B' : 'A';
 
 
@@ -47,32 +51,32 @@ $writer_ip = $_POST["writer_ip"];
 
 $sql="
         insert into contact_tbl
-            (flow, ab_test, ad_code, name, phone, location,
-            sort, contact_desc, result_status,
-            consult_fk, writer_ip, write_date)
+            (client_key, flow, ab_test, ad_code, name, phone, fd_2,
+            fd_1, contact_desc, result_status, stay_time,
+            writer_ip, write_date)
         value
-            (?, ?, ?, ?, ?, ?, 
-            ?, ?, ?, 
-            ?, ?, ?)";
+            (?, ?, ?, ?, ?, ?, ?, 
+            ?, ?, ?, ?,
+            ?, ?)";
 
 $db_conn->prepare($sql)->execute(
-    [$flow, $type, $adCode, $name, $phone, $location,
-        $sort, $desc, '대기',
-        0, $writer_ip, $posted]);
+    [$client_key, $flow, $type, $adCode, $name, $phone, $location,
+        $sort, $desc, '대기', $stay_time,
+        $writer_ip, $posted]);
 
 
-$contact_cnt_sql = "insert into contact_log_tbl
-                                  (contact_cnt,  reg_date)
-                             value
-                                  (? ,?)";
+// $contact_cnt_sql = "insert into contact_log_tbl
+//                                   (contact_cnt,  reg_date)
+//                              value
+//                                   (? ,?)";
 
 
-$db_conn->prepare($contact_cnt_sql)->execute(
-    [1, $posted]);
+// $db_conn->prepare($contact_cnt_sql)->execute(
+//     [1, $posted]);
 
-$update_ab_sql = "UPDATE ab_test_tbl SET contact = contact + 1 WHERE id = 1";
-$update_ab_stmt = $db_conn->prepare($update_ab_sql);
-$update_ab_stmt->execute();
+// $update_ab_sql = "UPDATE ab_test_tbl SET contact = contact + 1 WHERE id = 1";
+// $update_ab_stmt = $db_conn->prepare($update_ab_sql);
+// $update_ab_stmt->execute();
 
 
 //문의 필드에 맞게 수정

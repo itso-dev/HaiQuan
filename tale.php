@@ -11,6 +11,8 @@
                     <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="adCode" value="<?= $adCode ?>" />
                     <input type="hidden" name="flow" value="<?= $flow ?>" />
+                    <input type="hidden" name="client_key" value="<?= $client_key ?>" />
+                    <input type="hidden" name="stay_time" id="stay_time2" value="0" />
 
                     <div class="input-wrap">
                         <input type="text" name="name" placeholder="성함" required>
@@ -31,57 +33,11 @@
         </div>
     </div>
 
-    <div id="go-contact">
+    <!-- <div id="go-contact">
         문의하기
-    </div>
-
-    <div class="floating-mo-form">
-        <form name="contact_form" class="mo-form" id="contact_form3" method="post" action="contact_write2.php">
-            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-3">  
-            <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
-            <input type="hidden" name="action" value="go">
-            <input type="hidden" name="adCode" value="<?= $adCode ?>" />
-            <input type="hidden" name="flow" value="<?= $flow ?>" />
-            
-            <div class="input-wrap">
-                <input type="text" name="name" placeholder="성함" required>
-                <input type="text" name="phone" placeholder="연락처" required>
-                <select name="locate" required>
-                    <option value="" disabled selected>창업지역</option>
-                    <option value="서울특별시">서울특별시</option>
-                    <option value="경기도">경기도</option>
-                    <option value="인천광역시">인천광역시</option>
-                    <option value="강원도">강원도</option>
-                    <option value="충청남도">충청남도</option>
-                    <option value="충청북도">충청북도</option>
-                    <option value="세종특별자치시">세종특별자치시</option>
-                    <option value="대전광역시">대전광역시</option>
-                    <option value="경상남도">경상남도</option>
-                    <option value="경상북도">경상북도</option>
-                    <option value="광주광역시">광주광역시</option>
-                    <option value="전라남도">전라남도</option>
-                    <option value="전라북도">전라북도</option>
-                    <option value="부산광역시">부산광역시</option>
-                    <option value="대구광역시">대구광역시</option>
-                    <option value="울산광역시">울산광역시</option>
-                    <option value="제주특별자치도">제주특별자치도</option>
-                </select>
-            </div>
-            <div class="floating-form-wrap">
-                <div class="floating-agree-wrap">
-                    <label class="checkbox-label">
-                        <input class="round-checkbox" type="checkbox" id="fixed-mo-agree" name="fixed-mo-agree" required>
-                    </label>
-                    <label for="fixed-mo-agree" class="agree"><span class="agree-open">개인정보처리방침</span>에 동의</label>
-                </div>
-                <input type="submit" value="문의하기" class="f-btn">
-            </div>
-        </form>
-    </div>
+    </div> -->
 
     <div class="modal-bg"></div>
-
 
 </body>
 
@@ -201,28 +157,27 @@
 
     });
 
+    // 페이지 진입 시간 저장
+    const pageEnterTime2 = Date.now();
+
     document.querySelector("#contact_form2").addEventListener("submit", function(e) {
         e.preventDefault(); // 기본 제출 방지
 
-        grecaptcha.ready(function () {
-            grecaptcha.execute('', {action: 'contact_form2'}).then(function(token) {
-                document.getElementById('g-recaptcha-response-2').value = token;
-                e.target.submit(); 
-            });
-        });
+        const now = Date.now();
+        const staySeconds = Math.floor((now - pageEnterTime2) / 1000);
+
+        document.getElementById('stay_time2').value = staySeconds;
+
+        // grecaptcha.ready(function () {
+        //     grecaptcha.execute('', {action: 'contact_form2'}).then(function(token) {
+        //         document.getElementById('g-recaptcha-response-2').value = token;
+        //         e.target.submit(); 
+        //     });
+        // });
+
+        e.target.submit(); 
+
     });
-
-    document.querySelector("#contact_form3").addEventListener("submit", function(e) {
-        e.preventDefault(); // 기본 제출 방지
-
-        grecaptcha.ready(function () {
-            grecaptcha.execute('', {action: 'contact_form3'}).then(function(token) {
-                document.getElementById('g-recaptcha-response-3').value = token;
-                e.target.submit(); 
-            });
-        });
-    });
-
 
 </script>
 
