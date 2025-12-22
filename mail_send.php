@@ -6,10 +6,9 @@ include_once('./mail_lib.php');
 //include_once('./db/manage_db_config.php');
 
 //배너 출력하기 위한 sql문
-//$banner_sql = "select * from banner_tbl where type = 2 order by id desc limit 1 ";
-$banner_sql = "select * from banner_tbl where id = 5 ";
-$banner_stt = $db_conn_admin->prepare($banner_sql);
-//$banner_stt = $db_conn->prepare($banner_sql);
+$banner_sql = "select * from banner_tbl where type = 2 order by id desc limit 1 ";
+//$banner_stt = $db_conn_admin->prepare($banner_sql);
+$banner_stt = $db_conn->prepare($banner_sql);
 $banner_stt->execute();
 $banner = $banner_stt->fetch();
 
