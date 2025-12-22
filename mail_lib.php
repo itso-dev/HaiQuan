@@ -1,6 +1,4 @@
 <?
-
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -67,8 +65,7 @@ function mailer_google($fname, $fmail, $tomail, $subject, $content, $file="", $c
     return $mail->send();
 }
 
-
-function mailForm($arr){
+function mailForm($arr, $link, $img){
     $site_url = "https://" . $_SERVER["HTTP_HOST"] . "";
     $date =  date("Y년 m월 d일 H시 i분");
     $data = "";
@@ -84,11 +81,10 @@ function mailForm($arr){
         </div>';
     }
 
-
     $message = '<html><body>
                         <div style="width: 570px; margin: 0 auto; border-radius: 4px; border: 2px solid #0CB2C9; background: #FFF; padding: 15px">
-                             <a href="https://payhere.in/" target="_blank" style="width: 100%;">
-                                <img src="' . $site_url . '/img/email-banner.png" style="width: 100%; margin-bottom: 24px;">
+                             <a href="'.$link.'" target="_blank" style="width: 100%;">
+                                <img src="'.$img.'" style="width: 100%; margin-bottom: 24px;" alt="잇소 메일 광고 베너">
                             </a>
                             <div style="display: flex; gap:8px; align-items: center; margin-bottom: 8px;">
                                 <div style="width: 125px; padding: 3px 5px; background: #DFEBF0;color: #11488C;font-size: 18px;font-weight: 600;letter-spacing: -0.45px; text-align: center">
