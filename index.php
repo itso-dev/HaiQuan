@@ -55,7 +55,7 @@ if ($popup_stt->rowCount() > 0) {
             <div class="layer-popup pc"
                  style="display: none; width: 80%; max-width: <?= $popup['width'] ?>px; height: <?= $popup['height'] ?>px; top: 10%; left: 5%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup<?= $popup['id'] ?>" class="agree-popup-frame">
-                    <img src="https://itsoadmin.com/data/itso/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
+                    <img src="https://itsoadmin.com/data/<?= $client_key ?>/<?= $popup['file_name'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
                         <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
@@ -70,7 +70,7 @@ if ($popup_stt->rowCount() > 0) {
             <div class="layer-popup mobile"
                  style="width: 80%; max-width: <?= $popup['width_mobile'] ?>px; height: <?= $popup['height_mobile'] ?>px; top: 10%; left: 10%; z-index: <?= $z_index ?>;">
                 <div id="agreePopup_mo<?= $popup['id'] ?>" class="agree-popup-frame">
-                    <img src="https://itsoadmin.com/data/itso/<?= $popup['file_name_mobile'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
+                    <img src="https://itsoadmin.com/data/<?= $client_key ?>/<?= $popup['file_name_mobile'] ?>" style="height:calc(<?= $popup['height'] ?>px - 36px);"
                          alt="<?= $popup['popup_name'] ?>" onclick="handleClick('<?= $popup['link'] ?>')">
                     <div class="show-chk-wrap">
                         <a href="javascript:AllClose()" class="all-close-btn">전체닫기</a>
