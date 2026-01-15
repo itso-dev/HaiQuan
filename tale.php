@@ -2,12 +2,21 @@
         </div>
 
     <div id="floating-container">
-        <div class="floating-wrap">
+        <div class="floating-wrap pc-floating">
             <div class="floating-form">
-                <p><span class="primary">창업문의</span> 문의번호</p>
+                <div style="position: relative; bottom: 3px">
+                    <span class="txt1">
+                        전화창업문의
+                        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="12" viewBox="0 0 11 12" fill="none">
+                          <path d="M11 6.5L0 0V12L11 6.5Z" fill="#FFF100"/>
+                        </svg>
+                    </span>
+                    <span class="txt2">0000-0000</span>
+                </div>
+
                 <form class="floating-contact" name="contact_form" id="contact_form2" method="post" action="contact_write.php">
                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">  
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">
                     <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
                     <input type="hidden" name="adCode" value="<?= $adCode ?>" />
                     <input type="hidden" name="flow" value="<?= $flow ?>" />
@@ -16,8 +25,8 @@
 
                     <div class="input-wrap">
                         <input type="text" name="name" placeholder="성함" required>
-                        <input type="text" name="phone" placeholder="연락처" id="phone-input2" required maxlength="11" inputmode="numeric">
-                        <input type="text" name="location" placeholder="창업희망지역" required>
+                        <input type="text" name="phone" placeholder="휴대폰번호" id="phone-input2" required maxlength="11" inputmode="numeric">
+                        <input type="text" name="email" placeholder="이메일주소" required>
                     </div>
                     <div class="floating-form-wrap">
                         <div class="floating-agree-wrap">
@@ -30,6 +39,40 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="floating-wrap mo-floating">
+            <div class="contact-form-wrap">
+                <img class="contact-close" src="<?= $site_url ?>/img/close-btn.png" />
+                <form class="floating-contact" name="contact_form" id="contact_form3" method="post" action="contact_write.php">
+                    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-2">
+                    <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
+                    <input type="hidden" name="adCode" value="<?= $adCode ?>" />
+                    <input type="hidden" name="flow" value="<?= $flow ?>" />
+                    <input type="hidden" name="client_key" value="<?= $client_key ?>" />
+                    <input type="hidden" name="stay_time" id="stay_time2" value="0" />
+                    <input type="text" name="name" placeholder="성함" required>
+                    <input type="text" name="phone" placeholder="휴대폰번호" id="phone-input2" required maxlength="11" inputmode="numeric">
+                    <input type="text" name="email" placeholder="이메일주소" required>
+                    <div class="floating-agree-wrap">
+                        <label class="checkbox-label">
+                            <input class="round-checkbox" type="checkbox" id="fixed-agree" name="fixed-agree" required>
+                        </label>
+                        <label for="fixed-agree" class="agree"><span class="agree-open">개인정보처리방침</span>에 동의</label>
+                    </div>
+                    <input type="submit" value="문의하기" class="f-btn">
+                </form>
+            </div>
+            <div class="info-wrap">
+                <a class="tel" href="tel:">0000-0000</a>
+                <div class="contact-toggle">
+                    창업문의
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                        <path d="M5.86181e-05 6.17971C0.00157864 6.27921 0.0327537 6.376 0.0895947 6.45768C0.146436 6.53937 0.226357 6.60224 0.319131 6.63824C0.411905 6.67425 0.513313 6.68175 0.610376 6.6598C0.70744 6.63784 0.795745 6.58742 0.863991 6.51499L6.00527 1.21812L11.1465 6.51499C11.192 6.56317 11.2466 6.60183 11.3072 6.62872C11.3677 6.65561 11.433 6.6702 11.4993 6.67164C11.5655 6.67308 11.6314 6.66135 11.6931 6.63711C11.7547 6.61288 11.811 6.57663 11.8585 6.53047C11.906 6.48432 11.9439 6.42917 11.97 6.36825C11.996 6.30732 12.0097 6.24183 12.0102 6.17558C12.0107 6.10932 11.998 6.04362 11.9729 5.9823C11.9478 5.92098 11.9108 5.86526 11.864 5.81838L6.36399 0.151713C6.31738 0.103721 6.26162 0.0655687 6.2 0.0395157C6.13838 0.0134632 6.07217 4.02657e-05 6.00527 4.02687e-05C5.93837 4.02716e-05 5.87215 0.0134632 5.81053 0.0395157C5.74891 0.0655687 5.69315 0.103721 5.64654 0.151713L0.146543 5.81838C0.0991729 5.86573 0.0617973 5.92211 0.0366341 5.98418C0.0114709 6.04625 -0.000967021 6.11274 5.86181e-05 6.17971Z" fill="#111111"/>
+                    </svg>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -50,14 +93,14 @@
                 <div class="footer-inner">
                     <div class="footer-wrap">
                         <div class="footer-div">
-                        사업자등록번호 : 
+                        사업자등록번호 :
                         </div>
                         <div class="footer-big-div">
                             <div class="footer-div">
-                            대표 : 
+                            대표 :
                             </div>
                             <div class="footer-div">
-                            대표번호 : 
+                            대표번호 :
                             </div>
                         </div>
                     </div>
@@ -76,7 +119,7 @@
             <p>문의번호</p>
         </div>
     </div>
-    
+
 
     <div class="up-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
@@ -139,7 +182,24 @@
         $(".agree-modal").fadeOut(500);
         $("html").css("overflow", "auto");
     });
+    $(function () {
+        const $form = $(".contact-form-wrap");
 
+        // 열기
+        $(document).on("click", ".contact-toggle", function (e) {
+            e.preventDefault();
+            if ($form.is(":visible")) return;
+
+            // 아래에서 위로 슬라이드
+            $form.stop(true, true).slideDown(300);
+        });
+
+        // 닫기 버튼이 있다면(선택)
+        $(document).on("click", ".contact-close", function (e) {
+            e.preventDefault();
+            $form.stop(true, true).slideUp(300);
+        });
+    });
     window.addEventListener('scroll', function() {
         let scroll = window.scrollY;
 
@@ -186,11 +246,11 @@
         // grecaptcha.ready(function () {
         //     grecaptcha.execute('', {action: 'contact_form2'}).then(function(token) {
         //         document.getElementById('g-recaptcha-response-2').value = token;
-        //         e.target.submit(); 
+        //         e.target.submit();
         //     });
         // });
 
-        e.target.submit(); 
+        e.target.submit();
 
     });
 

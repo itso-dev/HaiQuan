@@ -83,11 +83,3055 @@
 /* main */
 #main {
   width: 100%;
+}
+.page1{
+  width: 100%;
+}
+.page1 .main-top {
+  background: url("../img/page1-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  border-right: 20px solid #094;
+  border-left: 20px solid #094;
+  border-bottom: 20px solid #094;
+  padding: 140px 0 0;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
   height: 100vh;
+}
+.page1 .main-top :after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+.page1 .main-top  .txt1{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 40px */
+  letter-spacing: -0.8px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.page1 .main-top  .txt1 .line-animation1{
+  margin: 0 10px 0 5px;
+}
+.page1 .main-top  .txt2{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 52px */
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+.page1 .main-top  .txt3{
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: transparent;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 125px */
+  background: radial-gradient(34.15% 64.8% at 44.58% 14.8%, rgba(187, 187, 187, 0.70) 0%, rgba(255, 255, 255, 0.80) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+.page1 .main-top .img{
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 45%;
+  margin: 43px auto 0;
+  top: 3%;
+}
+.page1 .main-top  .txt4{
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: transparent;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 125px */
+  background: radial-gradient(34.15% 64.8% at 44.58% 14.8%, rgba(187, 187, 187, 0.70) 0%, rgba(255, 255, 255, 0.80) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+.page1 .main-top  .img2{
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 45%;
+  margin: -2.65% auto 0;
+}
+
+.swap-wrap{
+  position: absolute;
+  display: grid;
+  bottom: 0px;
+  z-index: 3;
+}
+
+.swap-wrap > .content1,
+.swap-wrap > .content2{
+  grid-area: 1 / 1;      /* 같은 칸에 겹침 */
+}
+.page1 .main-top  .bottom{
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+}
+.page1 .main-top  .top-wrap{
+  position: absolute;
+  top: 80px;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page1 .main-top  .top-wrap .deco{
+  width: 78px;
+  animation: swing 3.5s ease-in-out infinite
+}
+.page1 .main-top  .deco-left{
+  position: absolute;
+  top: 38%;
+  left: 7%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.page1 .main-top  .deco-right{
+  position: absolute;
+  top: 54%;
+  right: 7%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes floatX{
+  from { transform: translateX(-8px); }
+  to   { transform: translateX(8px); }
+}
+@keyframes swing {
+  0%   { transform: rotate(0deg); }
+  10%  { transform: rotate(4deg); }
+  22%  { transform: rotate(-3.5deg); }
+  35%  { transform: rotate(3deg); }
+  47%  { transform: rotate(-2.5deg); }
+  60%  { transform: rotate(1.8deg); }
+  72%  { transform: rotate(-1.2deg); }
+  85%  { transform: rotate(0.6deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.line-animation1,
+.line-animation2,
+.line-animation3{
+  padding: 2px 4px;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+}
+.line-animation1::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--Red, #BF2124);
+  transform: scaleX(var(--fill, 0));   /* ✅ JS에서 --fill 변경 */
+  transform-origin: left center;
+  z-index: -1;
+  will-change: transform;
+}
+.line-animation2::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--Red, #A31D2D);
+  transform: scaleX(var(--fill, 0));   /* ✅ JS에서 --fill 변경 */
+  transform-origin: left center;
+  z-index: -1;
+  will-change: transform;
+}
+.line-animation2::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #111;
+  transform: scaleX(var(--fill, 0));   /* ✅ JS에서 --fill 변경 */
+  transform-origin: left center;
+  z-index: -1;
+  will-change: transform;
+}
+.main-bottom {
+  width: 100%;
+  background: url("../img/page1-bottom-bg.png");
+  z-index: 5;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.main-bottom .pinBx {
+  width: 100%;
+  height: calc(var(--vh, 1vh)* 100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+
+.main-bottom .circleBx {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-bottom .circle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  clip-path: circle(18%);
+  overflow: hidden;
+}
+
+.main-bottom .pinBx .bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/main-top-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-bottom .circle-txt {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  z-index: 5;
+}
+
+.main-bottom .circle-txt .txt1 {
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 72px */
+  letter-spacing: -1.2px;
+}
+
+.main-bottom .circle-txt .txt2 {
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 128px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 166.4px */
+  letter-spacing: -3.2px;
+}
+.main-bottom .circle-txt .txt3{
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.main-bottom .bottom {
+  width: 100%;
+  height: 250vh;
+  position: relative;
+}
+.main-bottom .sales-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-bottom .sales-section .sales-container{
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+}
+.main-bottom .sales-section .sales-container .sales-wrap{
+  width: 33.33%;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .talk-wrap{
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.40);
+  background: radial-gradient(72.26% 100% at 50% 0%, rgba(254, 101, 119, 0.80) 0%, rgba(217, 38, 60, 0.90) 60.58%, #D9263C 98.08%);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+
+  color: #FFF;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 41.6px */
+  letter-spacing: -0.8px;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .sales-box{
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: #FFF;
+  padding: 10px;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .sales-box img{
+  width: 100%;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .sales-box .name{
+  color: #FFF;
+  font-family: "SANGJU Gotgam";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 36.4px */
+  letter-spacing: -0.7px;
+  background: #222;
+  padding: 10px;
+  text-align: center;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .sales-box .txt{
+  margin: 20px 0 8px;
+  color: #505050;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 30.8px */
+  letter-spacing: -0.55px;
+}
+.main-bottom .sales-section .sales-container .sales-wrap .sales-box .sales-txt{
+  color: var(--Red, #D9263C);
+  text-align: center;
+  font-family: "SANGJU Gotgam";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 56px */
+  letter-spacing: -1px;
+}
+.page2{
+  padding: 120px 0;
+  background-image: url("../img/main-top-bg.png");
+  background-size: cover !important;
+  background-position: center !important;
+  position: relative;
+  overflow: hidden;
+}
+.page2 .tit-wrap{
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.page2 .tit-wrap .tit1{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 42px */
+  letter-spacing: -0.7px;
+}
+.page2 .tit-wrap .tit2{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page2 .tit-wrap .tit3{
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.4px;
+}
+.page2 .sales-container{
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+}
+.page2 .sales-container .sales-wrap{
+  width: 33.33%;
+}
+.page2 .sales-container .sales-wrap .talk-wrap{
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.40);
+  background: radial-gradient(72.26% 100% at 50% 0%, rgba(254, 101, 119, 0.80) 0%, rgba(217, 38, 60, 0.90) 60.58%, #D9263C 98.08%);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 25px;
+
+  color: #FFF;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 41.6px */
+  letter-spacing: -0.8px;
+}
+.page2 .sales-container .sales-wrap .talk-wrap .mark{
+  margin: 0 12px;
+}
+.page2 .sales-container .sales-wrap .talk-wrap .arrow{
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.page2 .sales-container .sales-wrap .sales-box{
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: #FFF;
+  padding: 10px;
+}
+.page2 .sales-container .sales-wrap .sales-box img{
+  width: 100%;
+}
+.page2 .sales-container .sales-wrap .sales-box .name{
+  color: #FFF;
+  font-family: "SANGJU Gotgam";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 36.4px */
+  letter-spacing: -0.7px;
+  background: #222;
+  padding: 10px;
+  text-align: center;
+}
+.page2 .sales-container .sales-wrap:nth-child(2) .sales-box .name{
+  font-size: 20px;
+}
+.page2 .sales-container .sales-wrap .sales-box .txt{
+  margin: 20px 0 8px;
+  color: #505050;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 30.8px */
+  letter-spacing: -0.55px;
+}
+.page2 .sales-container .sales-wrap .sales-box .sales-txt{
+  color: var(--Red, #D9263C);
+  text-align: center;
+  font-family: "SANGJU Gotgam";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 56px */
+  letter-spacing: -1px;
+}
+.page2 .bottom-wrap{
+  margin: 50px auto 0;
+  text-align: center;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%; /* 40px */
+  letter-spacing: -0.8px;
 }
 
 
-/* contact */
+
+
+
+
+.page4{
+  border-top: 20px solid var(--Green, #094);
+  border-right: 20px solid var(--Green, #094);
+  border-left: 20px solid var(--Green, #094);
+  background: #FCF8F4;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.page4 .txt1{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  width: 445px;
+  margin: 0 auto;
+}
+.page4 .txt1 svg{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: -12px;
+}
+.page4 .tit{
+  color: #222;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin: 40px auto 20px;
+
+}
+.page4 .tit .red{
+  color: var(--Red, #D9263C);
+}
+.page4 .txt2{
+  color: #333;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  word-break: keep-all;
+}
+.page4 .txt2 .red{
+  color: var(--Red, #D9263C);
+}
+.page4 .flex-wrap{
+  max-width: 1240px;
+  margin: 60px auto 0;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  border: 1px solid #111;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  background: url("../img/page4-item-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+
+}
+.page4 .flex-wrap .item{
+  width: 50%;
+  background-size: cover !important;
+  background-position: center center !important;
+  position: relative;
+  z-index: 2;
+  flex-direction: row !important;
+  gap: 0 !important;
+  display: block;
+}
+.page4 .flex-wrap .text-wrap{
+  padding: 45px 60px;
+}
+.page4 .flex-wrap .text-wrap .line-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  width: 100%;
+}
+.page4 .flex-wrap .text-wrap .line-wrap .num{
+  color: var(--DarkBrown, #2D0D0F);
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+.page4 .flex-wrap .text-wrap .line-wrap .line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--DarkBrown, #2D0D0F);
+  transform: scaleX(var(--fill, 0)); /* ✅ 변수로 제어 */
+  transform-origin: left center;
+  will-change: transform;
+}
+.page4 .flex-wrap .text-wrap .text1{
+  color: var(--DarkBrown, #2D0D0F);
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 52px */
+  letter-spacing: -1px;
+  margin: 10px 0 24px;
+}
+.page4 .flex-wrap .text-wrap .text2{
+  color: #505050;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.6px;
+  word-break: keep-all;
+
+}
+.page4 .flex-wrap .img-wrap{
+  background: #000;
+}
+.page4 .bg{
+  top: 58%;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: 1;
+}
+.marquee{
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+  background: var(--Green, #094);
+}
+
+.marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 40px;              /* 이미지 간격 */
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track img{
+  height: 50px;           /* 원하는 높이로 조절 */
+  width: auto;
+  display: block;
+  flex: 0 0 auto;
+}
+
+@keyframes marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* 복제 2세트 기준 */
+}
+.reveal-from-center{
+  will-change: clip-path, opacity, transform;
+}
+.page5{
+  padding: 80px 0 50px;
+  background: url("../img/page5-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  overflow: hidden;
+}
+.page5 .content-wrap{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.page5 .content-wrap .review-wrap{
+  width: 30%;
+  display: flex;
+  gap: 15px;
+  position: relative;
+}
+.page5 .content-wrap .review-wrap .review-half{
+  width: 20%;
+}
+.page5 .content-wrap .review-wrap .review{
+  width: 80%;
+}
+.page5 .content-wrap .review-wrap .tag{
+  color: #333;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 28.8px */
+  letter-spacing: -0.6px;
+  border-radius: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, #FFF 100%);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.20);
+  padding: 15px 32px;
+  position: absolute;
+
+}
+.page5 .content-wrap .review-wrap .tag.tag1{
+  left: 12%;
+  top: 44%;
+}
+.page5 .content-wrap .review-wrap .tag.tag2{
+
+  left: -8%;
+  top: 35%;
+}
+.page5 .content-wrap .review-wrap .tag.tag3{
+  left: 20%;
+  bottom: 20%;
+}
+.page5 .content-wrap .txt-wrap{
+  width: 40%;
+}
+.page5 .content-wrap .txt-wrap .txt1{
+  color: #FFF100;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page5 .content-wrap .txt-wrap .txt2{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  margin: 20px 0 28px;
+}
+.page5 .content-wrap .txt-wrap .txt-card{
+  padding: 40px 15px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #FFF;
+  background: linear-gradient(280deg, rgba(255, 255, 255, 0.90) 0%, rgba(221, 221, 221, 0.90) 88.22%);
+  backdrop-filter: blur(8px);
+  width: 90%;
+  position: relative;
+
+  color: #111;
+  text-align: center;
+  font-family: "SANGJU Gotgam";
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  margin: 0 auto;
+}
+.page5 .content-wrap .txt-wrap .txt-card:after{
+  content: "";
+  position: absolute;
+  top: -1px;
+  border-radius: 0 0 4px 4px;
+  background: var(--darkred, #AD2E3F);
+  width: 40%;
+  height: 8px;
+  left: 30%;
+}
+.page5 .content-wrap .txt-wrap svg{
+  margin: 10px auto;
+  display: block;
+}
+.page6{
+  padding: 120px 0 0;
+  position: relative;
+  background: url("../img/page6-bg.png");
+  background-position: center center !important;
+  background-size: cover !important;
+}
+.page6 .tit1{
+  color: #222;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin-bottom: 20px;
+}
+.page6 .tit1 .line-animation{
+  color: #fff;
+}
+.page6 .right{
+  top: 10%;
+  right: 10%;
+  position: absolute;
+}
+.page6 .left{
+  top: 10%;
+  left: 10%;
+  position: absolute;
+}
+.page6 .tit2{
+  color: #222;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  opacity: 0.8;
+}
+
+.page7{
+  padding: 120px 0;
+  overflow: hidden;
+  position: relative;
+  background: var(--Red, #D9263C);
+}
+.page7 .top-wrap{
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page7 .top-wrap img{
+  width: 78px;
+  animation: swing 3.5s ease-in-out infinite;
+}
+
+.page7 .bottom-wrap{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 56%;
+  background: url("../img/page7-bg.png");
+  background-position: top center !important;
+  background-size: cover !important;
+}
+
+.page7 .txt1{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin-bottom: 20px;
+}
+.page7 .txt1 .line-animation2{
+  color: #FFF100;
+}
+.page7 .txt2{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page7 .history-container{
+  max-width: 1240px;
+  width: 90%;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+.page7 .history-container .history-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.00) 100%);
+  border-top: 2px solid #FFF;
+  border-left: 2px solid #FFF;
+  width: 21%;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.page7 .history-container .history-wrap .txt{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 24px */
+  letter-spacing: -0.5px;
+
+}
+.page7 .history-container .history-wrap img{
+  width: 130px;
+  position: relative;
+  top: 10px;
+}
+.page7 .history-container .history-wrap .accent{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.50);
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 48px */
+  letter-spacing: -1px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: radial-gradient(50.89% 41.11% at 50% 0.24%, #FF7C51 0%, #D9263C 100%);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.16);
+  padding: 32px 20px;
+  box-sizing: border-box;
+}
+.page7 .history-container .history-wrap .year{
+  position: absolute;
+  bottom: -30px;
+  left: -33px;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 28.8px */
+  letter-spacing: -0.6px;
+}
+.page7 .history-container .history-wrap:nth-child(1){
+  height: 237px;
+}
+.page7 .history-container .history-wrap:nth-child(2){
+  height: 307px;
+}
+.page7 .history-container .history-wrap:nth-child(3){
+  height: 377px;
+}
+.page7 .history-container .history-wrap:nth-child(4){
+  height: 447px;
+}
+.page7 .history-container .history-wrap:nth-child(5){
+  height: 517px;
+  width: 18%;
+  background: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.55) 49.52%, rgba(255, 255, 255, 0.00) 100%);
+}
+.page7 .history-container .arrow{
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  max-width: 385px;
+  width: 35%;
+  top: -26%;
+  display: block;
+  clip-path: inset(0 100% 0 0); /* 처음엔 안 보이게 */
+  will-change: clip-path;
+}
+.page8{
+  background-position: center center !important;
+  background-size: cover !important;
+  background: url("../img/page8-bg.png");
+  padding: 100px 0;
+  position: relative;
+}
+.page8 .tit1{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 42px */
+  letter-spacing: -0.7px;
+}
+.page8 .tit2{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page8 .tit2 .ani{
+  position: relative;
+  display: inline-block;
+  color: #fff;            /* 기본은 흰색 */
+  line-height: 1.05;
+}
+
+/* 노란 글자 레이어(덮어쓰기) */
+.page8 .tit2 .ani .ani-fill{
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--yellow, #FFF100);
+  white-space: nowrap;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);  /* 처음엔 0% 보이게(오른쪽이 100% 가림) */
+  will-change: clip-path;
+}
+.page8 .flex-wrap{
+  max-width: 1200px;
+  width: 90%;
+  margin: 35px auto 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.page8 .flex-wrap .left-wrap{
+  width: 47%;
+  text-align: center;
+}
+.page8 .flex-wrap .left-wrap img{
+  width: 50%;
+  z-index: 2;
+  position: relative;
+  margin-bottom: -60px;
+}
+.page8 .flex-wrap .left-wrap .box-wrap{
+  border-radius: 12px 0 0 12px;
+  background: #D9D9D9;
+  text-align: center;
+}
+.page8 .flex-wrap .left-wrap .box-wrap .txt1{
+  color: #505050;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  padding: 70px 10px 20px;
+  box-sizing: border-box;
+}
+.page8 .flex-wrap .left-wrap .box-wrap .txt2{
+  color: #767676;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.6px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 30px 10px;
+  text-align: center;
+}
+.page8 .flex-wrap .right-wrap{
+  width: 53%;
+  text-align: center;
+}
+.page8 .flex-wrap .right-wrap img{
+  width: 50%;
+  z-index: 2;
+  position: relative;
+  margin-bottom: -80px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap{
+  border-radius: 12px;
+  background: linear-gradient(180deg, #D9263C 0%, #D85936 100%);
+  box-shadow: 8px 16px 40px 0 rgba(0, 0, 0, 0.20);
+  position: relative;
+  z-index: 1;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt1{
+  color: var(--yellow, #FFF100);
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.7px;
+  padding: 95px 10px 20px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt1 svg{
+  position: relative;
+  top: 6px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap{
+  padding: 16px 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.20);
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap .txt2{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.6px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap .txt3{
+  color: #FFDF8C;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap .txt4{
+  color: #FFDF8C;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  margin-top: 8px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap:nth-child(4){
+  padding: 35px 10px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .txt-wrap:nth-child(5){
+  padding: 16px 10px 45px;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .talk-wrap{
+  position: absolute;
+  z-index: 2;
+  right: -3%;
+  top: -16%;
+  border-radius: 100%;
+  background: #FFF100;
+  max-width: 180px;
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: pulseScale 2.5s ease-in-out infinite;
+}
+@keyframes pulseScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.page8 .flex-wrap .right-wrap .box-wrap .talk-wrap .talk1{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 50.4px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 100%; /* 65.52px */
+}
+.page8 .flex-wrap .right-wrap .box-wrap .talk-wrap .talk2{
+  color: #111;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+.page8 .flex-wrap .right-wrap .box-wrap .talk-wrap svg{
+  position: absolute;
+  bottom: 15px;
+  left: -18px;
+}
+.page8 .bottom-container{
+  background: #094;
+  border-radius: 8px;
+  padding: 10px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.page8 .bottom-wrap{
+  padding: 40px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #111;
+  background: #fff;
+  text-align: center;
+}
+.page8 .bottom-wrap .txt1{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.6px;
+  padding: 4px 10px;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.page8 .bottom-wrap .txt1::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;        /* ✅ 뒤 배경색(원하는 색으로 변경) */
+  transform: scaleX(var(--fill, 0));
+  transform-origin: left center;
+  z-index: -1;             /* ✅ 텍스트 뒤로 */
+  will-change: transform;
+}
+.page8 .bottom-wrap .txt2{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.6px;
+  margin-top: 15px;
+}
+.page8 .model{
+  position: absolute;
+  right: 0px;
+  bottom: 0;
+  width: 27%;
+  z-index: 3;
+}
+.page9{
+  padding: 100px 0;
+  position: relative;
+  background: url("../img/page9-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  overflow: hidden;
+}
+.page9 .top-wrap{
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page9 .top-wrap .deco{
+  width: 78px;
+  animation: swing 3.5s ease-in-out infinite
+}
+.page9 .deco-left{
+  position: absolute;
+  top: 38%;
+  left: 7%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.page9 .deco-right{
+  position: absolute;
+  top: 54%;
+  right: 7%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.page9 .tit1{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  width: 425px;
+  margin: 0 auto;
+}
+.page9 .tit1 svg{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -13px;
+}
+.page9 .tit2{
+  color: #222;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin: 40px auto 20px;
+}
+.page9 .tit2 .red{
+  color: var(--Red, #D9263C);
+}
+.page9 .tit3{
+  color: #222;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page9 .menu-container{
+  max-width: 1300px;
+  width: 90%;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+.page9 .menu-container .menu-wrap{
+  width: 33.33%;
+  position: relative;
+  text-align: center;
+}
+.page9 .menu-container .menu-wrap .talk-wrap{
+  background: var(--Green, #094);
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 14.4px 38.4px 0 rgba(0, 0, 0, 0.11);
+  top: -8%;
+  left: 0;
+}
+.page9 .menu-container .menu-wrap .talk-wrap .txt1{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+
+}
+.page9 .menu-container .menu-wrap .talk-wrap .txt2{
+  color: #FFF100;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+.page9 .menu-container .menu-wrap .talk-wrap .txt3{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 19.2px */
+}
+.page9 .menu-container .menu-wrap .talk-wrap svg{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.page9 .menu-container .menu-wrap img{
+  width: 100%;
+}
+.page9 .menu-container .menu-wrap .name{
+  border-radius: 100px;
+  background: #2D0D0F;
+  padding: 6px 40px;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  margin: 16px 0 8px;
+  display: inline-block;
+}
+.page9 .menu-container .menu-wrap .price{
+  color: var(--DarkBrown, #2D0D0F);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page9 .bottom-wrap{
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  height: 50%;
+  width: 100%;
+}
+.page9 .bottom{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.page10{
+  background: #F7F6F4;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.page10 .tit1{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  width: 90%;
+  max-width: 425px;
+  margin: 0 auto;
+}
+.page10 .tit1 svg{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: -13px;
+}
+.page10 .tit2{
+  color: #222;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -1.6px;
+  text-align: center;
+  margin: 40px 0 20px;
+}
+.page10 .tit2 .red{
+  color: var(--Red, #D9263C);
+}
+.page10 .tit3{
+  color: #222;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page10 .circle-wrap{
+  max-width: 900px;
+  width: 90%;
+  margin: 50px auto 0;
+  position: relative;
+}
+.page10 .circle-wrap .circle{
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.page10 .circle-wrap .model{
+  position: absolute;
+  z-index: 1;
+  left: -30%;
+  top: 0;
+  width: 55%;
+  max-width: 500px
+}
+.page10 .circle-wrap .price1{
+  width: 36%;
+  position: absolute;
+  right: -18%;
+  top: 32%;
+  z-index: 4;
+}
+.page10 .circle-wrap .price2{
+  width: 36%;
+  position: absolute;
+  left: -6%;
+  bottom: -2%;
+  z-index: 4;
+}
+.page10 .mo-model{
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  width: 55%;
+  transform: translateY(-50%);
+  max-width: 500px;
+  display: none;
+}
+.page10 .right{
+  right: 5%;
+  top: 30%;
+  position: absolute;
+}
+.page10 .left{
+  left: 5%;
+  top: 7%;
+  position: absolute;
+}
+.page10 .bottom-wrap{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 44%;
+  z-index: 2;
+  background: url("../img/page10-bottom.png");
+  background-position: top center !important;
+  background-size: cover !important;
+}
+.page11{
+  background: #094;;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.page11 .wrapper{
+  background: url("../img/page11-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: fixed;
+}
+.page11 .wrapper .first-wrap{
+  padding: 100px 0 50px;
+  position: relative;
+}
+.page11 .wrapper .first-wrap .txt-wrap{
+  width: 360px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+.page11 .wrapper .first-wrap .txt-wrap img:nth-child(1){
+  width: 52%;
+}
+.page11 .wrapper .first-wrap .txt-wrap img:nth-child(2){
+  width: 48%;
+}
+
+.page11 .wrapper .first-wrap .tit{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin-top: 16px;
+}
+.page11 .wrapper .first-wrap .model{
+  position: absolute;
+  left: 5%;
+  width: 314px;
+  bottom: 0;
+}
+.page11 .wrapper .second-wrap{
+  padding: 50px 0;
+  background: rgba(0, 133, 59, 0.65);
+  backdrop-filter: blur(6px);
+}
+.page11 .wrapper .second-wrap .tit{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 50.4px */
+  letter-spacing: -0.9px;
+}
+.page11 .wrapper .second-wrap .flex-wrap{
+  max-width: 1280px;
+  width: 90%;
+  margin: 30px auto 0;
+  gap: 80px;
+  display: flex;
+}
+.page11 .wrapper .second-wrap .flex-wrap .video-wrap{
+  width: 40%;
+  background-position: center center !important;
+  background-size: cover !important;
+  background: url("../img/page11-video.png");
+  border-radius: 12px;
+  border: 1px solid #111;
+}
+.page11 .wrapper .second-wrap .flex-wrap .txt-container{
+  width: 60%;
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: var(--Green, #094);
+  padding: 10px;
+}
+.page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap{
+  border-radius: 8px;
+  border: 1px solid #111;
+  background: #FFF;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  margin-bottom: 18px;
+}
+.page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2{
+  color: #505050;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.6px;
+  word-break: keep-all;
+}
+.page11 .wrapper .third-wrap{
+  padding: 50px 0;
+}
+.page11 .wrapper .third-wrap .tit{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 50.4px */
+  letter-spacing: -0.9px;
+}
+
+.page11 .wrapper .third-wrap .flex-wrap{
+  max-width: 1280px;
+  width: 90%;
+  margin: 30px auto 0;
+  gap: 80px;
+  display: flex;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-container{
+  position: relative;
+  width: 40%;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-container .mark{
+  position: absolute;
+  left: -10%;
+  width: 30%;
+  z-index: 2;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-container .mark:nth-child(1){
+  top: 0;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-container .mark:nth-child(2){
+  bottom: 0;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-wrap{
+  width:100%;
+  background-position: center center !important;
+  background-size: cover !important;
+  background: url("../img/page11-video.png");
+  border-radius: 12px;
+  border: 1px solid #111;
+  position: relative;
+  aspect-ratio: 16 / 9;   /* 비율 필요 시 */
+  overflow: hidden;
+}
+.page11 .wrapper .third-wrap .flex-wrap .video-wrap video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 꽉 채우기 */
+  display: block;
+}
+.page11 .wrapper .third-wrap .flex-wrap .txt-container{
+  width: 60%;
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: var(--Green, #094);
+  padding: 10px;
+}
+.page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap{
+  border-radius: 8px;
+  border: 1px solid #111;
+  background: #FFF;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  margin-bottom: 18px;
+}
+.page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2{
+  color: #505050;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 33.6px */
+  letter-spacing: -0.6px;
+  word-break: keep-all;
+}
+.black-line{
+  padding: 4px 10px;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.black-line::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;        /* ✅ 뒤 배경색(원하는 색으로 변경) */
+  transform: scaleX(var(--fill, 0));
+  transform-origin: left center;
+  z-index: -1;             /* ✅ 텍스트 뒤로 */
+  will-change: transform;
+}
+.page12{
+  padding: 100px 0;
+  position: relative;
+  background: url("../img/page12-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  overflow: hidden;
+}
+.page12 .tit1{
+  color: #222;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%;
+  letter-spacing: -1.6px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.red{
+  color: var(--Red, #D9263C) !important;
+}
+.page12 .left{
+  position: absolute;
+  top: 4%;
+  left: 0;
+  z-index: 1;
+  width: 20%;
+}
+.page12 .right{
+  position: absolute;
+  bottom: 4%;
+  right: 0;
+  z-index: 1;
+  width: 23%;
+}
+.page12 .flex-wrap{
+  max-width: 1250px;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  z-index: 2;
+}
+.page12 .flex-wrap .table-wrap{
+  width: 50%;
+  position: relative;
+  z-index: 2;
+}
+.page12 .flex-wrap .table-wrap .label{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  max-width: 436px;
+  margin: 0 auto 40px;
+}
+.page12 .flex-wrap .table-wrap .label svg{
+  position: absolute;
+  top: -13px;
+  width: 100%;
+  left: 0
+}
+.page12 .flex-wrap .table-wrap table{
+  border-radius: 12px;
+  background: #FFF;
+  width: 100%;
+  table-layout: inherit;
+  border-collapse: collapse;
+  overflow: hidden;
+  position: relative;
+}
+.page12 .flex-wrap .table-wrap table:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--Red, #D9263C);
+  border-radius: 12px;
+}
+.page12 .flex-wrap .table-wrap table td{
+  color: #222;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 20.8px */
+  letter-spacing: -0.4px;
+  padding: 12px 10px 9px;
+  text-align: center;
+}
+.page12 .flex-wrap .table-wrap table .last-td{
+  background: var(--Red, #D9263C);
+  padding: 15px 0 12px;
+}
+.page12 .flex-wrap .table-wrap table .last-td .txt-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.page12 .flex-wrap .table-wrap table .last-td .txt1{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 23.4px */
+  letter-spacing: -0.45px;
+}
+.page12 .flex-wrap .table-wrap table .last-td .txt2{
+  color: #FFF;
+  text-align: right;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 36.4px */
+}
+.page12 .flex-wrap .table-wrap table .last-td .txt3{
+  color: var(--Red, #D9263C);
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 33.6px */
+  letter-spacing: -0.7px;
+  background: #fff;
+  padding: 2px 10px;
+}
+.page12 .bottom-txt{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page13{
+  padding-top: 120px;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/page13-bg.png");
+}
+.page13 .top-wrap{
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page13 .top-wrap .deco{
+  width: 78px;
+  animation: swing 3.5s ease-in-out infinite
+}
+.page13 .tit1{
+  width: 90%;
+  max-width: 355px;
+  margin: 0 auto 40px;
+  position: relative;
+  color: #FFF100;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+}
+.page13 .tit1 svg{
+  width: 100%;
+  top: -13px;
+  position: absolute;
+  left: 0;
+}
+.page13 .tit2{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page13 .tit2 .ani{
+  position: relative;
+  display: inline-block;
+  color: #fff;            /* 기본은 흰색 */
+  line-height: 1.05;
+}
+
+/* 노란 글자 레이어(덮어쓰기) */
+.page13 .tit2 .ani .ani-fill{
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--yellow, #FFF100);
+  white-space: nowrap;
+  pointer-events: none;
+  clip-path: inset(0 100% 0 0);  /* 처음엔 0% 보이게(오른쪽이 100% 가림) */
+  will-change: clip-path;
+}
+.page13 .tit3{
+  color: #FFF100;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  margin: 20px auto 50px;
+}
+.page13 .img-wrap{
+  max-width: 860px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.page13 .img-wrap .wrapper{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.page13 .img-wrap .menu{
+  width: 88%;
+  position: absolute;
+  bottom: -87.9%;
+  z-index: 2;
+  left: 6.8%;
+  transform-origin: 50% 50%;
+  animation: menuSpin 15s linear infinite;
+  will-change: transform;
+}
+@keyframes menuSpin{
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.page14{
+  background: var(--Green, #094);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.page14 .wrapper{
+  background: url("../img/page14-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  padding: 100px 0;
+}
+.page14 .wrapper .tit1{
+  width: 90%;
+  max-width: 495px;
+  margin: 0 auto;
+  color: #FFF100;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+}
+.page14 .wrapper .tit1 svg{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: -13px;
+  left: 0;
+}
+.page14 .wrapper .tit2{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 72.8px */
+  letter-spacing: -1.4px;
+  margin: 50px auto;
+}
+.page14 .wrapper .flex-wrap{
+  max-width: 1260px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.page14 .wrapper .flex-wrap .txt-wrap{
+  width: 27%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.page14 .wrapper .flex-wrap .txt-wrap img{
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+.page14 .model-wrap{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+}
+.page14 .model-wrap .model{
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+.page14 .model-wrap .talk{
+  position: absolute;
+  top: -9%;
+  left: 0;
+  z-index: 1;
+  width: 50%;
+}
+.page15{
+  padding: 100px 0;
+  overflow: hidden;
+  background: var(--Green, #094);
+  position: relative;
+  border-top: 1px solid #111;
+}
+.page15 .tit{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page15 .flex-wrap{
+  width: 90%;
+  margin: 60px auto 60px;
+  max-width: 1300px;
+  gap: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page15 .flex-wrap .txt-wrap{
+  width: 45%;
+  position: relative;
+  z-index: 2;
+}
+.page15 .flex-wrap .txt-wrap .txt1{
+  color: #FFF;
+  font-family: "SANGJU Gotgam";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 67.2px */
+  letter-spacing: -1.2px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.page15 .flex-wrap .txt-wrap .txt2{
+  color: #FFF;
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page15 .flex-wrap .video-wrap{
+  width: 55%;
+  border: 1px solid #000;
+  background: var(--Green, #094);
+  padding: 10px;
+  /* 추가 */
+  position: relative;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  z-index: 2;
+}
+
+/* 추가 */
+.page15 .flex-wrap .video-wrap iframe{
+  position: absolute;
+  inset: 0;
+  top: 10px;
+  left: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  border: 0;
+  display: block;
+}
+.page15 .marquee{
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  border-top: none;
+  border-bottom: none;
+  background: #111;
+  position: relative;
+  z-index: 2;
+}
+
+.page15 .marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 20px;              /* 이미지 간격 */
+  width: max-content;
+  animation: page15_marquee 35s linear infinite;
+}
+
+.page15 .marquee-track img{
+  height: 240px;           /* 원하는 높이로 조절 */
+  width: auto;
+  display: block;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes page15_marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* 복제 2세트 기준 */
+}
+.page15 .bottom-wrap{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 50%;
+}
+.page15 .bottom-wrap img{
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+}
+.page15 .deco-left{
+  position: absolute;
+  top: 18%;
+  left: 4%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+  z-index: 5;
+}
+.page15 .deco-right{
+  position: absolute;
+  top: 2%;
+  right: 5%;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
+  z-index: 5;
+}
+.page16{
+  padding: 100px 0;
+  position: relative;
+  background: url("../img/page16-bg.png");
+  background-position: center center !important;
+  background-size: cover !important;
+}
+.page16 .tit1{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  max-width: 495px;
+  width: 90%;
+  margin: 0 auto 40px;
+}
+.page16 .tit1 svg{
+  position: absolute;
+  width: 100%;
+  top: -13px;
+  left: 0;
+}
+.page16 .tit2{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 72.8px */
+  letter-spacing: -1.4px;
+}
+.page16 .flex-wrap{
+  max-width: 1300px;
+  margin: 60px auto 0;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+.page16 .flex-wrap .img-wrap{
+  width: 55%;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.page16 .flex-wrap .img-wrap img{
+  width: 100%;
+}
+.page16 .flex-wrap .txt-wrap{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 45%;
+}
+.page16 .flex-wrap .txt-wrap .txt1{
+  color: #FFF;
+  font-family: "SANGJU Gotgam";
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 67.2px */
+  letter-spacing: -1.2px;
+}
+.page16 .flex-wrap .txt-wrap .txt1 .yellow{
+  background: linear-gradient(180deg, #FFF100 0%, #FEB628 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* 사파리/크롬 */
+}
+.page16 .flex-wrap .txt-wrap .txt2{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 42px */
+  letter-spacing: -0.7px;
+}
+.page16 .flex-wrap .txt-wrap .txt3{
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.4px;
+  opacity: 0.8;
+}
+.page17{
+  border-right: 20px solid var(--Green, #094);
+  border-bottom: 20px solid var(--Green, #094);
+  border-left: 20px solid var(--Green, #094);
+  padding: 100px 0;
+  position: relative;
+  background: url('../img/page12-bg.png');
+  background-size: cover !important;
+  background-position: center center !important;
+}
+.page17 .top-wrap{
+  position: absolute;
+  top: 0px;
+  width: 80%;
+  left: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page17 .top-wrap img{
+  width: 78px;
+  animation: swing 3.5s ease-in-out infinite;
+}
+.page17 .tit1{
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  max-width: 475px;
+  width: 90%;
+  position: relative;
+  margin: 0 auto 50px;
+}
+.page17 .tit1 svg{
+  width: 100%;
+  left: 0;
+  top: -13px;
+  position: absolute;
+}
+.page17 .tit2{
+  color: #222;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 72.8px */
+  letter-spacing: -1.4px;
+}
+.page17 .tit3{
+  color: #222;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  margin-top: 20px;
+}
+.page17 .img-wrap{
+  max-width: 1300px;
+  width: 90%;
+  display: block;
+  margin: 50px auto 0;
+  position: relative;
+}
+.page17 .img-wrap .main{
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.page17 .img-wrap .pop{
+  z-index: 2;
+  border-radius: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.70) 0%, #FFF 100%);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.20);
+  padding: 15px 32px;
+  color: var(--Green, #094);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  letter-spacing: -0.5px;
+  position: absolute;
+  top: -20px;
+  right: 18%;
+}
+.page18{
+  padding: 100px 0;
+  position: relative;
+  background: url('../img/page12-bg.png');
+  background-size: cover !important;
+  background-position: center center !important;
+  overflow: hidden;
+}
+.page18 .tit1{
+  color: var(--DarkRed, #A60015);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin-bottom: 20px;
+}
+.page18 .tit2{
+  color: var(--DarkRed, #A60015);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page18 .right{
+  top: 10%;
+  right: 10%;
+  position: absolute;
+}
+.page18 .left{
+  top: 10%;
+  left: 10%;
+  position: absolute;
+}
+.page18 .tab-wrap{
+  max-width: 550px;
+  margin: 60px auto 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.page18 .tab-wrap .tab{
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  width: 33%;
+  padding: 8px 28px;
+  border-radius: 50px;
+  background: #DC8586;
+  cursor: pointer;
+}
+.page18 .tab-wrap .tab:hover,
+.page18 .tab-wrap .tab.active{
+  background: var(--Red, #D9263C);
+}
+.page18 .tab-container{
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.page18 .tab-container .tab-area{
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: none;
+}
+.page18 .tab-container .tab-area:nth-child(1){
+  display: block;
+}
+.page18 .tab-container .tab-area .menu-slide-container{
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+.page18 .tab-container .tab-area .menu-slide-container img{
+  width: 100%;
+}
+.page18 .tab-container .navi-wrap{
+  text-align: center;
+  margin: 25px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 3;
+  position: relative;
+}
+.page18 .tab-container .navi-wrap .prev{
+  cursor: pointer;
+  opacity: 0.3;
+}
+.page18 .tab-container .navi-wrap .next{
+  cursor: pointer;
+  transform: rotate(180deg);
+  opacity: 0.3;
+}
+.page18 .tab-container .navi-wrap svg:hover{
+  opacity: 1;
+}
+.page18 .bottom-wrap{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30%;
+  width: 100%;
+  z-index: 1;
+}
+.page18 .bottom-wrap img{
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.page19{
+  position: relative;
+  background: url('../img/page12-bg.png');
+  background-size: cover !important;
+  background-position: center center !important;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.page19 .wrapper{
+  background: url('../img/page19-bg.png');
+  background-position: center center !important;
+  position: relative;
+  padding: 100px 0;
+}
+.page19 .wrapper .tit1{
+  color: #FFF100;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 39.2px */
+  letter-spacing: -0.7px;
+  position: relative;
+  z-index: 1;
+  max-width: 495px;
+  width: 90%;
+  margin: 0 auto;
+}
+.page19 .wrapper .tit1 svg{
+  width: 100%;
+  position: absolute;
+  top: -13px;
+  left: 0;
+}
+.page19 .wrapper .tit2{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin: 50px auto 20px;
+}
+.page19 .wrapper .tit3{
+  color: var(--yellow, #FFF100);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+}
+.page19 .wrapper .tab-wrap{
+  max-width: 810px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 50px auto 24px;
+}
+.page19 .wrapper .tab-wrap .tab{
+  color: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  padding: 8px 5px;
+  width: calc(100% / 6);
+  border-radius: 50px;
+  background: #6B2600;
+  cursor: pointer;
+}
+.page19 .wrapper .tab-wrap .tab.active,
+.page19 .wrapper .tab-wrap .tab:hover{
+  color: #111;
+  background: #FFF100;
+}
+.page19 .wrapper .tab-container{
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 90%;
+}
+.page19 .wrapper .tab-container .tab-area{
+  display: none;
+  width: 100%;
+}
+.page19 .wrapper .tab-container .tab-area:nth-child(1){
+  display: block;
+}
+.page19 .wrapper .tab-container .tab-area .interior-wrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.page19 .wrapper .tab-container .tab-area .interior-wrap img{
+  width: calc((100% - (20px * 2)) / 3);
+  border-radius: 8px;
+}
+
+.page20{
+  padding: 100px 0;
+  position: relative;
+  background: url('../img/page12-bg.png');
+  background-size: cover !important;
+  background-position: center center !important;
+  overflow: hidden;
+}
+.page20 .tit1{
+  color: #222;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 42px */
+  letter-spacing: -0.7px;
+}
+.page20 .tit2{
+  color: #222;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+  margin-top: 8px;
+}
+.page20 .table-wrap{
+  max-width: 1200px;
+  width: 90%;
+  margin: 50px auto 10px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+.page20 .table-wrap table{
+  table-layout: inherit;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 12px;
+  width: 100%;
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+.page20 .table-wrap table td{
+  color: var(--DarkBrown, #2D0D0F);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.5px;
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+}
+.page20 .table-wrap table .first{
+  border-radius: 12px 12px 0 0;
+  background: #E7E5E5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page20 .table-wrap table .bg{
+  background: #E7E5E5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+.page20 .table-wrap table tr{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+.page20 .table-wrap table tr:nth-last-child(1){
+  border-bottom: none;
+}
+.page20 .table-wrap table tr:nth-last-child(1) .bg{
+  border-bottom: none;
+}
+.page20 .table-wrap table .light{
+  color: #505050;
+  font-weight: 400;
+}
+.page20 .table-wrap table .zero{
+  border-radius: 12px;
+  background: #FF9500;
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 40px */
+  letter-spacing: -0.8px;
+  position: absolute;
+  width: calc(100% - 26px);
+  height: calc(100% - 20px);
+  left: 10px;
+  top: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: blink 1s ease-in-out infinite;
+
+}
+.page20 .table-wrap table .big{
+  border-radius: 12px;
+  background: var(--Red, #D9263C);
+  color: #FFF;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 125%; /* 40px */
+  letter-spacing: -0.8px;
+  position: absolute;
+  width: calc(100% - 26px);
+  height: calc(100% - 20px);
+  left: 10px;
+  top: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  animation: blink 1s ease-in-out infinite;
+
+}
+.page20 .table-wrap table .exemption{
+  border-radius: 100px;
+  background: #FF9500;
+  display: inline-block;
+  margin-left: 4px;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.5px;
+  padding: 1px 12px;
+  position: relative;
+  bottom: 3px;
+  animation: blink 1s ease-in-out infinite;=
+}
+.page20 .table-wrap table .sale{
+  border-radius: 100px;
+  background: var(--Red, #D9263C);
+  display: inline-block;
+  margin-left: 4px;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.5px;
+  padding: 1px 12px;
+  position: relative;
+  bottom: 3px;
+  animation: blink 1s ease-in-out infinite;
+}
+.page20 .table-wrap table .small{
+  color: #505050;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 17.5px */
+  letter-spacing: -0.35px;
+  margin-top: 3px;
+
+}
+@keyframes blink{
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.2; }
+}
+.page20 .table-bottom{
+  border-radius: 12px;
+  background: var(--Red, #D9263C);
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  position: relative;
+  z-index: 2;
+}
+.page20 .table-bottom .txt1{
+  width: 25%;
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 116.667% */
+  letter-spacing: -0.6px;
+  text-align: center;
+}
+.page20 .table-bottom .txt2{
+  width: 50%;
+  text-align: center;
+}
+.page20 .table-bottom .txt2 span:nth-child(1){
+  color: rgba(255, 255, 255, 0.50);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 28.8px */
+  letter-spacing: -0.6px;
+  text-decoration-line: line-through;
+}
+.page20 .table-bottom .txt2 span:nth-child(2){
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.6px;
+}
+.page20 .table-bottom .txt2 span:nth-child(3){
+  color: #FFF;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: -0.8px;
+}
+.page20 .table-bottom .txt3{
+  color: rgba(255, 255, 255, 0.80);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 25px */
+  letter-spacing: -0.5px;
+  width: 25%;
+  text-align: center;
+}
+.page20 .bottom-txt{
+  color: #505050;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  letter-spacing: -0.4px;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto 60px;
+}
+.page20 .bottom-wrap{
+  border-radius: 8px;
+  position: relative;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto 0px;
+  background: var(--Red, #D9263C);
+  padding: 10px;
+  border: 1px solid #111;
+  z-index: 2;
+}
+.page20 .bottom-wrap .txt{
+  width: 100%;
+  padding: 40px 10px;
+  color: #111;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: -0.6px;
+  background: #fff;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #111;
+}
+.page20 .left{
+  width: 25%;
+  top: 2%;
+  left: 0;
+  position: absolute;
+  z-index: 1;
+}
+.page20 .right{
+  width: 25%;
+  top: 39%;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+.page21{
+  background: url("../img/page1-bottom-bg.png");
+  padding: 100px 0;
+  background-position: center center !important;
+}
+.page21 .tit{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+.page21 .flex-wrap{
+  max-width: 1240px;
+  width: 90%;
+  margin: 50px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.page21 .flex-wrap img{
+  width: calc(50% - 20px);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+}
+
+
+
+  /* contact */
 #contact {
   width: 100%;
   display: flex;
@@ -278,6 +3322,19 @@
   background: #7A18A3;
 }
 
+@media (max-width: 1650px) {
+  .page8 .model{
+    width: 25%;
+  }
+}
+@media (max-width: 1450px) {
+  .page8 .model{
+    width: 22%;
+  }
+}
+@media (max-width: 1350px) {
+
+}
 @media (max-width: 1280px) {
 
 }
@@ -317,3 +3374,6 @@
 @media (max-width: 480px) {
 
 }
+
+
+

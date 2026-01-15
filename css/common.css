@@ -73,6 +73,20 @@
   font-weight: 900;
   font-style: normal;
 }
+@font-face {
+    font-family: 'SANGJU Gyeongcheon Island';
+    src: url('./SANGJU-Gyeongcheon-Island.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SANGJU Gotgam';
+    src: url('./SANGJU_Gotgam.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
 
 /* css 드래그 이벤트 차단 */
 .disableDrag {
@@ -96,20 +110,29 @@
     display: flex;
     height: 80px;
     box-sizing: border-box;
-    padding: 0px 40px;
+    padding: 0px 80px;
     justify-content: center;
     align-items: center;
-    background: #FFF;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.50) 40%, rgba(17, 17, 17, 0.00) 100%);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 45;
 }
+#header:after{
+    content: "";
+    bottom: 0;
+    left: 80px;
+    width: calc(100% - 160px);
+    height: 1px;
+    background:  #094;
+    position: absolute;
+}
 
 .logo {
     width: 170px;
     position: absolute;
-    left: 40px;
+    left: 80px;
     cursor: pointer;
 }
 
@@ -129,19 +152,22 @@
 #header nav>ul>li {
     display: flex;
     box-sizing: border-box;
-    padding: 8px 30px;
+    padding: 8px 24px;
     justify-content: center;
     align-items: center;
-    font-family: "GmarketSansMedium";
-    color:#BEB8AE;
-    font-size: 20px;
-    line-height: 120%; /* 24px */
-    letter-spacing: -0.5px;
+    color: #FFF;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 20.8px */
+    letter-spacing: -0.4px;
     cursor: pointer;
 }
 
 #header nav>ul>li:hover, .tap {
-    color: #F0832C !important;
+    color: #FFF100 !important;
 }
 
 .mo-menu-open {
@@ -183,7 +209,16 @@
 #header .call {
     display: none;
 }
+.mo-menu-close {
+    box-sizing: border-box;
+    border-radius: 4px;
+    cursor: pointer;
+    background: transparent;
+    position: absolute;
+    right: 17px;
+    display: none;
 
+}
 .mo-menu .call {
     font-size: 24px;
     font-weight: 500;
@@ -193,13 +228,14 @@
 
 .mo-menu {
     width: 100%;
-    height: 100%;
     display: none;
-    background: rgba(55, 55, 55, 0.70);
+    background: #fff;
     backdrop-filter: blur(10px);
     position: fixed;
     left: 0;
     z-index: 101;
+    top: 60px;
+    height: calc(100% - 60px);
 }
 
 .mo-menu-top {
@@ -214,7 +250,7 @@
 
 .mo-menu-bottom {
     width: 100%;
-    height: calc(100% - 100px);
+    height: calc(100% - 40px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -238,19 +274,22 @@
 
 .mo-menu nav>ul>li {
     width: 100%;
-    color: rgba(255, 255, 255, 0.70);
+    color: #444;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; /* 144.444% */
+    letter-spacing: -0.45px;
     text-align: center;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px; /* 150% */
-    letter-spacing: -0.4px;
     box-sizing: border-box;
     height: 60px;
     padding: 8px 16px;
     cursor: pointer;
+    border-top: 1px solid rgba(0, 153, 68, 0.10);
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: center;
 }
 
 .mo-menu nav>ul>li>span {
@@ -260,10 +299,18 @@
 }
 
 .mo-menu nav>ul>li:hover,.mo-menu .tap {
-    color: #F0832C !important;
-    background: transparent !important;
+    color: #094 !important;
+    background: #FFFBBB; !important;
 }
-
+.mo-menu .call-btn{
+    color: var(--Green, #094);
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; /* 36.4px */
+}
 /* footer */
 footer {
     width: 100%;
@@ -419,16 +466,17 @@ footer {
     right: 0;
     bottom: 0;
     z-index: 45;
-    background: #F0832C;
-    padding: 3px 0px;
+    background: #094;;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 1s all;
     box-sizing: border-box;
-    padding: 3px 10px;
+    padding: 3px 20px;
 }
-
+.mo-floating{
+    display: none !important;
+}
 .floating-wrap {
     max-width: 1280px;
     width: 100%;
@@ -554,7 +602,7 @@ option {
     background-image: url("../img/check.png");
     background-size: 15px !important;
     background-position: center center !important;
-    background-color: #FFF;
+    background-color: #111;
     background-repeat: no-repeat;
     border: none;
 }
@@ -579,19 +627,50 @@ option {
     padding: 0px 36px;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
-    background: #562A06;
-    color: #FFF;
-    font-family: "GmarketSansMedium";
+    border-radius: 8px;
+    background: #FFF100;
+    color: #111;
+    font-family: Pretendard;
     font-size: 18px;
     letter-spacing: -0.45px;
+    font-weight: 600;
     border: none;
 }
 
 .f-btn:hover {
-    background: #351800;
+    background: #FFF100;
 }
-
+.floating-form .txt1{
+    border-radius: 8px;
+    background: var(--yellow, #FFF100);
+    padding: 6px 10px;
+    color: #111;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 22.5px */
+    letter-spacing: -0.45px;
+    margin-right: 15px;
+    position: relative;
+}
+.floating-form .txt1 svg{
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.floating-form .txt2{
+    color: var(--yellow, #FFF100);
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 30px */
+    position: relative;
+    top: 3px;
+}
 .floating-tit {
     display: flex;
     justify-content: center;
@@ -644,9 +723,95 @@ option {
 #go-contact:hover {
     background: #FFF;
 }
+.mo-floating .info-wrap{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0px;
+    box-sizing: border-box;
+}
+.mo-floating .info-wrap .tel{
+    color: var(--yellow, #FFF100);
+    text-align: right;
+    font-family: Pretendard;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 125%; /* 25px */
+}
+.mo-floating .info-wrap .contact-toggle{
+    border-radius: 4px;
+    background: #FFF100;
+    padding: 7px 20px;
+    color: #111;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: -0.35px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.mo-floating .info-wrap .contact-toggle.active,
+.mo-floating .info-wrap .contact-toggle:hover{
+    background: #E2C300;
+}
+.mo-floating .info-wrap .contact-toggle.active .svg{
+    transform: rotate(0deg);
+    bottom: 2px;
+}
+.mo-floating .info-wrap .contact-toggle svg{
+    width: 15px;
+    height: 10px;
+    position: relative;
+    bottom: 1px;
+    margin-left: 2px;
+    transform: rotate(180deg);
+}
+.mo-floating .contact-form-wrap{
+    position: relative;
+    display: none;
+}
+.mo-floating .contact-form-wrap .contact-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    cursor: pointer;
+}
+.mo-floating .contact-form-wrap .floating-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 80px 0 20px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.mo-floating .contact-form-wrap .floating-contact input{
+    width: 100%;
+    color: #333;
+    text-align: left;
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.4px;
+    padding: 10px 12px;
+}
+.mo-floating .contact-form-wrap .floating-contact .floating-agree-wrap{
+    width: 100%;
+}
+.mo-floating .contact-form-wrap .floating-contact .f-btn{
+    background: #111;
+    border-radius: 0;
+    color: #fff;
+    text-align: center;
+}
 
-
-/* 개인정보처리방침 */
+    /* 개인정보처리방침 */
 .agree-modal {
     position: fixed;
     top: 2.5vh;
@@ -866,16 +1031,21 @@ option {
 
 
 @media(max-width: 1400px) {
-
+    .floating-contact input[type="text"], select{
+        width: 180px;
+    }
 }
 
+@media(max-width: 1320px) {
+
+}
 @media(max-width: 1280px) {
     .logo {
         width: 140px;
     }
     #header nav>ul>li {
-        font-size: 18px;
-        letter-spacing: -0.45px;
+        font-size: 15px;
+        padding: 8px 15px;
     }
     .floating-form {
         gap: 20px;
@@ -902,11 +1072,20 @@ option {
         font-size: 28px;
         letter-spacing: -0.7px;
     }
+    .floating-contact input[type="text"], select{
+        width: 160px;
+    }
 }
 
 @media(max-width: 1200px) {
     .floating-contact input[type="text"], select {
-        width: 165px;
+        width: 150px;
+    }
+    .floating-form .txt1{
+        font-size: 16px;
+    }
+    .floating-form .txt2{
+        font-size: 20px;
     }
     .agree-modal {
         width: 100%;
@@ -918,6 +1097,17 @@ option {
     }
 }
 
+@media(max-width: 1150px) {
+    .pc-floating{
+        display: none !important;
+    }
+    .mo-floating{
+        display: block !important;
+    }
+    .floating-wrap{
+        height: auto;
+    }
+}
 @media(max-width: 1100px) {
     .footer-logo {
         width: 185px;
@@ -928,6 +1118,9 @@ option {
     }
     .input-wrap {
         gap: 4px;
+    }
+    #floating-container{
+        display: none;
     }
     .floating-contact, .floating-form {
         gap: 12px;
@@ -944,17 +1137,24 @@ option {
     #header {
         height: 56px;
         padding: 8px 12px;
-        background: transparent;
+        background: #094;
         justify-content: space-between;
+    }
+    .logo{
+        left: 20px;
     }
     #header nav {
         display: none;
     }
     #header .call {
         display: flex;
+        position: absolute;
+        right: 70px;
     }
     .mo-menu-open {
         display: flex;
+        position: absolute;
+        right: 20px;
     }
     .fixed-btn {
         right: 14.5px;
@@ -1000,6 +1200,15 @@ option {
     }
     .ta-br {
         display: block;
+    }
+    #header .call {
+        right: 60px;
+    }
+    .mo-floating .contact-form-wrap .floating-contact {
+        padding: 60px 0 20px;
+    }
+    .mo-floating .contact-form-wrap .contact-close{
+        width: 40px;
     }
 }
 

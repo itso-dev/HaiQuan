@@ -23,9 +23,9 @@ if($ab_type === 'A'){
 }
 $message = isset($_SESSION['messageArr']) ? $_SESSION["messageArr"] : '';
 
-if($check || $type == '' || $message == ''){
-    header("Location: http://".$_SERVER["HTTP_HOST"]);
-}
+//if($check || $type == '' || $message == ''){
+//    header("Location: http://".$_SERVER["HTTP_HOST"]);
+//}
 
 //사이트 정보 쿼리
 $site_info_sql = "select * from site_setting_tbl where client_key = '$client_key'";
