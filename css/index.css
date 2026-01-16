@@ -743,7 +743,17 @@
 
 }
 .page4 .flex-wrap .img-wrap{
-  background: #000;
+  background-size: cover !important;
+  background-position: center center;
+}
+.page4 .flex-wrap .img-wrap.img1{
+  background: url("../img/page4-img1.png");
+}
+.page4 .flex-wrap .img-wrap.img2{
+  background: url("../img/page4-img2.png");
+}
+.page4 .flex-wrap .img-wrap.img3{
+  background: url("../img/page4-img3.png");
 }
 .page4 .bg{
   top: 58%;
@@ -898,11 +908,12 @@
   display: block;
 }
 .page6{
-  padding: 120px 0 0;
+  padding: 120px 0;
   position: relative;
   background: url("../img/page6-bg.png");
   background-position: center center !important;
   background-size: cover !important;
+  overflow: hidden;
 }
 .page6 .tit1{
   color: #222;
@@ -922,11 +933,15 @@
   top: 10%;
   right: 10%;
   position: absolute;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
 }
 .page6 .left{
   top: 10%;
   left: 10%;
   position: absolute;
+  animation: floatX 2.5s ease-in-out infinite alternate;
+  will-change: transform;
 }
 .page6 .tit2{
   color: #222;
@@ -938,6 +953,57 @@
   line-height: 150%; /* 36px */
   letter-spacing: -0.6px;
   opacity: 0.8;
+}
+.page6 .reels-slide-container{
+  margin-top: 100px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.page6 .reels-slide-container .swiper-slide img{
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.page6 .reels-slide-container .phone{
+  position: absolute;
+  left: 0;
+  top: 5px;
+  bottom: auto;
+  width: 0;     /* JS에서 세팅 */
+  height: 0;    /* JS에서 세팅 */
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 10;
+}
+.page6 .reels-slide-container .heart{
+  position: absolute;
+  top: -11%;
+  left: 56%;
+  width: 9%;
+  z-index: 3;
+}
+.page6 .bottom-wrap{
+  height: 30%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.page6 .bottom-wrap .bottom{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.page6 .model{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  z-index: 3;
 }
 
 .page7{
@@ -3128,86 +3194,165 @@
   width: calc(50% - 20px);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
 }
-
+.page21 .flex-mo{
+  display: none;
+}
 
 
   /* contact */
 #contact {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: url("../img/contact-bg.png");
+  background-size: cover !important;
+  background-position: center center !important;
+  padding: 100px 0;
 }
-
-.contact-form {
-  display: flex;
-  width: 600px;
-  box-sizing: border-box;
-  padding: 40px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 40px;
-  background: #FFF;
-  border-radius: 20px;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-}
-
-.contact-form-div {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.item {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.contact-form input[type="text"], input[type="tel"] {
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  height: 44px;
-  padding: 12px 0px 12px 12px;
-  color: #1A1A1A;
-  font-size: 14px;
+#contact .tit{
+  color: #FFF;
+  text-align: center;
+  font-family: "SANGJU Gyeongcheon Island";
+  font-size: 64px;
+  font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 21px */
-  letter-spacing: -0.35px;
+  line-height: 130%; /* 83.2px */
+  letter-spacing: -1.6px;
+}
+#contact .sub-tit{
+  width: 705px;
+  margin: 25px auto 50px;
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 36px */
+  letter-spacing: -0.6px;
+  position: relative;
+  padding: 16px 10px;
+  box-sizing: border-box;
   border-radius: 8px;
-  border: 1.2px solid rgba(168, 168, 168, 0.30);
+  border: 1px solid #111;
+  background: rgba(255, 255, 255, 0.80);
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+}
+#contact .sub-tit:after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12%;
+  width: 8px;
+  height: 76%;
+  border-radius: 0 4px 4px 0px;
+  background: #AD2E3F;
+}
+#contact .sub-tit:before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 12%;
+  width: 8px;
+  height: 76%;
+  border-radius: 4px 0px 0px 4px;
+  background: #AD2E3F;
+}
+.contact-container{
+  max-width: 975px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid #111;
+  background: #FFF;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.12);
+  padding: 12px;
+  box-sizing: border-box;
+}
+.contact-form {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px;
+  border-radius: 8px;
+  border: 1px solid #030303;
   background: #FFF;
 }
+.flex-input {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.flex-input .item{
+  width: 50%;
+}
+.flex-input .item .label{
+  color: #111;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.4px;
+  margin-bottom: 10px;
+}
 
-.contact-form input[type="text"]:focus, .contact-form input[type="tel"]:focus {
+.contact-form input[type="text"], input[type="tel"], textarea {
+  padding: 10px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.4px;
+  border: 1px solid rgba(17, 17, 17, 0.50);
+  background: #FFF;
+  width: 100%;
+}
+textarea{
+  resize: none;
+  height: 44px;
+}
+.contact-form input[type="text"]:focus, .contact-form input[type="tel"]:focus, textarea {
   outline: none;
-  border: 1px solid #9B1ECD !important;
+  border: 1px solid #111 !important;
   box-shadow: none !important;
 }
 
 .contact-form input[type="text"]::placeholder, .contact-form input[type="tel"]::placeholder {
-  color: rgba(34, 34, 34, 0.50);
+  color: rgba(17, 17, 17, 0.50);
   font-size: 16px;
   font-weight: 300;
   line-height: 24px; /* 150% */
   letter-spacing: -0.4px;
 }
-
-.item label {
-  box-sizing: border-box;
-  padding: 0px 4px;
-  color: #262626;
-  font-size: 16px !important;
-  font-weight: 600 !important;
-  line-height: 150% !important; /* 23.4px */
-  letter-spacing: -0.4px !important;
+.contact-form .chk-wrap{
+  display: flex;
+  gap: 20px;
+}
+.contact-form .chk-wrap .chk{
+  width: 25%;
+}
+.contact-form .chk-wrap .chk .round-checkbox{
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+}
+.contact-form .chk-wrap .chk .round-checkbox:checked {
+  background-image: url("../img/check.png");
+  background-size: 14px !important;
+  background-position: center center !important;
+  background-color: #111;
+  background-repeat: no-repeat;
+  border: none;
 }
 
-.item label span {
-  color: #ED457A;
+.contact-form .chk-wrap .chk label{
+  color: #111;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.4px;
 }
 
 .s-btn-wrap {
@@ -3246,7 +3391,6 @@
 .form-wrap {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 12px;
 }
@@ -3257,11 +3401,12 @@
   align-items: center;
   gap: 8px;
   margin: 0;
+  justify-content: flex-end;
 }
 
 .contact-form .round-checkbox {
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   border: none;
   border-radius: 50px;
   appearance: none;
@@ -3279,16 +3424,16 @@
 
 .contact-form .round-checkbox:checked {
   background-image: url("../img/check.png");
-  background-size: 11px !important;
+  background-size: 14px !important;
   background-position: center center !important;
-  background-color: #9B1ECD;
+  background-color: #D9263C;
   background-repeat: no-repeat;
   border: none;
 }
 
 .contact-form .agree {
   color: #333;
-  font-size: 14px !important;
+  font-size: 16px !important;
   font-weight: 400;
   line-height: 150% !important;
   letter-spacing: -0.35px !important;
@@ -3297,11 +3442,12 @@
 
 .contact-form .agree-open {
   font-weight: 600 !important;
+  color: #D9263C;
 }
 
 .c-btn {
-  width: 100%;
-  background: #9B1ECD;
+  width: 250px;
+  background: #D9263C;
   display: flex;
   box-sizing: border-box;
   padding: 12px;
@@ -3310,16 +3456,20 @@
   align-items: center;
   gap: 30px;
   color: #FFF;
-  font-size: 16px;
-  line-height: 150%; /* 140% */
-  font-weight: 700;
-  letter-spacing: -0.4px;
-  border: none;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 26px */
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
   border-radius: 8px;
+  border: none;
+  ourline: none;
 }
 
 .c-btn:hover {
-  background: #7A18A3;
+  background: #A60015;
 }
 
 @media (max-width: 1650px) {
