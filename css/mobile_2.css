@@ -1,0 +1,629 @@
+.page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1,
+.page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+    word-break: keep-all;
+}
+
+.page12 .bottom-txt {
+    position: relative;
+    z-index: 5;
+    word-break: keep-all;
+}
+
+.page12 .reveal-from-center {
+    position: relative;
+    z-index: 5;
+}
+
+.page12 .flex-wrap {
+    width: 90%;
+}
+
+.page12 .flex-wrap .table-wrap table:after {
+    pointer-events: none;
+}
+
+.page13 .tit3 {
+    word-break: keep-all;
+}
+
+.page13 .tit1 {
+    font-size: 28px;
+    letter-spacing: -0.7px;
+}
+
+.page13 .tit1 svg {
+    top: -13px;
+}
+
+@media(max-width: 1500px) {
+    .page11 .wrapper .first-wrap .txt-wrap, .page11 .wrapper .first-wrap .tit {
+        position: relative;
+        z-index: 5;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap, .page11 .wrapper .third-wrap .flex-wrap {
+        align-items: stretch;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-wrap {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media(max-width: 1280px) {
+    .page10 .circle-wrap {
+        width: 75%;
+    }
+    .page11 .wrapper .first-wrap {
+        padding: 60px 0 50px;
+    }
+    .page11 .wrapper .first-wrap .model {
+        left: 2%;
+        width: 280px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap, .page11 .wrapper .third-wrap .flex-wrap {
+        width: 92%;
+        gap: 40px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap {
+        padding: 30px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1 {
+        font-size: 24px;
+        letter-spacing: -0.6px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-container .mark:nth-child(2) {
+        bottom: unset;
+        top: 40%;
+    }
+    .page12 .left {
+        top: -13%;
+    }
+    .page12 .right {
+        right: -5%;
+        bottom: -3%;
+    }
+    .page12 .flex-wrap {
+        gap: 30px;
+    }
+    .page12 .flex-wrap .table-wrap table td:last-child {
+        width: 17%;
+    }
+    .page12 .bottom-txt {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page13 {
+        padding-top: 100px;
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        width: 32%;
+    }
+    .page15 .deco-left, .page15 .deco-right {
+        width: 200px;
+        top: 2%;
+    }
+    .page15 .flex-wrap {
+        gap: 40px;
+        margin: 50px auto;
+    }
+    .page15 .flex-wrap .txt-wrap .txt1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+        word-break: keep-all;
+    }
+    .page15 .flex-wrap .txt-wrap .txt2 {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+        word-break: keep-all;
+    }
+}
+
+@media(max-width: 1100px) {
+    .page10 .tit1 svg {
+        top: -14px;
+    }
+    .page10 .tit3, .page13 .tit3 {
+        font-size: 22px;
+        letter-spacing: -0.55px;
+    }
+    .page15 .flex-wrap .txt-wrap .txt1 {
+        font-size: 32px;
+        letter-spacing: -0.8px;
+    }
+    .page15 .flex-wrap .txt-wrap .txt2 {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .page11 .wrapper {
+        position: relative;
+    }
+    .page11 .wrapper .first-wrap {
+        position: static;
+    }
+    .page11 .wrapper .first-wrap .model {
+        width: 15%;
+        z-index: 6;
+        right: 10px;
+        left: unset;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap, .page11 .wrapper .third-wrap .flex-wrap {
+        gap: 20px;
+    }
+    .page11 .wrapper .second-wrap .tit, .page11 .wrapper .third-wrap .tit {
+        font-size: 32px;
+        letter-spacing: -0.8px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1 {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+        margin-bottom: 12px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+}
+
+@media(max-width: 900px) {
+    .page6 .left, .page10 .left, .page6 .right, .page10 .right {
+        width: 170px;
+    }
+    .page10 .left {
+        left: -3%;
+        top: 35%;
+    }
+    .page10 .right {
+        right: -2%;
+        top: 2%;
+    }
+    .page10 .tit1 {
+        width: 375px;
+        font-size: 22px;
+        letter-spacing: -0.55px;
+    }
+    .page10 .tit2 {
+        margin: 30px auto 10px;
+    }
+    .page10 .tit1 svg, .page12 .flex-wrap .table-wrap .label svg {
+        top: -17px;
+    }
+    .page10 .tit3, .page13 .tit3 {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page10 .circle-wrap {
+        width: 90%;
+    }
+    .page10 .circle-wrap .model {
+        display: none;
+    }
+    .page10 .bottom-wrap {
+        background: url(../img/page10-mo-bottom.png);
+        height: 57%;
+    }
+    .page10 .circle-wrap .price1 {
+        right: -9%;
+    }
+    .page11 .wrapper .first-wrap .tit {
+        font-size: 45px;
+        letter-spacing: -1.125px;
+        margin-top: 12px;
+    }
+    .page11 .wrapper .first-wrap .model {
+        width: 30%;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap {
+        align-items: center;
+        justify-content: center;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap {
+        gap: 15px;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap img:nth-child(1) {
+        width: 40%;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap img:nth-child(2) {
+        width: 32%;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap, .page11 .wrapper .third-wrap .flex-wrap {
+        flex-wrap: wrap;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .video-wrap {
+        width: 100%;
+        aspect-ratio: 2.1 / 1;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container, .page11 .wrapper .third-wrap .flex-wrap .txt-container {
+        width: 100%;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-container {
+        width: 100%;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-container .mark {
+        width: 23%;
+        left: -5%;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-container .mark:nth-child(2) {
+        top: 35%;
+    }
+    .page11 .wrapper .second-wrap .tit, .page11 .wrapper .third-wrap .tit {
+        font-size: 28px;
+        letter-spacing: -0.7px;
+    }
+    .page12 .flex-wrap {
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .page12 .flex-wrap .table-wrap {
+        max-width: 600px;
+        width: 100%;
+    }
+    .page12 .flex-wrap .table-wrap .label {
+        font-size: 24px;
+        letter-spacing: -0.6px;
+        margin: 0 auto 30px;
+    }
+    .page12 .left {
+        top: -5%;
+    }
+    .page13 .tit3 {
+        margin: 15px auto 50px;
+    }
+    .page14 .wrapper .tit1 {
+        max-width: 420px;
+        font-size: 24px;
+        letter-spacing: -0.6px;
+    }
+    .page14 .wrapper .tit1 svg {
+        top: -15px;
+    }
+    .page14 .wrapper .tit2 {
+        margin: 20px auto 40px;
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        width: 40%;
+        gap: 20px;
+    }
+    .page14 .model-wrap {
+        width: 35%;
+        z-index: 5;
+    }
+    .page15 .flex-wrap {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .page15 .flex-wrap .txt-wrap, .page15 .flex-wrap .video-wrap {
+        width: 90%;
+    }
+    .page15 .deco-left, .page15 .deco-right {
+        width: 170px;
+        top: 1%;
+    }
+    .page15 .marquee-track img {
+        height: 200px;
+    }
+}
+
+@media(max-width: 768px) {
+    .page10 {
+        padding: 80px 0;
+    }
+    .page10 .tit1 {
+        width: 325px;
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page10 .tit1 svg {
+        top: -19px;
+    }
+    .page11 .wrapper .second-wrap {
+        padding: 40px 0;
+    }
+    .page13 {
+        padding-top: 80px;
+    }
+    .page13 .tit1 {
+        margin: 0 auto 30px;
+    }
+    .page14 .wrapper {
+        padding: 80px 0 60px;
+    }
+    .page14 .wrapper .tit2 {
+        margin: 30px auto 50px;
+    }
+    .page14 .wrapper .flex-wrap {
+        width: calc(100% - 20px);
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        width: 40%;
+    }
+    .page14 .model-wrap .talk {
+        width: 80%;
+        left: 11%;
+        top: -31%;
+    }
+    .page15 {
+        padding: 80px 0;
+        border-top: none;
+        margin-top: -1px;
+    }
+    .page15 .flex-wrap {
+        width: calc(100% - 20px);
+        margin: 40px auto;
+    }
+    .page15 .flex-wrap .txt-wrap, .page15 .flex-wrap .video-wrap {
+        width: 95%;
+    }
+}
+
+@media(max-width: 650px) {
+    .page6 .left, .page10 .left, .page6 .right, .page10 .right {
+        width: 130px;
+    }
+    .page10 .tit1 {
+        width: 290px;
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+    .page10 .tit1 svg {
+        top: -20px;
+    }
+    .page10 .circle-wrap {
+        width: 80%;
+        margin: 40px auto 0;
+    }
+    .page10 .tit3, .page13 .tit3 {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+    .page10 .circle-wrap .price1 {
+        top: 33%;
+        right: -16%;
+    }
+    .page10 .circle-wrap .price2 {
+        left: -12%;
+        bottom: 8%;
+    }
+    .page11 {
+        padding: 10px;
+    }
+    .page11 .wrapper .first-wrap {
+        padding: 70px 0 50px;
+    }
+    .page11 .wrapper .first-wrap .model {
+        width: 25%;
+    }
+    .page11 .wrapper .first-wrap .tit {
+        font-size: 35px;
+        letter-spacing: -0.875px;
+        margin-top: 8px;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap {
+        width: 300px;
+        gap: 8px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap, .page11 .wrapper .third-wrap .flex-wrap {
+        width: calc(100% - 20px);
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container, .page11 .wrapper .third-wrap .flex-wrap .txt-container {
+        padding: 5px;
+        border-radius: 6px;
+        border: 0.5px solid #111;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap {
+        padding: 20px;
+        border-radius: 4px;
+        border: 0.5px solid #111;
+    }
+    .page11 .wrapper .second-wrap .tit, .page11 .wrapper .third-wrap .tit {
+        font-size: 24px;
+        letter-spacing: -0.6px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1 {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+        margin-bottom: 8px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+    .page11 .wrapper .third-wrap .flex-wrap .video-wrap, .page11 .wrapper .second-wrap .flex-wrap .video-wrap {
+        border-radius: 6px;
+    }
+    .black-line {
+        padding: 1px 5px;
+    }
+    .page12 .left {
+        top: -2%;
+        left: -1%;
+    }
+    .page12 .flex-wrap {
+        gap: 40px;
+    }
+    .page12 .flex-wrap .table-wrap .label {
+        max-width: 320px;
+        font-size: 21.212px;
+        letter-spacing: -0.53px;
+    }
+    .page12 .bottom-txt {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+    .page12 .flex-wrap .table-wrap table .last-td .txt2, .page12 .flex-wrap .table-wrap table .last-td .txt3 {
+        font-size: 24px;
+        letter-spacing: -0.6px;
+    }
+    .page12 .flex-wrap .table-wrap table .last-td .txt3 {
+        padding: 3px 10px;
+    }
+    .page13 .tit3 {
+        margin: 8px auto 40px;
+    }
+    .page13 .tit3 {
+        max-width: 350px;
+    }
+    .page13 .top-wrap .deco {
+        width: 45px;
+    }
+    .page14 {
+        padding: 10px;
+    }
+    .page14 .wrapper .tit1 {
+        max-width: 370px;
+        font-size: 21px;
+        letter-spacing: -0.525px;
+    }
+    .page14 .wrapper .tit1 svg {
+        top: -17px;
+    }
+    .page14 .model-wrap {
+        width: 30%;
+    }
+    .page15 .flex-wrap .txt-wrap .txt1 {
+        font-size: 28px;
+        letter-spacing: -0.7px;
+        margin-bottom: 10px;
+    }
+    .page15 .flex-wrap .txt-wrap .txt2 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+    .page15 .flex-wrap .video-wrap {
+        padding: 5.455px;
+    }
+    .page15 .marquee-track {
+        gap: 10px;
+    }
+    .page15 .marquee-track img {
+        height: 150px;
+        border-radius: 6px;
+    }
+}
+
+@media(max-width: 600px) {
+    .page11 .wrapper .first-wrap .tit {
+        font-size: 30px;
+        letter-spacing: -0.75px;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap {
+        width: 250px;
+    }
+}
+
+@media(max-width: 480px) {
+    .page6 .left, .page10 .left, .page6 .right, .page10 .right, .page15 .deco-left, .page15 .deco-right {
+        width: 100px;
+    }
+    .page10 .left {
+        left: 0;
+    }
+    .page10 .tit2 {
+        margin: 20px auto 8px;
+    }
+    .page10 .tit3, .page13 .tit3 {
+        font-size: 15px;
+        letter-spacing: -0.375px;
+    }
+    .page11 .wrapper .first-wrap .tit {
+        font-size: 25px;
+        letter-spacing: -0.625px;
+    }
+    .page11 .wrapper .first-wrap .txt-wrap {
+        width: 180px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap {
+        padding: 20px 12px;
+    }
+    .page11 .wrapper .second-wrap .tit, .page11 .wrapper .third-wrap .tit {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+        font-size: 14px;
+        letter-spacing: -0.35px;
+    }
+    .page12 .left {
+        width: 25%;
+        top: -3%;
+        left: -3%;
+    }
+    .page12 .right {
+        width: 30%;
+        bottom: -2%;
+        right: -9%;
+    }
+    .page13 .top-wrap .deco {
+        width: 35px;
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        width: 42%;
+    }
+    .page14 .model-wrap {
+        width: 33%;
+    }
+}
+
+@media(max-width: 400px) {
+    .page11 .wrapper .first-wrap .model {
+        width: 27%;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt1, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt1 {
+        font-size: 14px;
+        letter-spacing: -0.35px;
+    }
+    .page11 .wrapper .second-wrap .flex-wrap .txt-container .txt-wrap .txt2, .page11 .wrapper .third-wrap .flex-wrap .txt-container .txt-wrap .txt2 {
+        font-size: 12px;
+        letter-spacing: -0.3px;
+    }
+    .page12 .flex-wrap .table-wrap table .last-td .txt1 {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+    .page12 .flex-wrap .table-wrap table .last-td .txt2, .page12 .flex-wrap .table-wrap table .last-td .txt3 {
+        font-size: 20px;
+        letter-spacing: -0.5px;
+    }
+    .page12 .bottom-txt {
+        font-size: 16px;
+        letter-spacing: -0.4px;
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        width: 40%;
+    }
+    .page15 .marquee-track img {
+        height: 120px;
+    }
+}
+
+@media(max-width: 370px) {
+    .page4 .tit, .page6 .tit1, .page7 .txt1, .page8 .tit2, .page9 .tit2, .page10 .tit2, .page12 .tit1, .page13 .tit2, .page14 .wrapper .tit2, .page15 .tit, .page15 .tit, .page17 .tit2, .page18 .tit1, .page19 .wrapper .tit2 {
+        font-size: 22px;
+        letter-spacing: -0.55px;
+    }
+    .page14 .wrapper .flex-wrap .txt-wrap {
+        gap: 15px;
+        width: 42%;
+    }
+    .page14 .model-wrap {
+        width: 32%;
+    }
+    .page14 .wrapper .tit1 {
+        font-size: 18px;
+        letter-spacing: -0.45px;
+    }
+    .page14 .wrapper .tit1 svg {
+        top: -20px;
+    }
+}
