@@ -419,10 +419,10 @@ if ($popup_stt->rowCount() > 0) {
                     소문난 맛집은 365일 문전성시
                 </p>
             </div>
-            <div class="item img-wrap">
+            <div class="item img-wrap img1">
 
             </div>
-            <div class="item img-wrap">
+            <div class="item img-wrap img2">
 
             </div>
             <div class="item text-wrap">
@@ -449,7 +449,7 @@ if ($popup_stt->rowCount() > 0) {
                     테이블당 4만원의 높은 객단가 달성!
                 </p>
             </div>
-            <div class="item img-wrap">
+            <div class="item img-wrap img3">
 
             </div>
         </div>
@@ -543,14 +543,39 @@ if ($popup_stt->rowCount() > 0) {
             SNL 간판배우 <span class="line-animation line-animation1">정이랑</span>이<br>
             발로 뛰는 홍보마케팅
         </p>
-        <p class="tit2">
+        <p class="tit2 js-animate js-animate-fadeInUp">
             이제 마케팅은 선택이 아닌 필수!<br>
-            으뜸배우 정이랑을 필두로 꾸준한 연예인들의 SNS맛집 노미네이트!<br>
+            으뜸배우 정이랑을 필두로 꾸준한 <br class="mo-br"/>연예인들의 SNS맛집 노미네이트!<br>
             항상 내 매장이 붐비도록 만들어드려요!
         </p>
-        <div class="">
-
+        <div class="reels-slide-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-1.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-2.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-3.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-4.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-5.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-6.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-1.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-2.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-3.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-4.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-5.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-6.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-1.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-2.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-3.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-4.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-5.png"/></div>
+                <div class="swiper-slide"><img src="<?= $site_url ?>/img/reels-6.png"/></div>
+            </div>
+            <img class="phone" src="<?= $site_url ?>/img/page6-phone.png">
+            <img class="heart" src="<?= $site_url ?>/img/heart.png">
         </div>
+        <div class="bottom-wrap">
+            <img class="bottom" src="<?= $site_url ?>/img/page6-bottom.png">
+        </div>
+        <img class="model" src="<?= $site_url ?>/img/page6-model.png">
     </div>
     <div class="marquee" style="background: #D9263C">
         <div class="marquee-track">
@@ -1478,7 +1503,7 @@ if ($popup_stt->rowCount() > 0) {
             상담부터 오픈관리까지<br>
             팀하이콴이 전 과정을 함께합니다!
         </p>
-        <div class="flex-wrap">
+        <div class="flex-wrap flex-pc">
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc1.png">
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc2.png">
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc3.png">
@@ -1487,68 +1512,135 @@ if ($popup_stt->rowCount() > 0) {
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc6.png">
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc7.png">
             <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-pc8.png">
-
+        </div>
+        <div class="flex-wrap flex-mo">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo1.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo2.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo3.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo4.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo5.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo6.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo7.png">
+            <img class="left js-animate js-animate-fadeInUp" src="<?= $site_url ?>/img/page21-mo8.png">
         </div>
     </div>
 </div>
 
 <div id="contact">
-    <form class="contact-form" name="contact_form" id="contact_form" method="post" action="contact_write.php" data-aos="fade-up" data-aos-duration="800">
-        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-1">
-        <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
-        <input type="hidden" name="adCode" value="<?= $adCode ?>" />
-        <input type="hidden" name="flow" value="<?= $flow ?>" />
-        <input type="hidden" name="client_key" value="<?= $client_key ?>" />
-        <input type="hidden" name="stay_time" id="stay_time" value="0" />
+    <div class="title-script-wrap">
+        <p class="tit" >으뜸창업 <span style="color: #FFF100">하이콴!</span></p>
+        <div class="sub-tit">
+            2026년, 점주님의 매장을 가장 핫한 매장으로 만들어드리겠습니다.
+        </div>
+    </div>
+    <div class="contact-container">
+        <form class="contact-form" name="contact_form" id="contact_form" method="post" action="contact_write.php">
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-1">
+            <input type="hidden" name="writer_ip" value="<?= get_client_ip() ?>" />
+            <input type="hidden" name="adCode" value="<?= $adCode ?>" />
+            <input type="hidden" name="flow" value="<?= $flow ?>" />
+            <input type="hidden" name="client_key" value="<?= $client_key ?>" />
+            <input type="hidden" name="stay_time" id="stay_time" value="0" />
+            <div class="flex-input">
+                <div class="item">
+                    <div class="label">
+                        <label for="name">성함</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="name" name="name" placeholder="성함" required>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <label for="email">이메일</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" name="email" placeholder="ex) sample@gmail.com" required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-input">
+                <div class="item">
+                    <div class="label">
+                        <label for="phone">휴대폰번호</label>
+                    </div>
+                    <div class="input">
+                        <input type="tel" name="phone" id="phone-input" placeholder="ex) 01012345678" required maxlength="11" inputmode="numeric">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <label for="location">창업희망지역</label>
+                    </div>
+                    <div class="input">
+                        <input type="text" id="location" name="location" placeholder="ex) 서울시 성동구" required>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-input">
+                <div class="item">
+                    <div class="label">
+                        <label for="phone">창업형태</label>
+                    </div>
+                    <div class="chk-wrap">
+                        <div class="chk">
+                            <label class="checkbox-label">
+                                <input class="round-checkbox" type="radio" id="is_start_1" name="startup_type" value="신규창업" required>
+                            </label>
+                            <label for="is_start_1" class="agree">신규창업</label>
+                        </div>
 
-        <div class="contact-form-div">
-            <div class="item">
-                <div class="label">
-                    <label for="name">성함 <span>*</span></label>
-                </div>
-                <div class="input">
-                    <input type="text" id="name" name="name" placeholder="성함" required>
-                </div>
-            </div>
-            <div class="item">
-                <div class="label">
-                    <label for="phone">연락처 <span>*</span></label>
-                </div>
-                <div class="input">
-                    <input type="tel" name="phone" id="phone-input" placeholder="연락처" required maxlength="11" inputmode="numeric">
-                </div>
-            </div>
-            <div class="item">
-                <div class="label">
-                    <label for="location">창업 희망 지역 <span>*</span></label>
-                </div>
-                <div class="input">
-                    <input type="text" id="location" name="location" placeholder="창업 희망 지역" required>
-                </div>
-            </div>
-            <div class="item">
-                <div class="s-btn-wrap">
-                    <input type="hidden" name="sort" value="신규 창업">
-                    <div class="form-tab s-tab have">
-                        <span>신규 창업</span>
+                        <div class="chk">
+                            <label class="checkbox-label">
+                                <input class="round-checkbox" type="radio" id="is_start_2" name="startup_type" value="업종변경" required>
+                            </label>
+                            <label for="is_start_2" class="agree">업종변경</label>
+                        </div>
                     </div>
-                    <div class="form-tab s-tab">
-                        <span>업종 변경</span>
+                </div>
+                <div class="item">
+                    <div class="label">
+                        <label for="phone">상가보유 유무</label>
+                    </div>
+                    <div class="chk-wrap">
+                        <div class="chk">
+                            <label class="checkbox-label">
+                                <input class="round-checkbox" type="radio" id="store_1" name="store" value="상가보유" required>
+                            </label>
+                            <label for="store_1" class="agree">상가보유</label>
+                        </div>
+
+                        <div class="chk">
+                            <label class="checkbox-label">
+                                <input class="round-checkbox" type="radio" id="store_2" name="store" value="상가없음" required>
+                            </label>
+                            <label for="store_2" class="agree">상가없음</label>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-wrap">
-            <div class="agree-wrap">
-                <label class="checkbox-label">
-                    <input class="round-checkbox" type="checkbox" id="agree" name="agree" required>
-                </label>
-                <label for="agree" class="agree"><span class="agree-open">개인정보취급방침(보기)</span> 동의</label>
+            <div class="flex-input">
+                <div class="item" style="width: 100%">
+                    <div class="label">
+                        <label for="phone">문의내용 <span style="color: #999; font-weight: 300">(선택)</span></label>
+                    </div>
+                    <div class="input">
+                        <textarea name="contact_desc" placeholder="문의내용"></textarea>
+                    </div>
+                </div>
             </div>
-            <input type="submit" value="문의하기" class="c-btn">
-        </div>
-    </form>
+            <div class="form-wrap">
+                <div class="agree-wrap">
+                    <label class="checkbox-label">
+                        <input class="round-checkbox" type="checkbox" id="agree" name="agree" required>
+                    </label>
+                    <label for="agree" class="agree"><span class="agree-open">개인정보처리침(전문보기)</span>에 동의</label>
+                </div>
+                <input type="submit" value="문의하기" class="c-btn">
+            </div>
+        </form>
+    </div>
 </div>
 
 <script type="text/javascript" src="<?= $site_url ?>/js/script.js"></script>
@@ -1578,6 +1670,73 @@ if ($popup_stt->rowCount() > 0) {
         $('.page19 .tab-area').eq(idx).show();
     });
 
+    function syncPhoneToActiveSlide(swiper) {
+        const container = document.querySelector(".page6 .reels-slide-container");
+        const phone = container?.querySelector(".phone");
+        if (!container || !phone) return;
+
+        const activeSlide = swiper.slides[swiper.activeIndex];
+        if (!activeSlide) return;
+
+        const target = activeSlide.querySelector("img") || activeSlide;
+
+        const cRect = container.getBoundingClientRect();
+        const tRect = target.getBoundingClientRect();
+
+        const left = tRect.left - cRect.left;
+        const top  = (tRect.top  - cRect.top) + 5;
+
+        phone.style.left = `${left}px`;
+        phone.style.top = `${top}px`;
+        phone.style.width = `${tRect.width}px`;
+        phone.style.height = `${tRect.height}px`;
+
+
+        phone.style.transform = "scale(1.05)";
+        phone.style.transformOrigin = "center center";
+    }
+    var reels = new Swiper(".reels-slide-container", {
+        slidesPerView: '4.3',
+        loop: true,
+        spaceBetween: 65,
+        observer: true,
+        observeParents: true,
+        loopAdditionalSlides : 1,
+        autoHeight: true,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2000,
+        },
+        on: {
+            init() {
+                syncPhoneToActiveSlide(this);
+            },
+            slideChangeTransitionEnd() {
+                syncPhoneToActiveSlide(this);
+            },
+            resize() {
+                syncPhoneToActiveSlide(this);
+            },
+        },
+        breakpoints: {
+            1200: {
+                slidesPerView: '4.3',
+                spaceBetween: 65,
+            },
+            650: {
+                slidesPerView: '3.5',
+                spaceBetween: 40,
+            },
+            480: {
+                slidesPerView: '2.5',
+                spaceBetween: 20,
+            },
+            0: {
+                slidesPerView: '2.5',
+                spaceBetween: 20,
+            }
+        },
+    });
     var menu = new Swiper(".menu-slide-container", {
         slidesPerView: '3',
         loop: true,

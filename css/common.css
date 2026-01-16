@@ -315,7 +315,7 @@
 footer {
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.20);
-    background: #F0832C;
+    background: #111;
     display: flex !important;
     padding: 65px 0 105px;
     flex-direction: column;
@@ -341,7 +341,7 @@ footer {
 }
 
 .footer-logo {
-    width: 222px;
+    width: 180px;
 }
 
 .footer-wrapper {
