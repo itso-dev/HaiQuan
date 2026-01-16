@@ -43,6 +43,7 @@ $db_conn->prepare($view_sql)->execute(
 <!--<script type="text/javascript" src="--><?//= $site_url ?><!--/js/main.js"></script>-->
 <link rel="stylesheet" type="text/css" href="css/animation.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="css/mobile.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/mobile_2.css" rel="stylesheet" />
 
 
 
